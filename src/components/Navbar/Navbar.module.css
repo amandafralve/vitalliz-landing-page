@@ -1,0 +1,12 @@
+:root {
+    --background-nav: #F3F3F3;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--background-nav);
+    padding: 2rem;
+}
