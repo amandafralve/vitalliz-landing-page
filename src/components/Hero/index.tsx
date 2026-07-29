@@ -1,5 +1,5 @@
 import { Container } from "../Container";
-import styles from "./Hero.module.css"
+import styles from "./styles.module.css"
 
 export function Hero() {
     return (

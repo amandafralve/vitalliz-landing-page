@@ -1,5 +1,5 @@
-import { Hero } from "./components/Hero/Hero"
-import { Navbar } from "./components/Navbar/Navbar"
+import { Hero } from "./components/Hero"
+import { Navbar } from "./components/Navbar"
 import './styles/global.css'
 import './styles/theme.css'
 
