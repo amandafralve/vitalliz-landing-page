@@ -10,3 +10,23 @@
     background-color: var(--background-nav);
     padding: 2rem;
 }
+
+.linksNavbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.linksNavbar a {
+    text-decoration: none;
+    color: var(--font-color)
+}
+
+.buttonsNavbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8rem;
+}
+
