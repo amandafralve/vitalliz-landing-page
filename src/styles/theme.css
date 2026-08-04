@@ -3,10 +3,13 @@
     --background-vitalliz: #F3F3F3;
     --background-gradient: linear-gradient(90deg, #1585C4 0%, #31803A 100%);
     --overlay-gradient: linear-gradient(90deg, rgba(21, 133, 196, 0.8) 0%, rgba(49, 128, 58, 0.9) 100%);
-    --gray-light: rgb(151, 151, 151);
+    --gray-light: rgb(204, 204, 204);
 
+    /* Textos */
     --font-title: "Anta", sans-serif;
     --font-color: #282828;
+    --text-dark: #282828;
+    --text-light:  #F3F3F3;
 
     /* Buttons */
     --blueButtonBg: #135F8E;
