@@ -14,7 +14,7 @@
     /* 1º Gradiente com transparência (rgba), 2º Imagem de fundo */
     background-image: 
         linear-gradient(180deg, rgba(21, 133, 196, 0.5) 0%, rgba(49, 128, 58, 0.70) 100%),
-        url('/public/vitallizHero-bg.webp'); 
+        url('/vitallizHero-bg.webp'); 
 
     background-position: center;
     background-size: cover;
@@ -22,14 +22,31 @@
     background-color: #1585C4;
 }
 
-/* Exemplo simples de texto por cima */
 .hero-content {
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    
 }
 
-.hero-content h1 {
+.hero-content p {
+    color: var(--text-light);
+}
+
+.heroTitle {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+.heroTitle h1 {
     color: #FFFFFF;
     font-family: var(--font-title);
-    font-size: 5rem;
+    font-size: 8rem;
     text-align: left;
+}
+
+.buttonsDiv {
+    display: flex;
+    gap: 1rem;
 }

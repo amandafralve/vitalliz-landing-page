@@ -1,3 +1,4 @@
+/* src/components/Navbar/styles.module.css */
 :root {
     --background-nav: #F3F3F3;
 }
@@ -15,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5rem;
+    gap: 4.8rem;
 }
 
 .linksNavbar a {
