@@ -1,14 +1,16 @@
 
+.container-fluid {
+    max-width: auto;
+}
+
 .container {
-    max-width: 98rem;
+    
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: antiquewhite; */
 }
 
 .content {
     margin: 3.2rem;
-    /* background-color: yellowgreen; */
 }
