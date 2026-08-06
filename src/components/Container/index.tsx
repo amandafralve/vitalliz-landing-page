@@ -2,14 +2,13 @@ import styles from "./styles.module.css"
 
 type ContainerProps = {
     children: React.ReactNode;
+    className?: string;
 }
 
-export function Container({children}:ContainerProps) {
+export function Container({ children, className = "" }: ContainerProps) {
     return (
-        <>
-            <div className={styles.container}>
-                <div className={styles.content}>{children}</div>
-            </div>
-        </>
+        <div className={`${styles.container} ${className}`}>
+            <div className={styles.content}>{children}</div>
+        </div>
     )
 }

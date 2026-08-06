@@ -31,17 +31,27 @@ export function Hero() {
                 grainIntensity={0.05}
             />
 
-            <Container>
-                <div className={styles["hero-content"]}>
-                    <div className={styles.heroTitle}>
-                        <img src="vitallizElementoLogo.svg" alt="Elemento de marca Vitalliz" />
-                        <h1>TECNOLOGIA<br/>& INOVAÇÃO</h1>
-                    </div>
-                    
-                    <p>Somos uma equipe de desenvolvimento mobile e web. Transformamos desafios do dia a dia em soluções inteligentes e sustentáveis - como o Nitrusleaf, nosso app de diagnóstico agrícola por inteligência artificial.</p>
-                    <div className={styles.buttonsDiv}>
-                        <Button icon={<MoveRight/>} color="white" text="Explorar Projeto" />
-                        <Button color="transparent" text="Fale conosco" />
+            <Container className={styles.heroContainerOverride}>
+                <div className={styles.heroContent}>
+                    <p className={styles.heroPhrase}>Vitalliz · Aplicações mobile e web</p>
+                    <div className={styles.heroContentTwo}>
+                        <header className={styles.heroTitle}>
+                            <img 
+                                src="vitallizElementoLogo.svg" 
+                                alt="" 
+                                aria-hidden="true"
+                            />
+                            <h1>TECNOLOGIA<br/>& INOVAÇÃO</h1>
+                        </header>
+                        
+                        <div  className={styles.footerContainer}>
+                            <p className={styles.heroText}>Somos uma equipe de desenvolvimento mobile e web. Transformamos desafios do dia a dia em soluções inteligentes e sustentáveis</p>
+
+                            <footer className={styles.buttonsDiv}>
+                                <Button icon={<MoveRight />} iconPosition="right" color="whiteAnimated" size="lg" text="Explorar Projeto" />
+                                <Button color="transparent" size="lg" text="Fale conosco" />
+                            </footer>
+                        </div>
                     </div>
                 </div>
             </Container>
