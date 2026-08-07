@@ -1,0 +1,32 @@
+.carousel {
+    max-width: 420px;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+.carouselImage {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.carouselCaptionCustom {
+    left: 1rem;
+    right: auto;
+    bottom: 0.8rem;
+    text-align: left;
+    padding: 0;
+}
+
+.carouselCaptionCustom h5 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carouselCaptionCustom p {
+    display: none;
+}
