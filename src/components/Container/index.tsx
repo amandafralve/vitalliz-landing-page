@@ -2,12 +2,11 @@ import styles from "./styles.module.css"
 
 type ContainerProps = {
     children: React.ReactNode;
-    className?: string;
 }
 
-export function Container({ children, className = "" }: ContainerProps) {
+export function Container({ children,}: ContainerProps) {
     return (
-        <div className={`${styles.container} ${className}`}>
+        <div className={styles.container}>
             <div className={styles.content}>{children}</div>
         </div>
     )
