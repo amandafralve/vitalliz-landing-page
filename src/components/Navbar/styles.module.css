@@ -1,5 +1,8 @@
 /* src/components/Navbar/styles.module.css */
 .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -14,12 +17,16 @@
 }
 
 .hamburgerButton {
-    display: none; /* <- estava faltando isso */
+    display: none;
     background: none;
     border: none;
     color: var(--font-color);
     cursor: pointer;
     padding: 0.25rem;
+}
+
+.hamburgerButton svg {
+    transition: transform 0.2s ease;
 }
 
 .linksNavbar {
@@ -28,11 +35,32 @@
     justify-content: center;
     gap: clamp(1rem, 3vw, 4.8rem);
 }
-
 .linksNavbar a {
     text-decoration: none;
     color: var(--font-color);
     white-space: nowrap;
+    position: relative;
+    padding-block: 0.25rem;
+    transition: color 0.2s ease;
+}
+.linksNavbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--blueButtonBg);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s ease;
+}
+.linksNavbar a:hover {
+    color: #000000;
+}
+.linksNavbar a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .buttonsNavbar {
@@ -48,7 +76,7 @@
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        padding: 1.5rem 5%;
+        padding: 1.5rem 8%;
     }
 
     .navbarTop {
@@ -88,5 +116,11 @@
         max-height: 200px;
         opacity: 1;
         margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        padding: 1rem 1.25rem;
     }
 }

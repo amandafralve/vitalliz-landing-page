@@ -1,4 +1,7 @@
 :root {
+    --page-padding-desktop: 4rem;
+    --page-padding-tablet: 2.5rem;
+    --page-padding-mobile: 1.25rem;
 
     --background-nav: #F3F3F3;
     --background-vitalliz: #F3F3F3;
