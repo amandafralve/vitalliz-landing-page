@@ -4,17 +4,19 @@
     --page-padding-mobile: 1.25rem;
 
     --background-nav: #F3F3F3;
-    --background-nav-transparent: #f3f3f3de;
+    --background-nav-transparent: #f3f3f3e5;
     --background-vitalliz: #F3F3F3;
     --background-gradient: linear-gradient(90deg, #1585C4 0%, #31803A 100%);
     --overlay-gradient: linear-gradient(90deg, rgba(21, 133, 196, 0.8) 0%, rgba(49, 128, 58, 0.9) 100%);
     --gray-light: rgb(204, 204, 204);
     --white-hover: rgba(204, 204, 204, 0.151);
+    --border-dark: rgba(0, 0, 0, 0.363);
 
     /* Textos */
     --font-title: "Anta", sans-serif;
     --font-color: #282828;
     --text-dark: #282828;
+    --subtext:  #696969;
     --text-light:  #F3F3F3;
 
     /* Buttons */

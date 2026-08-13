@@ -1,13 +1,22 @@
-
-.container-fluid {
-    max-width: auto;
-}
-
 .container {
     margin-inline: 20%;
     padding: 0;
 }
 
 .content {
-    margin:0;
+    margin: 0;
+}
+
+/* tablet: reduz a margem percentual pra não perder espaço útil de conteúdo */
+@media (max-width: 1024px) {
+    .container {
+        margin-inline: 8%;
+    }
+}
+
+/* mobile: troca percentual por valor fixo, garantindo respiro mínimo previsível */
+@media (max-width: 640px) {
+    .container {
+        margin-inline: 1.25rem; 
+    }
 }

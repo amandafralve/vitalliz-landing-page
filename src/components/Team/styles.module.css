@@ -1,3 +1,103 @@
 .team {
-    background-color: aqua;
+    padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+.teamTitle {
+    font-family: var(--font-title);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+}
+
+.teamPanel {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .teamGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .teamGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.memberCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid var(--border-dark);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.memberCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.memberPhoto {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.memberName {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 0.4rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.memberRole {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--subtext);
+    line-height: 1.4;
+    margin: 0 0 1.4rem 0;
+    min-height: 2.2em; /* alinha alturas mesmo com textos de tamanhos diferentes */
+}
+
+.memberSocials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.memberSocials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gray-light);
+    color: var(--text-dark);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.memberSocials a:hover {
+    background: var(--blueButtonBg);
+    color: #ffffff;
 }

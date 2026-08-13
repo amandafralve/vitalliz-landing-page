@@ -31,7 +31,7 @@ export function Hero() {
                 grainIntensity={0.05}
             />
 
-            <Container className={styles.heroContainerOverride}>
+            <Container>
                 <div className={styles.heroContent}>
                     <p className={styles.heroPhrase}>Vitalliz · Aplicações mobile e web</p>
                     <div className={styles.heroContentTwo}>
@@ -48,8 +48,8 @@ export function Hero() {
                             <p className={styles.heroText}>Somos uma equipe de desenvolvimento mobile e web. Transformamos desafios do dia a dia em soluções inteligentes e sustentáveis</p>
 
                             <footer className={styles.buttonsDiv}>
-                                <Button icon={<MoveRight />} iconPosition="right" color="whiteAnimated" size="lg" text="Explorar Projeto" />
-                                <Button color="transparent" size="lg" text="Fale conosco" />
+                                <Button icon={<MoveRight />} iconPosition="right" color="whiteAnimated"  text="Explorar Projeto" />
+                                <Button color="transparent"  text="Fale conosco" />
                             </footer>
                         </div>
                     </div>

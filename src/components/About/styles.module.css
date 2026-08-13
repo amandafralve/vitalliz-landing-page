@@ -17,10 +17,10 @@
 
 .aboutUs h1 {
     font-family: var(--font-title);
-    font-size: 6rem;
-    line-height: 1.1;
-    text-align: left;
-    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
 }
 
 .aboutUs p {
