@@ -1,3 +1,171 @@
+/* styles.module.css */
+
 .project {
-    color: aqua;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    margin-bottom: 5rem;
+}
+
+/* --- Coluna esquerda (fixa) --- */
+
+.left {
+    position: sticky;
+    top: 15rem;
+    align-self: start;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.logo {
+    font-size: 1.6rem;
+    background: #eafaf0;
+    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project h1 {
+    font-family: var(--font-title);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.subtitle {
+    font-style: italic;
+    color: var(--text-dark);
+    opacity: 0.75;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.description {
+    color: var(--text-dark);
+    opacity: 0.85;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.secondaryButtons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+/* --- Coluna direita --- */
+
+.right {
+    position: relative;
+}
+
+.rightHeader {
+    z-index: 2;
+    background: white;
+    padding: 1.2rem 0 3.4rem;
+    text-align: center;
+
+}
+
+.rightHeader h2 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin: 0 0 4px;
+}
+
+.rightHeader p {
+    color: var(--text-dark);
+    opacity: 0.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 3.8rem;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 8rem;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e5e8eb;
+    border-radius: 16px;
+    padding: 2.6rem 2.6rem;
+    transition: 
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.cardActive {
+    border-color: #1e5f8c;
+    box-shadow: 0 8px 24px rgba(30, 95, 140, 0.12);
+    transform: translateY(-2px) scale(1.08);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.cardHeader h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.cardNumber {
+    color: #1e5f8c;
+    font-weight: 700;
+}
+
+.cardIcon {
+    color: #1e5f8c;
+    flex-shrink: 0;
+}
+
+.card p {
+    color: var(--text-dark);
+    opacity: 0.75;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* --- Responsivo --- */
+
+@media (max-width: 900px) {
+    .project {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .left {
+        position: static;
+    }
+
+    .rightHeader {
+        position: static;
+        background: transparent;
+        padding: 0 0 24px;
+    }
 }
