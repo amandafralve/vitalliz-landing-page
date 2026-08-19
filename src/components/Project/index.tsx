@@ -48,14 +48,15 @@ const steps = [
 
 export function Project() {
     const [activeStep, setActiveStep] = useState('1');
-    const cardRefs = useRef([]);
+    const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        setActiveStep(entry.target.dataset.step);
+                        const target = entry.target as HTMLElement;
+                        setActiveStep(target.dataset.step ?? '');
                     }
                 });
             },

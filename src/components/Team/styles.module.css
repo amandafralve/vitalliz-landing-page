@@ -10,13 +10,6 @@
     margin: 0 0 1.5rem 0;
 }
 
-.teamPanel {
-    background: #ffffff;
-    border-radius: 1.5rem;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-}
-
 .teamGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
