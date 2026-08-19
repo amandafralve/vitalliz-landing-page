@@ -133,7 +133,9 @@ export function Project() {
                                 return (
                                     <div
                                         key={step.number}
-                                        ref={(el) => (cardRefs.current[index] = el)}
+                                        ref={(el) => {
+                                            cardRefs.current[index] = el;
+                                        }}
                                         data-step={step.number}
                                         className={`${styles.card} ${isActive ? styles.cardActive : ''}`}
                                     >
