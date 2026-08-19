@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Container } from '../Container';
 import { Button } from '../Button';
 import {
-    GitBranchIcon,
-    Palette,
     MoveUpRight,
     Search,
     Settings2,
@@ -12,6 +10,7 @@ import {
     ScanSearch,
     Smartphone,
 } from 'lucide-react';
+import { FaGithub, FaFigma  } from "react-icons/fa";
 import styles from './styles.module.css';
 
 const steps = [
@@ -75,80 +74,81 @@ export function Project() {
     }, []);
 
     return (
-        <Container>
-            <div className={styles.project}>
+        <section className={styles.projectBg}>
+            <Container>
+                <div className={styles.project}>
+                    <div className={styles.left}>
+                        <div className={styles.brand}>
+                            <span>PROJETO</span>
+                            <h1>Nitrusleaf</h1>
+                        </div>
 
-                <div className={styles.left}>
-                    <div className={styles.brand}>
-                        <span className={styles.logo}>🌿</span>
-                        <h1>Nitrusleaf</h1>
-                    </div>
+                        <p className={styles.subtitle}>
+                            Identificação de deficiência de Manganês e Cobre na folha da mexerica,
+                            orientado por Redes Neurais
+                        </p>
 
-                    <p className={styles.subtitle}>
-                        Identificação de deficiência de Manganês e Cobre na folha da mexerica,
-                        orientado por Redes Neurais
-                    </p>
+                        <p className={styles.description}>
+                            Um app que usa visão computacional e redes neurais para identificar
+                            deficiências de manganês e cobre em folhas de mexerica. O produtor
+                            fotografa a folha e recebe o diagnóstico em segundos, direto pelo celular.
+                        </p>
 
-                    <p className={styles.description}>
-                        Um app que usa visão computacional e redes neurais para identificar
-                        deficiências de manganês e cobre em folhas de mexerica. O produtor
-                        fotografa a folha e recebe o diagnóstico em segundos, direto pelo celular.
-                    </p>
+                        <div className={styles.secondaryButtons}>
+                            <Button
+                                icon={<FaGithub  />}
+                                text="Repositório"
+                                color="white"
+                            />
+                            <Button
+                                icon={<FaFigma />}
+                                text="Protótipo"
+                                color="white"
+                            />
+                        </div>
 
-                    <div className={styles.secondaryButtons}>
                         <Button
-                            icon={<GitBranchIcon />}
-                            text="Repositório"
-                            color="language"
-                        />
-                        <Button
-                            icon={<Palette />}
-                            text="Protótipo"
-                            color="language"
+                            icon={<MoveUpRight />}
+                            iconPosition="right"
+                            text="Conhecer Produto"
+                            color="blueSimple"
                         />
                     </div>
 
-                    <Button
-                        icon={<MoveUpRight />}
-                        iconPosition="right"
-                        text="Conhecer Produto"
-                        color="blue"
-                    />
-                </div>
+                    <div className={styles.right}>
+                        <div className={styles.rightHeader}>
+                            <h2>Como desenvolvemos</h2>
+                            <p>Da coleta de dados ao protótipo funcional</p>
+                        </div>
 
-                <div className={styles.right}>
-                    <div className={styles.rightHeader}>
-                        <h2>Como desenvolvemos</h2>
-                        <p>Da coleta de dados ao protótipo funcional</p>
-                    </div>
+                        <div className={styles.cards}>
+                            {steps.map((step, index) => {
+                                const Icon = step.icon;
+                                const isActive = activeStep === step.number;
 
-                    <div className={styles.cards}>
-                        {steps.map((step, index) => {
-                            const Icon = step.icon;
-                            const isActive = activeStep === step.number;
-
-                            return (
-                                <div
-                                    key={step.number}
-                                    ref={(el) => (cardRefs.current[index] = el)}
-                                    data-step={step.number}
-                                    className={`${styles.card} ${isActive ? styles.cardActive : ''}`}
-                                >
-                                    <div className={styles.cardHeader}>
-                                        <h3>
-                                            <span className={styles.cardNumber}>{step.number}</span>
-                                            {step.title}
-                                        </h3>
-                                        <Icon size={20} className={styles.cardIcon} />
+                                return (
+                                    <div
+                                        key={step.number}
+                                        ref={(el) => (cardRefs.current[index] = el)}
+                                        data-step={step.number}
+                                        className={`${styles.card} ${isActive ? styles.cardActive : ''}`}
+                                    >
+                                        <div className={styles.cardHeader}>
+                                            <h3>
+                                                <span className={styles.cardNumber}>{step.number}</span>
+                                                {step.title}
+                                            </h3>
+                                            <Icon size={20} className={styles.cardIcon} />
+                                        </div>
+                                        <p>{step.description}</p>
                                     </div>
-                                    <p>{step.description}</p>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
 
-            </div>
-        </Container>
+                </div>
+            </Container>
+        </section>
     );
 }

@@ -6,10 +6,11 @@
     --background-nav: #F3F3F3;
     --background-nav-transparent: #f3f3f3e5;
     --background-vitalliz: #F3F3F3;
+    --background-light-blue: rgb(233, 233, 243);
     --background-gradient: linear-gradient(90deg, #1585C4 0%, #31803A 100%);
     --overlay-gradient: linear-gradient(90deg, rgba(21, 133, 196, 0.8) 0%, rgba(49, 128, 58, 0.9) 100%);
     --gray-light: rgb(204, 204, 204);
-    --white-hover: rgba(204, 204, 204, 0.151);
+    --white-hover: rgb(226, 226, 226);
     --border-dark: rgba(0, 0, 0, 0.363);
 
     /* Textos */
@@ -21,6 +22,7 @@
 
     /* Buttons */
     --blueButtonBg: #135F8E;
+    --blueButtonBgHover: #4091c4;
     --whiteButtonBg: white;
     
 }

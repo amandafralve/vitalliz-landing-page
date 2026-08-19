@@ -59,9 +59,44 @@
     box-shadow: 0 10px 20px rgba(19, 95, 142, 0.3);
 }
 
+/* blueSimple Button */
+.blueSimple {
+    background: var(--blueButtonBg);
+    background-size: 200% auto;
+    background-position: left center;
+    color: var(--text-light);
+    border: none;
+    
+    transition: 
+        background-position 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease;
+}
+.blueSimple:hover {
+    background-position: right center;
+    transform: translateY(-2px) scale(1.00);
+    box-shadow: 0 12px 24px -6px rgba(255, 255, 255, 0.35),
+                0 4px 12px rgba(0, 0, 0, 0.15);
+}   
+.blueSimple:hover .iconWrapper {
+    transform: translateY(-3px);
+}
+.blueSimple:hover .textWrapper {
+    transform: translateY(-3px);
+}
+.blueSimple:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
 /* White Button */
 .white {
     background: var(--whiteButtonBg);
+    border: 1px solid var(--gray-light)
+}
+.white:hover{
+    background: var(--white-hover);
 }
 
 /* WhiteAnimated Button */

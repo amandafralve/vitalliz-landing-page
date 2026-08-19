@@ -4,7 +4,7 @@ type ButtonProps = {
     icon?: React.ReactNode;
     iconPosition?: "left" | "right";
     text: string;
-    color?: "blue" | "white"| "whiteAnimated" | "transparent" | "language";
+    color?: "blue" | "blueSimple" | "white"| "whiteAnimated" | "transparent" | "language";
     size?: "sm" | "md" | "lg";
 } & React.ComponentProps<'button'>
 
