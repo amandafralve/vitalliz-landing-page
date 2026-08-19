@@ -99,11 +99,13 @@ export function Project() {
                                 icon={<FaGithub  />}
                                 text="Repositório"
                                 color="white"
+                                size='md'
                             />
                             <Button
                                 icon={<FaFigma />}
                                 text="Protótipo"
                                 color="white"
+                                size='md'
                             />
                         </div>
 
@@ -111,7 +113,8 @@ export function Project() {
                             icon={<MoveUpRight />}
                             iconPosition="right"
                             text="Conhecer Produto"
-                            color="blueSimple"
+                            color="blue"
+                            size='md'
                         />
                     </div>
 
