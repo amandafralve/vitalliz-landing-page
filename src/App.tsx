@@ -6,7 +6,8 @@ import { Team } from "./components/Team"
 import { Footer } from "./components/Footer"
 import './styles/global.css'
 import './styles/theme.css'
-import { ProjectSolution } from "./components/ProjectSolution"
+import { Problem } from "./components/Problem"
+
 
 function App() {
 
@@ -14,9 +15,10 @@ function App() {
     <>
       <Navbar/>
       <Hero/>
-      <About />
+      <Problem />
+
       <Project />
-      <ProjectSolution />
+      <About />
       <Team />
       <Footer />
     </>

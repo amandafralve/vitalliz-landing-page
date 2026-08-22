@@ -10,7 +10,7 @@ import {
     ScanSearch,
     Smartphone,
 } from 'lucide-react';
-import { FaGithub, FaFigma  } from "react-icons/fa";
+import { FaGithub, FaFigma } from "react-icons/fa";
 import styles from './styles.module.css';
 
 const steps = [
@@ -35,8 +35,10 @@ const steps = [
     {
         number: '4',
         title: 'Validação',
-        description: 'Teste com imagens inéditas, alcançando 95,97% de acurácia e confirmando a capacidade de generalização do modelo.',
+        description: 'Teste com imagens inéditas, confirmando a capacidade de generalização do modelo.',
         icon: ScanSearch,
+        stat: '95,97%',
+        statLabel: 'de acurácia',
     },
     {
         number: '5',
@@ -48,7 +50,7 @@ const steps = [
 
 export function Project() {
     const [activeStep, setActiveStep] = useState('1');
-    const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -75,86 +77,97 @@ export function Project() {
     }, []);
 
     return (
-        <section className={styles.projectBg}>
-            <Container>
-                <div className={styles.project}>
-                    <div className={styles.left}>
-                        <div className={styles.brand}>
-                            <span>PROJETO</span>
-                            <h1>Nitrusleaf</h1>
-                        </div>
+        <>
+            <section className={styles.projectBg}>
+                <Container>
+                    <div className={styles.project}>
+                        <div className={styles.left}>
+                            <div className={styles.brand}>
+                                <span className={styles.tag}>PROJETO</span>
+                                <h1>Nitrusleaf</h1>
+                            </div>
 
-                        <p className={styles.subtitle}>
-                            Identificação de deficiência de Manganês e Cobre na folha da mexerica,
-                            orientado por Redes Neurais
-                        </p>
+                            <p className={styles.subtitle}>
+                                Identificação de deficiência de Manganês e Cobre na folha da mexerica,
+                                orientado por Redes Neurais
+                            </p>
 
-                        <p className={styles.description}>
-                            Um app que usa visão computacional e redes neurais para identificar
-                            deficiências de manganês e cobre em folhas de mexerica. O produtor
-                            fotografa a folha e recebe o diagnóstico em segundos, direto pelo celular.
-                        </p>
+                            <p className={styles.description}>
+                                Um app que usa visão computacional e redes neurais para identificar
+                                deficiências de manganês e cobre em folhas de mexerica. O produtor
+                                fotografa a folha e recebe o diagnóstico em segundos, direto pelo celular.
+                            </p>
 
-                        <div className={styles.secondaryButtons}>
+                            <div className={styles.secondaryButtons}>
+                                <Button
+                                    icon={<FaGithub />}
+                                    text="Repositório"
+                                    color="white"
+                                    size='md'
+                                />
+                                <Button
+                                    icon={<FaFigma />}
+                                    text="Protótipo"
+                                    color="white"
+                                    size='md'
+                                />
+                            </div>
+
                             <Button
-                                icon={<FaGithub  />}
-                                text="Repositório"
-                                color="white"
+                                icon={<MoveUpRight />}
+                                iconPosition="right"
+                                text="Conhecer Produto"
+                                color="blue"
                                 size='md'
                             />
-                            <Button
-                                icon={<FaFigma />}
-                                text="Protótipo"
-                                color="white"
-                                size='md'
-                            />
                         </div>
 
-                        <Button
-                            icon={<MoveUpRight />}
-                            iconPosition="right"
-                            text="Conhecer Produto"
-                            color="blue"
-                            size='md'
-                        />
-                    </div>
+                        <div className={styles.right}>
+                            <div className={styles.rightHeader}>
+                                <h2>Como desenvolvemos</h2>
+                                <p>Da coleta de dados ao protótipo funcional</p>
+                            </div>
 
-                    <div className={styles.right}>
-                        <div className={styles.rightHeader}>
-                            <h2>Como desenvolvemos</h2>
-                            <p>Da coleta de dados ao protótipo funcional</p>
-                        </div>
+                            <div className={styles.cards}>
+                                {steps.map((step, index) => {
+                                    const Icon = step.icon;
+                                    const isActive = activeStep === step.number;
 
-                        <div className={styles.cards}>
-                            {steps.map((step, index) => {
-                                const Icon = step.icon;
-                                const isActive = activeStep === step.number;
+                                    return (
+                                        <div
+                                            key={step.number}
+                                            ref={(el) => {
+                                                cardRefs.current[index] = el;
+                                            }}
+                                            data-step={step.number}
+                                            aria-current={isActive ? 'step' : undefined}
+                                            className={`${styles.card} ${isActive ? styles.cardActive : ''}`}
+                                        >
+                                            <div className={styles.cardHeader}>
+                                                <h3>
+                                                    <span className={styles.cardNumber}>{step.number}</span>
+                                                    {step.title}
+                                                </h3>
+                                                <Icon size={20} className={styles.cardIcon} />
+                                            </div>
 
-                                return (
-                                    <div
-                                        key={step.number}
-                                        ref={(el) => {
-                                            cardRefs.current[index] = el;
-                                        }}
-                                        data-step={step.number}
-                                        className={`${styles.card} ${isActive ? styles.cardActive : ''}`}
-                                    >
-                                        <div className={styles.cardHeader}>
-                                            <h3>
-                                                <span className={styles.cardNumber}>{step.number}</span>
-                                                {step.title}
-                                            </h3>
-                                            <Icon size={20} className={styles.cardIcon} />
+                                            {step.stat && (
+                                                <div className={styles.statBlock}>
+                                                    <span className={styles.statNumber}>{step.stat}</span>
+                                                    <span className={styles.statLabel}>{step.statLabel}</span>
+                                                </div>
+                                            )}
+
+                                            <p>{step.description}</p>
                                         </div>
-                                        <p>{step.description}</p>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-            </Container>
-        </section>
+                    </div>
+                </Container>
+            </section>
+        </>
     );
 }
