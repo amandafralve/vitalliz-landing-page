@@ -165,9 +165,8 @@ function StepCard({ step, isActive, cardRef }: StepCardProps) {
 }
 
 export function Development() {
-    const [activeStep, setActiveStep] = useState(null);
-    const cardRefs = useRef([]);
-
+    const [activeStep, setActiveStep] = useState<string | null>(null);
+    const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
     const [firstStep, ...restSteps] = steps;
 
     useEffect(() => {
@@ -175,7 +174,8 @@ export function Development() {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        setActiveStep(entry.target.dataset.step);
+                        const target = entry.target as HTMLElement;
+                        setActiveStep(target.dataset.step ?? null);
                     }
                 });
             },
@@ -187,7 +187,9 @@ export function Development() {
             }
         );
 
-        const currentRefs = cardRefs.current.filter(Boolean);
+        const currentRefs = cardRefs.current.filter(
+            (el): el is HTMLDivElement => el !== null
+        );
         currentRefs.forEach((el) => observer.observe(el));
 
         return () => currentRefs.forEach((el) => observer.unobserve(el));
