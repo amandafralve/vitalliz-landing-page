@@ -1,0 +1,236 @@
+.projectBg {
+    background: var(--background-vitalliz);
+    padding: 6rem 0 4rem;
+}
+
+/* --- Intro: header + card 1 pinados juntos --- */
+.introWrap {
+    position: relative;
+    height: 120vh;
+}
+.introSticky {
+    position: sticky;
+    top: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rightHeader {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 2.4rem;
+}
+.tag {
+    display: inline-block;
+    width: fit-content;
+    background: rgba(123, 184, 253, 0.1);
+    color: var(--subtext);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--subtext);
+}
+.rightHeader h2 {
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin: 0.4rem 0 0;
+}
+.rightHeader p {
+    color: var(--text-dark);
+    opacity: 0.6;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* --- Cards 2 a 5: fluxo normal, sequenciais, sem sticky --- */
+/* Igual ao .cards do Project.jsx: nenhum card prende a rolagem
+   nem desaparece — só ganha destaque ao passar pelo centro. */
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+}
+
+.card {
+    position: relative;
+    width: min(92vw, 1100px);
+    min-height: 600px;
+    background: #fff;
+    border: 1px solid #e5e8eb;
+    border-radius: 24px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    transition:
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+/* Destaque sutil — não altera opacidade nem esconde nada,
+   só realça o card que está no centro da tela */
+.cardActive {
+    border-color: var(--blueButtonBg);
+    box-shadow: 0 20px 48px rgba(19, 95, 142, 0.14);
+    transform: scale(1.015);
+}
+
+.cardInactive {
+    transform: scale(1);
+}
+
+.cardContent {
+    padding: 3rem 2.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stepHeading {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.4rem;
+}
+.cardNumber {
+    color: var(--blueButtonBg);
+    font-weight: 800;
+    font-size: 1.4rem;
+}
+.stepHeading h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin: 0;
+    flex: 1;
+}
+.cardIcon {
+    color: var(--blueButtonBg);
+    flex-shrink: 0;
+}
+
+.subCard {
+    padding-left: 1.1rem;
+    border-left: 3px solid var(--blueButtonBg);
+}
+.subLabel {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #8a97a3;
+    margin-bottom: 0.6rem;
+}
+.divider {
+    border: none;
+    border-top: 1px solid #e5e8eb;
+    margin: 0 0 1.1rem;
+}
+.subtitle {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 0.7rem;
+}
+.paragraph {
+    color: #5b6670;
+    line-height: 1.65;
+    font-size: 0.95rem;
+    margin: 0 0 0.85rem;
+}
+
+.statBlock {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 0.4rem 0 1.1rem;
+}
+.statNumber {
+    font-family: var(--font-title);
+    font-size: 2.2rem;
+    color: var(--blueButtonBg);
+    line-height: 1;
+}
+.statLabel {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    opacity: 0.6;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0.6rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+.checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+.checkIcon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--blueButtonBg);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.cardImage {
+    position: relative;
+    height: 100%;
+    min-height: 260px;
+}
+.cardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 900px) {
+    .introWrap {
+        height: auto;
+    }
+    .introSticky {
+        position: relative;
+        top: 0;
+    }
+    .cards {
+        gap: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+    }
+    .card {
+        grid-template-columns: 1fr;
+        width: 100%;
+        min-height: auto;
+    }
+    .cardImage {
+        min-height: 200px;
+        order: -1;
+    }
+    .cardContent {
+        padding: 2rem;
+    }
+}

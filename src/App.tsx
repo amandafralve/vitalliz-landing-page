@@ -7,6 +7,7 @@ import { Footer } from "./components/Footer"
 import './styles/global.css'
 import './styles/theme.css'
 import { Problem } from "./components/Problem"
+import { Development } from "./components/Development"
 
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
       <Navbar/>
       <Hero/>
       <Problem />
-
       <Project />
+      <Development />
       <About />
       <Team />
       <Footer />
