@@ -1,0 +1,25 @@
+.scrollStackScroller {
+  position: relative;
+  width: 100%;
+}
+
+.scrollStackInner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.scrollStackCard {
+  position: relative;
+  width: 100%;
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.scrollStackEnd {
+  width: 100%;
+  height: 1px;
+  pointer-events: none;
+}
