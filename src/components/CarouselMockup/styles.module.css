@@ -1,0 +1,94 @@
+.carouselContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 0;
+    overflow: visible;
+    user-select: none;
+}
+
+.carouselTrack {
+    position: relative;
+    width: 100%;
+    max-width: 80rem;
+    height: 24rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .carouselTrack {
+        height: 30rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carouselTrack {
+        height: 34rem;
+    }
+}
+
+.dragSurface {
+    position: absolute;
+    inset: -1rem 0;
+    z-index: 50;
+    cursor: grab;
+}
+
+.dragSurface:active {
+    cursor: grabbing;
+}
+
+/*  DIMENSÕES MENORES DOS CARDS  */
+.card {
+    position: absolute;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    pointer-events: none;
+    
+    /* Tamanho compacto no mobile */
+    width: 11rem;
+    height: 22rem;
+}
+
+@media (min-width: 640px) {
+    .card {
+        /* Tamanho compacto em tablets */
+        width: 13.5rem;
+        height: 27rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card {
+        /* Tamanho compacto em telas maiores */
+        width: 15rem;
+        height: 30rem;
+    }
+}
+
+/* Renderização do SVG na dimensão total do card */
+.cardSvg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    transition: transform 700ms;
+}
+
+.card:hover .cardSvg {
+    transform: scale(1.04);
+}
+
+.cardOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--background-light-blue);
+    pointer-events: none;
+    border-radius: 1.2rem;
+}

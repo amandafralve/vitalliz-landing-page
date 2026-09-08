@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import { Container } from '../Container';
-import { CarouselWithCaptions } from '../Carousel';
+import { CarouselWithCaptions } from '../CarouselAbout';
 import { Cpu, Lightbulb, Leaf } from 'lucide-react';
 
 export function About() {
