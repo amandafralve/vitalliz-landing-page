@@ -5,9 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from "react";
 
 export function Navbar() {
+    const [isScrolled, setIsScrolled] = useState(false);    
     const [menuOpen, setMenuOpen] = useState(false);
     const { t, i18n } = useTranslation();
     const isPt = i18n.language?.toLowerCase().startsWith("pt");
+
+    const isTransparent = !isScrolled && !menuOpen;
+    const logoSrc = isTransparent ? "/vitallizLogoWhite.svg" : "/vitallizLogo.svg";
 
     const toggleLanguage = () => {
         const nextLang = isPt ? "en" : "pt";
@@ -17,7 +21,18 @@ export function Navbar() {
     const closeMenu = () => setMenuOpen(false);
     const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-    // fecha com Esc
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     useEffect(() => {
         const handleKey = (e: KeyboardEvent) => {
             if (e.key === "Escape") setMenuOpen(false);
@@ -26,7 +41,6 @@ export function Navbar() {
         return () => document.removeEventListener("keydown", handleKey);
     }, []);
 
-    // trava scroll do body enquanto o menu mobile está aberto
     useEffect(() => {
         document.body.style.overflow = menuOpen ? "hidden" : "";
         return () => {
@@ -34,10 +48,12 @@ export function Navbar() {
         };
     }, [menuOpen]);
 
+    const navbarClass = `${styles.navbar} ${isScrolled ? styles.navbarScrolled : styles.navbarTransparent}`;
+
     return (
-        <nav className={styles.navbar}>
+        <nav className={navbarClass}>
             <div className={styles.navbarTop}>
-                <img src="/vitallizLogo.svg" alt="Logo Vitaliz" />
+                <img src={logoSrc} alt="Logo Vitaliz" />
                 <button
                     className={styles.hamburgerButton}
                     onClick={toggleMenu}
@@ -60,7 +76,7 @@ export function Navbar() {
                 <Button
                     icon={<Languages />}
                     text={isPt ? 'EN' : 'PT-BR'}
-                    color="language"
+                    color={isTransparent ? "transparent" : "language"}
                     onClick={toggleLanguage}
                     title="Mudar idioma / Change language"
                 />

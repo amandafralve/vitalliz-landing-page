@@ -1,31 +1,77 @@
-/* src/components/Navbar/styles.module.css */
 .navbar {
-    position: sticky;
+    position: fixed; 
     top: 0;
+    left: 0;
     z-index: 50;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    
-    padding: 1.5rem 20%;
+    padding: 2rem 20%;
     width: 100%;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Estado 1: Quando está no topo da página (Transparente) */
+.navbarTransparent {
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    border-bottom: 1px solid transparent;
+}
+
+/* Links no estado Transparente (Fundo escuro do Hero) */
+.navbarTransparent .linksNavbar a {
+    color: rgba(255, 255, 255, 0.85); /* Branco levemente suave para dar destaque ao hover */
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.navbarTransparent .linksNavbar a:hover {
+    color: #FFFFFF;
+    text-shadow: 0 0 0.5px #FFFFFF, 0 0 0.5px #FFFFFF;
+}
+
+/* Linha inferior (sublinhado) em BRANCO */
+.navbarTransparent .linksNavbar a::after {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); 
+}
+
+/* Estado 2: Quando o usuário rola a página (Cores originais com fundo claro/fosco) */
+.navbarScrolled {
     backdrop-filter: blur(12px);
     background-color: var(--background-nav-transparent);
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbarScrolled .linksNavbar a {
+    color: var(--font-color);
+}
+
+.navbarScrolled .linksNavbar a:hover {
+    color: #000000;
 }
 
 .navbarTop {
     display: contents;
+}
+.navbarTop img {
+    height: 2.4rem;      
+    width: auto;       
+    display: block;
+    object-fit: contain;
 }
 
 .hamburgerButton {
     display: none;
     background: none;
     border: none;
-    color: var(--font-color);
+    color: #FFFFFF;
     cursor: pointer;
     padding: 0.25rem;
+}
+
+.navbarScrolled .hamburgerButton {
+    color: var(--font-color);
 }
 
 .hamburgerButton svg {
@@ -38,14 +84,15 @@
     justify-content: center;
     gap: clamp(1rem, 3vw, 4.8rem);
 }
+
 .linksNavbar a {
     text-decoration: none;
-    color: var(--font-color);
     white-space: nowrap;
     position: relative;
     padding-block: 0.25rem;
     transition: color 0.2s ease;
 }
+
 .linksNavbar a::after {
     content: "";
     position: absolute;
@@ -58,9 +105,7 @@
     transform-origin: right;
     transition: transform 0.25s ease;
 }
-.linksNavbar a:hover {
-    color: #000000;
-}
+
 .linksNavbar a:hover::after {
     transform: scaleX(1);
     transform-origin: left;
@@ -73,13 +118,15 @@
     gap: clamp(0.5rem, 2vw, 1.8rem);
 }
 
+/* Responsividade Mobile / Tablet */
+
 @media (max-width: 1150px) {
     .navbar {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        padding: 1.5rem 8%;
+        padding: 1rem 8%;
     }
 
     .navbarTop {
@@ -119,6 +166,11 @@
         max-height: 200px;
         opacity: 1;
         margin-top: 1.5rem;
+    }
+    
+    .navbarTransparent:has(.linksNavbarOpen) {
+        background-color: rgba(1, 21, 44, 0.95);
+        backdrop-filter: blur(10px);
     }
 }
 
