@@ -1,12 +1,13 @@
 .hero {
     position: relative;
     width: 100%;
-    min-height: 80vh;
+    min-height: clamp(600px, 95vh, 850px); 
     display: flex;
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
     background-color: #01152c;
+    padding: clamp(3rem, 6vw, 5rem) 0;
 }
 
 .heroBackground {
@@ -17,85 +18,84 @@
     z-index: 0;
 }
 
-/* overlay para garantir contraste do texto sobre a animação */
 .hero::after {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
         90deg,
-        rgba(1, 21, 44, 0.55) 0%,
-        rgba(1, 21, 44, 0.25) 45%,
-        rgba(1, 21, 44, 0) 75%
+        rgba(1, 21, 44, 0.90) 0%,
+        rgba(1, 21, 44, 0.55) 50%,
+        rgba(1, 21, 44, 0) 85%
     );
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
 }
 
 .heroContent {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    gap: clamp(1rem, 2vw, 1.6rem);
-    max-width: 900px;
+    gap: 2rem;
+    max-width: 850px;
 }
 
-.heroContentTwo {
+/* Badge Superior Integrado */
+.badgeWrapper {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+}
+
+.brandIcon {
+    width: 2.2rem;
+    height: auto;
+    object-fit: contain;
 }
 
 .heroPhrase {
-    width: fit-content;
-    color: var(--text-light);
-    font-size: clamp(0.9rem, 1vw, 1.1rem);
-    font-weight: 400;
-    padding: 0.65rem 1.4rem;
-    background-color: rgba(0, 0, 0, 0.205);
-    border-radius: 5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.8rem, 0.85vw, 0.95rem);
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 999px;
     margin: 0;
+    letter-spacing: 0.02em;
+}
+
+/* Bloco do Título e Descrição */
+.heroBody {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
 }
 
 .heroTitle {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.heroTitle img {
-    width: clamp(8rem, 6vw, 5rem);
-    height: auto;
-    flex-shrink: 0;
-}
-
-.heroTitle h1 {
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: var(--font-title);
-    font-size: clamp(2.5rem, 6vw, 6rem);
-    line-height: 1.1;
+    font-size: clamp(5rem, 4vw, 3.8rem); 
+    line-height: 1.12;
+    letter-spacing: -0.01em;
     text-align: left;
     margin: 0;
+    max-width: 17ch;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
-.footerContainer {
-    padding: 0; /* removido o desalinhamento em relação ao título */
-}
-
 .heroText {
-    color: var(--text-light);
-    font-size: clamp(1rem, 1.2vw, 1.15rem);
-    font-weight: 300;
+    color: var(--subtext-light); 
+    font-size: clamp(1.2rem, 1.1vw, 1.1rem);
+    font-weight: 400; 
     line-height: 1.6;
-    max-width: 560px;
-    padding: 0;
+    max-width: 640px;
     margin: 0;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .buttonsDiv {
@@ -104,6 +104,33 @@
     flex-wrap: wrap;
     gap: 1rem;
     padding: 0;
-    margin: clamp(1.2rem, 2vw, 2rem) 0;
+    margin-top: 1.6rem;
 }
 
+/* Responsividade */
+@media (max-width: 600px) {
+    .heroTitle {
+        max-width: 100%;
+    }
+
+    .badgeWrapper {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        justify-content: center;
+    }
+
+    .buttonsDiv {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .buttonsDiv > * {
+        width: 100%;
+    }
+}

@@ -1,8 +1,8 @@
 import { MoveRight } from "lucide-react";
 import { Button } from "../Button";
 import { Container } from "../Container";
-import GradientWaves from "../GradientWaves"
-import styles from "./styles.module.css"
+import GradientWaves from "../GradientWaves";
+import styles from "./styles.module.css";
 
 export function Hero() {
     return (
@@ -33,25 +33,33 @@ export function Hero() {
 
             <Container>
                 <div className={styles.heroContent}>
-                    <p className={styles.heroPhrase}>Vitalliz · Aplicações mobile e web</p>
-                    <div className={styles.heroContentTwo}>
-                        <header className={styles.heroTitle}>
-                            <img 
-                                src="vitallizElementoLogo.svg" 
-                                alt="" 
-                                aria-hidden="true"
-                            />
-                            <h1>TECNOLOGIA<br/>& INOVAÇÃO</h1>
-                        </header>
-                        
-                        <div  className={styles.footerContainer}>
-                            <p className={styles.heroText}>Somos uma equipe de desenvolvimento mobile e web. Transformamos desafios do dia a dia em soluções inteligentes e sustentáveis</p>
+                    <div className={styles.badgeWrapper}>
+                        <span className={styles.heroPhrase}>
+                            Vitalliz · Software & Mobile
+                        </span>
+                    </div>
 
-                            <footer className={styles.buttonsDiv}>
-                                <Button icon={<MoveRight />} iconPosition="right" color="whiteAnimated"  text="Explorar Projeto" />
-                                <Button color="transparent"  text="Fale conosco" />
-                            </footer>
-                        </div>
+                    <div className={styles.heroBody}>
+                        <h1 className={styles.heroTitle}>
+                            Damos vida e direção digital ao seu negócio
+                        </h1>
+                        
+                        <p className={styles.heroText}>
+                            Unimos a vitalidade da inovação com a clareza da engenharia de software. Desenvolvemos sistemas e aplicativos que iluminam caminhos e impulsionam resultados.
+                        </p>
+
+                        <footer className={styles.buttonsDiv}>
+                            <Button 
+                                icon={<MoveRight />} 
+                                iconPosition="right" 
+                                color="whiteAnimated" 
+                                text="Ver Projeto Nitrusleaf" 
+                            />
+                            <Button 
+                                color="transparent" 
+                                text="Entre em contato" 
+                            />
+                        </footer>
                     </div>
                 </div>
             </Container>

@@ -11,5 +11,6 @@ html, body, #root {
     font-family: 'Roboto';
     color: var(--font-color);
     overflow-x: clip;
+    scrollbar-gutter: stable;
 }
 
