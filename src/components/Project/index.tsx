@@ -39,14 +39,14 @@ export function Project() {
                                 size="md"
                             />
                         </div>
-
-                            <Button
-                            icon={<MoveUpRight />}
-                            iconPosition="right"
-                            text="Conhecer Produto"
-                            color="blue"
-                            size="md"
-                            />
+                        
+                        <Button
+                        icon={<MoveUpRight />}
+                        iconPosition="right"
+                        text="Conhecer Produto"
+                        color="blue"
+                        size="md"
+                        />
                     </div>
 
                     {/* Coluna Direita: Carrossel Mockup */}

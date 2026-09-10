@@ -11,7 +11,7 @@
     align-items: center; 
 }
 
-/* --- Coluna esquerda --- */
+/* Coluna esquerda */
 .left {
     display: flex;
     flex-direction: column;
@@ -75,16 +75,17 @@
     width: 100%;
 }
 
-/* --- Coluna direita (Carrossel) --- */
+/* Coluna direita (Carrossel) */
 .right {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    z-index: 1;
 }
 
-/* --- Responsividade --- */
+/* Responsividade */
 @media (max-width: 900px) {
     .projectBg {
         padding: 4rem 0;
