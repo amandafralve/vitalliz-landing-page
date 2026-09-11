@@ -2,35 +2,35 @@
 
 import * as React from "react";
 import {
-    motion,
-    useMotionValue,
-    useTransform,
-    animate,
-    type PanInfo,
-    type MotionValue,
+  motion,
+  useMotionValue,
+  useTransform,
+  animate,
+  type PanInfo,
+  type MotionValue,
 } from "motion/react";
 import styles from "./styles.module.css";
 
 interface Slide {
-    image: string;
-    alt: string;
+  image: string;
+  alt: string;
 }
 
 const slides: Slide[] = [
-    { image: "/img/project/mockupSplash.svg", alt: "Mockup Splash" },
-    { image: "/img/project/mockupScan.svg", alt: "Mockup Scan" },
-    { image: "/img/project/mockupResult.svg", alt: "Mockup Result" },
-    { image: "/img/project/mockupMenu.svg", alt: "Mockup Menu" },
+  { image: "/img/project/mockupSplash.svg", alt: "Mockup Splash" },
+  { image: "/img/project/mockupScan.svg", alt: "Mockup Scan" },
+  { image: "/img/project/mockupResult.svg", alt: "Mockup Result" },
+  { image: "/img/project/mockupMenu.svg", alt: "Mockup Menu" },
 ];
 
 interface CarouselConfig {
-    distanceDivisor: number;
-    velocityDivisor: number;
-    sensitivity: number;
-    xMultiplier: number;
-    yMultiplier: number;
-    rotationMultiplier: number;
-    scaleReduction: number;
+  distanceDivisor: number;
+  velocityDivisor: number;
+  sensitivity: number;
+  xMultiplier: number;
+  yMultiplier: number;
+  rotationMultiplier: number;
+  scaleReduction: number;
 }
 
 const getCarouselConfig = (width: number): CarouselConfig => {
@@ -39,7 +39,7 @@ const getCarouselConfig = (width: number): CarouselConfig => {
       distanceDivisor: 120,
       velocityDivisor: 500,
       sensitivity: 180,
-      xMultiplier: 80, // Distância lateral reduzida para cards menores
+      xMultiplier: 80,
       yMultiplier: 15,
       rotationMultiplier: 8,
       scaleReduction: 0.06,
@@ -60,7 +60,7 @@ const getCarouselConfig = (width: number): CarouselConfig => {
     distanceDivisor: 200,
     velocityDivisor: 800,
     sensitivity: 250,
-    xMultiplier: 140, // Distância reduzida no desktop
+    xMultiplier: 140,
     yMultiplier: 25,
     rotationMultiplier: 12,
     scaleReduction: 0.1,
@@ -70,6 +70,7 @@ const getCarouselConfig = (width: number): CarouselConfig => {
 const CarouselMockup = () => {
   const scrollProgress = useMotionValue(0);
   const startProgress = React.useRef(0);
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
   const [windowWidth, setWindowWidth] = React.useState(() => {
     if (typeof window !== "undefined") {
@@ -85,6 +86,15 @@ const CarouselMockup = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Monitora as mudanças na variável motion para atualizar o indicador da página ativa
+  React.useEffect(() => {
+    const unsubscribe = scrollProgress.on("change", (latest) => {
+      const positiveIndex = ((Math.round(latest) % total) + total) % total;
+      setActiveIndex(positiveIndex);
+    });
+    return () => unsubscribe();
+  }, [scrollProgress, total]);
 
   const config = React.useMemo(
     () => getCarouselConfig(windowWidth),
@@ -118,6 +128,25 @@ const CarouselMockup = () => {
     });
   };
 
+  // Permite ir direto para o slide desejado ao clicar na bolinha
+  const goToSlide = (index: number) => {
+    const current = scrollProgress.get();
+    const currentModulo = ((Math.round(current) % total) + total) % total;
+    
+    let diff = index - currentModulo;
+    if (diff > total / 2) diff -= total;
+    if (diff < -total / 2) diff += total;
+
+    const target = Math.round(current) + diff;
+
+    animate(scrollProgress, target, {
+      type: "spring",
+      stiffness: 200,
+      damping: 30,
+      mass: 1,
+    });
+  };
+
   return (
     <div className={styles.carouselContainer}>
       <div className={styles.carouselTrack}>
@@ -141,6 +170,19 @@ const CarouselMockup = () => {
             total={total}
             progress={scrollProgress}
             config={config}
+          />
+        ))}
+      </div>
+
+      {/* Indicadores / Bolinhas de navegação */}
+      <div className={styles.dotsContainer}>
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => goToSlide(i)}
+            className={`${styles.dot} ${i === activeIndex ? styles.activeDot : ""}`}
+            aria-label={`Ir para a foto ${i + 1}`}
           />
         ))}
       </div>
@@ -200,7 +242,6 @@ const Card = ({ slide, index, total, progress, config }: CardProps) => {
       }}
       className={styles.card}
     >
-      {/* Usando a tag <img> com suporte a arquivos .svg */}
       <img
         src={slide.image}
         alt={slide.alt}

@@ -42,21 +42,18 @@
     cursor: grabbing;
 }
 
-/*  DIMENSÕES MENORES DOS CARDS  */
 .card {
     position: absolute;
     border-radius: 1.2rem;
     overflow: hidden;
     pointer-events: none;
     
-    /* Tamanho compacto no mobile */
     width: 11rem;
     height: 22rem;
 }
 
 @media (min-width: 640px) {
     .card {
-        /* Tamanho compacto em tablets */
         width: 13.5rem;
         height: 27rem;
     }
@@ -64,13 +61,11 @@
 
 @media (min-width: 1024px) {
     .card {
-        /* Tamanho compacto em telas maiores */
         width: 15rem;
         height: 30rem;
     }
 }
 
-/* Renderização do SVG na dimensão total do card */
 .cardSvg {
     position: absolute;
     inset: 0;
@@ -91,4 +86,35 @@
     background-color: var(--background-light-blue);
     pointer-events: none;
     border-radius: 1.2rem;
+}
+
+.dotsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    z-index: 10;
+    position: relative;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white; 
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, width 0.2s ease;
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.activeDot {
+    background-color: var(--blueButtonBg);
+    width: 20px;
+    border-radius: 4px;
 }
