@@ -21,7 +21,10 @@ const slides: Slide[] = [
   { image: "/img/project/mockupScan.svg", alt: "Mockup Scan" },
   { image: "/img/project/mockupResult.svg", alt: "Mockup Result" },
   { image: "/img/project/mockupMenu.svg", alt: "Mockup Menu" },
+  { image: "/img/project/mockupProfile.svg", alt: "Mockup Meu Perfil" },
 ];
+
+const AUTOPLAY_INTERVAL = 3000; // troca de slide a cada 3s
 
 interface CarouselConfig {
   distanceDivisor: number;
@@ -72,6 +75,13 @@ const CarouselMockup = () => {
   const startProgress = React.useRef(0);
   const [activeIndex, setActiveIndex] = React.useState(0);
 
+  const containerRef = React.useRef<HTMLDivElement | null>(null);
+
+  // Refs para controlar o autoplay
+  const autoplayTimerRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
+  const isInteractingRef = React.useRef(false);
+  const isInViewRef = React.useRef(false);
+
   const [windowWidth, setWindowWidth] = React.useState(() => {
     if (typeof window !== "undefined") {
       return window.innerWidth;
@@ -101,7 +111,63 @@ const CarouselMockup = () => {
     [windowWidth]
   );
 
+  const stopAutoplay = React.useCallback(() => {
+    if (autoplayTimerRef.current) {
+      clearInterval(autoplayTimerRef.current);
+      autoplayTimerRef.current = null;
+    }
+  }, []);
+
+  const startAutoplay = React.useCallback(() => {
+    stopAutoplay();
+
+    // Só inicia o timer se a seção estiver visível na tela
+    if (!isInViewRef.current) return;
+
+    autoplayTimerRef.current = setInterval(() => {
+      if (isInteractingRef.current || !isInViewRef.current) return;
+
+      const current = scrollProgress.get();
+      const target = Math.round(current) + 1;
+
+      animate(scrollProgress, target, {
+        type: "spring",
+        stiffness: 200,
+        damping: 30,
+        mass: 1,
+      });
+    }, AUTOPLAY_INTERVAL);
+  }, [scrollProgress, stopAutoplay]);
+
+  // Observa quando o carrossel entra/sai da viewport
+  React.useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isInViewRef.current = entry.isIntersecting;
+
+        if (entry.isIntersecting) {
+          startAutoplay();
+        } else {
+          stopAutoplay();
+        }
+      },
+      { threshold: 0.4 } // considera "visível" quando ~40% da seção aparece
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [startAutoplay, stopAutoplay]);
+
+  // Limpa o timer ao desmontar
+  React.useEffect(() => {
+    return () => stopAutoplay();
+  }, [stopAutoplay]);
+
   const handleDragStart = () => {
+    isInteractingRef.current = true;
     startProgress.current = scrollProgress.get();
   };
 
@@ -126,13 +192,16 @@ const CarouselMockup = () => {
       damping: 30,
       mass: 1,
     });
+
+    isInteractingRef.current = false;
+    startAutoplay(); // reinicia a contagem dos 2s após o usuário soltar
   };
 
   // Permite ir direto para o slide desejado ao clicar na bolinha
   const goToSlide = (index: number) => {
     const current = scrollProgress.get();
     const currentModulo = ((Math.round(current) % total) + total) % total;
-    
+
     let diff = index - currentModulo;
     if (diff > total / 2) diff -= total;
     if (diff < -total / 2) diff += total;
@@ -145,10 +214,22 @@ const CarouselMockup = () => {
       damping: 30,
       mass: 1,
     });
+
+    startAutoplay(); // reinicia a contagem dos 2s após clique manual
   };
 
   return (
-    <div className={styles.carouselContainer}>
+    <div
+      ref={containerRef}
+      className={styles.carouselContainer}
+      onMouseEnter={() => {
+        isInteractingRef.current = true;
+      }}
+      onMouseLeave={() => {
+        isInteractingRef.current = false;
+        startAutoplay();
+      }}
+    >
       <div className={styles.carouselTrack}>
         <motion.div
           drag="x"
@@ -221,11 +302,16 @@ const Card = ({ slide, index, total, progress, config }: CardProps) => {
     offset,
     (o) => 1 - Math.abs(o) * config.scaleReduction
   );
+
+  // Mostra só os 3 cards centrais (offset -1, 0, 1).
+  // Os demais (offset ±2 ou mais) ficam totalmente invisíveis,
+  // independente de quantos slides existirem no total.
   const opacity = useTransform(
     offset,
-    [-total / 2, -total / 2 + 0.5, 0, total / 2 - 0.5, total / 2],
+    [-2, -1, 0, 1, 2],
     [0, 1, 1, 1, 0]
   );
+
   const zIndex = useTransform(offset, (o) =>
     Math.round(100 - Math.abs(o) * 10)
   );
