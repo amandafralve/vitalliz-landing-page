@@ -54,10 +54,12 @@ export function Hero() {
                                 iconPosition="right" 
                                 color="whiteAnimated" 
                                 text="Ver Projeto Nitrusleaf" 
+                                size="lg"
                             />
                             <Button 
                                 color="transparent" 
-                                text="Entre em contato" 
+                                text="Entre em contato"
+                                size="lg"
                             />
                         </footer>
                     </div>

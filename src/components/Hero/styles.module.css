@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
+    gap: var(--gap-lg);
     max-width: 850px;
 }
 
@@ -73,13 +73,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
+    gap: var(--gap-lg);
 }
 
 .heroTitle {
     color: #ffffff;
     font-family: var(--font-title);
-    font-size: clamp(5rem, 4vw, 3.8rem); 
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
     line-height: 1.12;
     letter-spacing: -0.01em;
     text-align: left;
@@ -90,7 +90,7 @@
 
 .heroText {
     color: var(--subtext-light); 
-    font-size: clamp(1.2rem, 1.1vw, 1.1rem);
+    font-size: clamp(1rem, 1.1vw, 1.15rem);
     font-weight: 400; 
     line-height: 1.6;
     max-width: 640px;
@@ -102,32 +102,72 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--gap-sm);
     padding: 0;
     margin-top: 1.6rem;
 }
 
 /* Responsividade */
-@media (max-width: 600px) {
+
+/* Tablet: ainda usa vw dentro de faixas mais previsíveis de largura
+   (641px–1150px), então o risco de valores quebrados é bem menor aqui. */
+@media (max-width: 1150px) {
+    .heroContent {
+        max-width: 100%;
+        gap: var(--gap-md);
+    }
+
+    .heroBody {
+        gap: var(--gap-md);
+    }
+
     .heroTitle {
+        font-size: clamp(2.1rem, 4.5vw, 2.75rem);
+        max-width: 18ch;
+    }
+
+    .heroText {
+        font-size: 1rem;
+        max-width: 520px;
+    }
+
+    .buttonsDiv {
+        margin-top: var(--gap-md);
+    }
+}
+
+/* Mobile: nenhuma regra usa vw aqui. Telas muito estreitas (dobráveis,
+   Android antigos, etc.) não têm risco de o texto ficar menor que o previsto. */
+@media (max-width: 640px) {
+    .hero {
+        justify-content: center;
+        padding: var(--hero-padding-mobile) 0;
+    }
+
+    .heroPhrase {
+        font-size: var(--font-badge-mobile);
+    }
+
+    .heroTitle {
+        font-size: var(--font-title-mobile);
+        max-width: 100%;
+    }
+
+    .heroText {
         max-width: 100%;
     }
 
     .badgeWrapper {
         flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        justify-content: center;
+        gap: var(--gap-xs);
     }
 
     .buttonsDiv {
         width: 100%;
         flex-direction: column;
         align-items: stretch;
+        gap: var(--gap-sm);
+        margin-top: var(--gap-sm);
     }
 
     .buttonsDiv > * {

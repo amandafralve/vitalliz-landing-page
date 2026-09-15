@@ -38,4 +38,15 @@
     --nav-transparent-underline-glow: rgba(255, 255, 255, 0.5);
     --nav-mobile-menu-bg: rgba(1, 21, 44, 0.95);
     --border-light-faint: rgba(255, 255, 255, 0.08);
+
+    /* Spacing (compartilhado entre componentes) */
+    --gap-xs: 0.5rem;
+    --gap-sm: 1rem;
+    --gap-md: 1.5rem;
+    --gap-lg: 2rem;
+
+    /* Hero — valores fixos para mobile, sem vw */
+    --hero-padding-mobile: 2.75rem;
+    --font-badge-mobile: 0.85rem;
+    --font-title-mobile: 2rem;
 }
