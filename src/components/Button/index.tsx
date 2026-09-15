@@ -5,7 +5,7 @@ type ButtonProps = {
     iconPosition?: "left" | "right";
     text: string;
     color?: "blue" | "blueSimple" | "white"| "whiteAnimated" | "transparent" | "language";
-    size?: "sm" | "md" | "lg";
+    size?: "sm" | "md" | "mdTwo" | "lg";
 } & React.ComponentProps<'button'>
 
 export function Button({ 

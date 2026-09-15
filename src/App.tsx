@@ -8,6 +8,7 @@ import './styles/global.css'
 import './styles/theme.css'
 import { Problem } from "./components/Problem"
 import { Development } from "./components/Development"
+import { Contact } from "./components/Contact"
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Development />
       <About />
       <Team />
+      <Contact />
       <Footer />
     </>
   )

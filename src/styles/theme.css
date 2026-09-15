@@ -6,6 +6,7 @@
     --background-nav: #F3F3F3;
     --background-nav-transparent: #f3f3f3e5;
     --background-vitalliz: #F3F3F3;
+    --background-blue:  #05223D;
     --background-light-blue: rgb(233, 233, 243);
     --background-gradient: linear-gradient(90deg, #1585C4 0%, #31803A 100%);
     --overlay-gradient: linear-gradient(90deg, rgba(21, 133, 196, 0.8) 0%, rgba(49, 128, 58, 0.9) 100%);
@@ -19,6 +20,7 @@
     --text-dark: #282828;
     --subtext:  #696969;
     --subtext-light: rgba(255, 255, 255, 0.75);
+    --subtext-faint: rgba(243, 243, 243, 0.45);
     --text-light:  #F3F3F3;
 
     /* Buttons */
@@ -26,4 +28,8 @@
     --blueButtonBgHover: #4091c4;
     --whiteButtonBg: white;
     
+    
+    --border-dark: rgba(0, 0, 0, 0.363);
+    --border-light: rgba(243, 243, 243, 0.16); 
+    --background-blue-elevated: #0e3051;
 }

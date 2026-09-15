@@ -69,6 +69,7 @@ export function Navbar() {
                 <a href="#" onClick={closeMenu}>{t("nav.about")}</a>
                 <a href="#" onClick={closeMenu}>{t("nav.project")}</a>
                 <a href="#" onClick={closeMenu}>{t("nav.team")}</a>
+                <a href="#" onClick={closeMenu}>{t("nav.contact")}</a>
             </div>
 
             <div className={`${styles.buttonsNavbar} ${menuOpen ? styles.buttonsNavbarOpen : ""}`}>
