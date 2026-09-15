@@ -21,26 +21,26 @@
 
 /* Links no estado Transparente (Fundo escuro do Hero) */
 .navbarTransparent .linksNavbar a {
-    color: rgba(255, 255, 255, 0.85); /* Branco levemente suave para dar destaque ao hover */
+    color: var(--nav-transparent-text);
     transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
 .navbarTransparent .linksNavbar a:hover {
-    color: #FFFFFF;
-    text-shadow: 0 0 0.5px #FFFFFF, 0 0 0.5px #FFFFFF;
+    color: var(--white);
+    text-shadow: 0 0 0.5px var(--white), 0 0 0.5px var(--white);
 }
 
 /* Linha inferior (sublinhado) em BRANCO */
 .navbarTransparent .linksNavbar a::after {
-    background-color: #FFFFFF;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); 
+    background-color: var(--white);
+    box-shadow: 0 0 8px var(--nav-transparent-underline-glow); 
 }
 
 /* Estado 2: Quando o usuário rola a página (Cores originais com fundo claro/fosco) */
 .navbarScrolled {
     backdrop-filter: blur(12px);
     background-color: var(--background-nav-transparent);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--border-light-faint);
 }
 
 .navbarScrolled .linksNavbar a {
@@ -65,7 +65,7 @@
     display: none;
     background: none;
     border: none;
-    color: #FFFFFF;
+    color: var(--white);
     cursor: pointer;
     padding: 0.25rem;
 }
@@ -116,6 +116,13 @@
     align-items: center;
     justify-content: flex-end;
     gap: clamp(0.5rem, 2vw, 1.8rem);
+}
+
+/* Faixa intermediária: entre 1200 e 1600px o padding de 20% aperta demais o conteúdo */
+@media (max-width: 1600px) and (min-width: 1160px) {
+    .navbar {
+        padding: 1rem 6%;
+    }
 }
 
 /* Responsividade Mobile / Tablet */
@@ -169,7 +176,7 @@
     }
     
     .navbarTransparent:has(.linksNavbarOpen) {
-        background-color: rgba(1, 21, 44, 0.95);
+        background-color: var(--nav-mobile-menu-bg);
         backdrop-filter: blur(10px);
     }
 }

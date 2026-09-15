@@ -28,8 +28,14 @@
     --blueButtonBgHover: #4091c4;
     --whiteButtonBg: white;
     
-    
     --border-dark: rgba(0, 0, 0, 0.363);
     --border-light: rgba(243, 243, 243, 0.16); 
     --background-blue-elevated: #0e3051;
+
+    /* Navbar */
+    --white: #FFFFFF;
+    --nav-transparent-text: rgba(255, 255, 255, 0.85);
+    --nav-transparent-underline-glow: rgba(255, 255, 255, 0.5);
+    --nav-mobile-menu-bg: rgba(1, 21, 44, 0.95);
+    --border-light-faint: rgba(255, 255, 255, 0.08);
 }

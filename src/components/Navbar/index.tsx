@@ -2,7 +2,12 @@ import { Boxes, Languages, Menu, X } from "lucide-react";
 import { Button } from "../Button";
 import styles from "./styles.module.css";
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
+
+// Subscribe vazio: esse "external store" nunca muda depois de montado,
+// então não precisamos nos inscrever em nada de verdade.
+const emptySubscribe = () => () => {};
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);    
@@ -10,7 +15,15 @@ export function Navbar() {
     const { t, i18n } = useTranslation();
     const isPt = i18n.language?.toLowerCase().startsWith("pt");
 
-    const isTransparent = !isScrolled && !menuOpen;
+    // Retorna true no client (depois de hidratado) e false no server,
+    // sem precisar de useEffect + setState.
+    const mounted = useSyncExternalStore(
+        emptySubscribe,
+        () => true,   // client snapshot
+        () => false   // server snapshot
+    );
+
+    const isTransparent = !isScrolled;
     const logoSrc = isTransparent ? "/vitallizLogoWhite.svg" : "/vitallizLogo.svg";
 
     const toggleLanguage = () => {
@@ -42,15 +55,28 @@ export function Navbar() {
     }, []);
 
     useEffect(() => {
-        document.body.style.overflow = menuOpen ? "hidden" : "";
+        if (!menuOpen) return;
+
+        const scrollY = window.scrollY;
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = "0";
+        document.body.style.right = "0";
+        document.body.style.width = "100%";
+
         return () => {
-            document.body.style.overflow = "";
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.left = "";
+            document.body.style.right = "";
+            document.body.style.width = "";
+            window.scrollTo(0, scrollY);
         };
     }, [menuOpen]);
 
     const navbarClass = `${styles.navbar} ${isScrolled ? styles.navbarScrolled : styles.navbarTransparent}`;
 
-    return (
+    const navbarContent = (
         <nav className={navbarClass}>
             <div className={styles.navbarTop}>
                 <img src={logoSrc} alt="Logo Vitaliz" />
@@ -84,4 +110,7 @@ export function Navbar() {
             </div>
         </nav>
     );
+
+    if (!mounted) return null;
+    return createPortal(navbarContent, document.body);
 }
