@@ -21,7 +21,7 @@
 .brand {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem;
+    margin-bottom: var(--gap-sm);
     gap: 0.8rem;
 }
 
@@ -51,7 +51,7 @@
     font-weight: bold;
     color: var(--text-dark);
     opacity: 0.75;
-    margin-bottom: 16px;
+    margin-bottom: var(--gap-sm);
     line-height: 1.5;
 }
 
@@ -59,19 +59,20 @@
     color: var(--text-dark);
     opacity: 0.85;
     line-height: 1.6;
-    margin-bottom: 32px;
+    margin-bottom: var(--gap-lg);
 }
 
 .secondaryButtons {
     display: flex;
+    flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: var(--gap-sm);
     width: 100%;
     padding-bottom: 0.6rem;
 }
 
 .secondaryButtons > * {
-    flex: 1;
+    flex: 1 1 140px;
     width: 100%;
 }
 
@@ -86,13 +87,42 @@
 }
 
 /* Responsividade */
-@media (max-width: 900px) {
+
+/* Tablet */
+@media (max-width: 1150px) {
     .projectBg {
-        padding: 4rem 0;
+        padding: 4.5rem 0;
     }
 
     .project {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: var(--gap-xl);
+    }
+
+    .right {
+        order: -1;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .projectBg {
+        padding: 3.5rem 0;
+    }
+
+    .project {
+        gap: var(--gap-lg);
+    }
+
+    .brand h1 {
+        font-size: var(--font-section-title-mobile);
+    }
+
+    .description {
+        margin-bottom: var(--gap-md);
+    }
+
+    .secondaryButtons {
+        margin-bottom: var(--gap-sm);
     }
 }

@@ -69,7 +69,7 @@
 .stepHeading {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--gap-sm);
     margin-bottom: 1.4rem;
 }
 
@@ -116,7 +116,7 @@
 .statBlock {
     display: flex;
     align-items: baseline;
-    gap: 0.5rem;
+    gap: var(--gap-xs);
     margin: 1.6rem 0 1.4rem;
 }
 
@@ -141,7 +141,7 @@
     margin: 0.6rem 0 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--gap-sm);
 }
 
 .checklist li {
@@ -195,7 +195,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
-    margin-top: 1.5rem;
+    margin-top: var(--gap-md);
 }
 
 .researchColumn {
@@ -261,7 +261,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--gap-sm);
 }
 
 .personaCard:last-child {
@@ -271,7 +271,7 @@
 .personaHeader {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--gap-sm);
 }
 
 .personaAvatar {
@@ -308,42 +308,57 @@
 
 /* RESPONSIVO */
 
-@media (max-width: 900px) {
+/* Tablet: o layout INTERNO do card empilha (imagem em cima do texto) e
+   o grid de pesquisa/personas vira coluna única. O efeito de scroll-stack
+   continua ativo aqui — só a estrutura do card muda, não a animação. */
+@media (max-width: 1150px) {
+    .projectBg {
+        padding: 4.5rem 0 6rem;
+    }
+
     .card {
         grid-template-columns: 1fr;
         width: 100%;
         min-height: auto;
     }
+
     .cardImage {
-        min-height: 200px;
+        min-height: 220px;
         order: -1;
     }
+
     .cardContent {
-        padding: 2rem;
+        padding: var(--gap-lg);
     }
+
     .researchContent {
-        padding: 2rem;
+        padding: var(--gap-lg);
     }
+
     .researchGrid {
         grid-template-columns: 1fr;
         gap: 1.8rem;
     }
 }
 
-@media (max-width: 600px) {
+/* Mobile: além dos ajustes de espaçamento, o ScrollStack (ver
+   mobileBreakpoint no componente) desativa o pin/escala/blur — os
+   cards aqui renderizam em fluxo normal, sem precisar do "colchão"
+   de scroll extra que o padding assimétrico do desktop reservava. */
+@media (max-width: 640px) {
     .projectBg {
-        padding: 4rem 0 6rem;
+        padding: var(--section-padding-mobile) 0;
     }
 
-    .rightHeader {
-        margin-bottom: 2.5rem;
+    .header {
+        margin-bottom: var(--gap-lg);
     }
 
-    .rightHeader h2 {
-        font-size: 1.8rem;
+    .header h1 {
+        font-size: var(--font-section-title-mobile);
     }
 
-    .rightHeader p {
+    .header p {
         font-size: 0.9rem;
     }
 
@@ -352,11 +367,11 @@
     }
 
     .cardContent {
-        padding: 1.5rem;
+        padding: var(--gap-md);
     }
 
     .researchContent {
-        padding: 1.5rem;
+        padding: var(--gap-md);
     }
 
     .stepHeading h3 {
@@ -372,6 +387,6 @@
     }
 
     .personaCard {
-        padding: 1rem;
+        padding: var(--gap-sm);
     }
 }

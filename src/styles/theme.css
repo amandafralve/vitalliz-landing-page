@@ -44,9 +44,17 @@
     --gap-sm: 1rem;
     --gap-md: 1.5rem;
     --gap-lg: 2rem;
+    --gap-xl: 3rem;
 
     /* Hero — valores fixos para mobile, sem vw */
     --hero-padding-mobile: 2.75rem;
     --font-badge-mobile: 0.85rem;
     --font-title-mobile: 3rem;
+
+    /* Título de seção (h1) no mobile — sem vw, compartilhado entre seções */
+    --font-section-title-mobile: 2rem;
+
+    /* Padding vertical de seção no mobile — mesmo valor que Problem e
+       Project já usavam fixo (3.5rem); agora como variável compartilhada */
+    --section-padding-mobile: 3.5rem;
 }

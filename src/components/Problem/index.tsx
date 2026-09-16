@@ -18,7 +18,7 @@ export function Problem() {
                         greening na plantação.
                     </p>
                     <div>
-                        <h5>Dificuldades identificadas</h5>
+                        <h5 className={styles.groupLabel}>Dificuldades identificadas</h5>
                         <div className={styles.solutionBlock}>
                             <div className={styles.cardGrid}>
                                 <div className={styles.cardObj}>

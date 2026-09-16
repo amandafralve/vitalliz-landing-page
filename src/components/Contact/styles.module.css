@@ -89,13 +89,58 @@
     align-self: flex-start;
 }
 
-@media (max-width: 768px) {
+/* Tablet: intro e formulário empilham antes de espremer o grid 1fr 1.3fr */
+@media (max-width: 1150px) {
     .contact {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: var(--gap-xl);
+    }
+
+    .contactText {
+        max-width: none;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .contactBg {
+        padding: var(--section-padding-mobile) 0;
+    }
+
+    .contact {
+        gap: var(--gap-lg);
+    }
+
+    .contactTitle {
+        font-size: var(--font-section-title-mobile);
+        max-width: none;
+    }
+
+    .contactText {
+        font-size: 0.95rem;
+    }
+
+    .contactForm {
+        gap: var(--gap-md);
     }
 
     .formRow {
         grid-template-columns: 1fr;
+        gap: var(--gap-sm);
+    }
+
+    .formField input,
+    .formField textarea {
+        padding: 0.75rem 0.85rem;
+        font-size: 0.95rem;
+    }
+
+    .formActions {
+        width: 100%;
+    }
+
+    .formActions > * {
+        width: 100%;
+        justify-content: center;
     }
 }

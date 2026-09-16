@@ -7,10 +7,10 @@
 
 .footer {
     margin-inline: 20%;
-    padding-top: 24px;
+    padding-top: var(--gap-md);
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--gap-md);
     font-size: 13px;
     line-height: 1.5;
 }
@@ -19,7 +19,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 18px;
+    gap: var(--gap-sm);
     flex-wrap: wrap;
 }
 
@@ -43,7 +43,7 @@
 
 .footerLinks {
     display: flex;
-    gap: 12px;
+    gap: var(--gap-xs);
     flex-wrap: wrap;
 }
 
@@ -68,15 +68,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
+    gap: var(--gap-sm);
     flex-wrap: wrap;
-    padding-top: 16px;
-    
+    padding-top: var(--gap-sm);
 }
 
 .socialLinks {
     display: flex;
-    gap: 10px;
+    gap: var(--gap-xs);
 }
 
 .socialLinks a {
@@ -114,11 +113,37 @@
     text-decoration: underline;
 }
 
-/* mobile: empilha tudo, alinhado à esquerda */
+/* Tablet: a margem de 20% fica estreita demais; usa o padding lateral padrão do site */
+@media (max-width: 1024px) {
+    .footer {
+        margin-inline: var(--page-padding-tablet);
+    }
+}
+
+/* Mobile: empilha tudo, alinhado à esquerda, com padding lateral do site */
 @media (max-width: 640px) {
+    .footerBg {
+        padding: var(--gap-lg) 0 var(--gap-md);
+    }
+
+    .footer {
+        margin-inline: var(--page-padding-mobile);
+        gap: var(--gap-sm);
+    }
+
     .footerTop,
     .footerBottom {
         flex-direction: column;
         align-items: flex-start;
+        gap: var(--gap-sm);
+    }
+
+    .footerBottom {
+        padding-top: var(--gap-xs);
+    }
+
+    .footerLinks a {
+        font-size: 12px;
+        padding: 7px 9px;
     }
 }

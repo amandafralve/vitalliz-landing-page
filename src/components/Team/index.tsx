@@ -62,10 +62,11 @@ export function Team() {
                                     alt={`Foto de ${member.name}`}
                                     className={styles.memberPhoto}
                                 />
-                                <h3 className={styles.memberName}>{member.name}</h3>
-                                <p className={styles.memberRole}>{member.role}</p>
-
-                                <div>
+                                <div className={styles.memberInfo}>
+                                    <h3 className={styles.memberName}>{member.name}</h3>
+                                    <p className={styles.memberRole}>{member.role}</p>
+                                </div>
+                                <div className={styles.memberFooter}>
                                     <div className={styles.memberSocials}>
                                         {member.github && (
                                             <a href={member.github} target="_blank" rel="noopener noreferrer" aria-label={`Github de ${member.name}`}>
