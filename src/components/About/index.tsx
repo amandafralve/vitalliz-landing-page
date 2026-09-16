@@ -6,7 +6,7 @@ import { Cpu, Lightbulb, Leaf } from 'lucide-react';
 export function About() {
     return (
         <Container>
-            <div className={styles.containerAbout}>
+            <div id='about' className={styles.containerAbout}>
                 <h1>Sobre nós</h1>
 
                 <div className={styles.aboutUs}>

@@ -14,3 +14,11 @@ html, body, #root {
     scrollbar-gutter: stable;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+section, div {
+    scroll-margin-top: 100px;
+}
+

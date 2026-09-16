@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 
 export function Hero() {
     return (
-        <section className={styles.hero}>
+        <section id="home" className={styles.hero}>
             <GradientWaves
                 className={styles.heroBackground}
                 horizonColor="#1585C4"
@@ -55,11 +55,17 @@ export function Hero() {
                                 color="whiteAnimated" 
                                 text="Ver Projeto Nitrusleaf" 
                                 size="md"
+                                onClick={() => {
+                                    window.location.hash = "project";
+                                }}
                             />
                             <Button 
                                 color="transparent" 
                                 text="Entre em contato"
                                 size="md"
+                                onClick={() => {
+                                    window.location.hash = "contact";
+                                }}
                             />
                         </footer>
                     </div>

@@ -4,10 +4,11 @@ import { MoveUpRight } from 'lucide-react';
 import { FaGithub, FaFigma } from "react-icons/fa";
 import CarouselMockup from '../CarouselMockup';
 import styles from './styles.module.css';
+import { links } from '../../constants/links'
 
 export function Project() {
     return (
-        <section className={styles.projectBg}>
+        <section id='project' className={styles.projectBg}>
             <Container>
                 <div className={styles.project}>
                     {/* Coluna Esquerda: Informações do Projeto */}
@@ -31,21 +32,24 @@ export function Project() {
                                 text="Repositório"
                                 color="white"
                                 size="md"
+                                onClick={() => window.open(links.project.github, "_blank")}
                             />
                             <Button
                                 icon={<FaFigma />}
                                 text="Protótipo"
                                 color="white"
                                 size="md"
+                                onClick={() => window.open(links.project.figma, "_blank")}
                             />
                         </div>
                         
                         <Button
-                        icon={<MoveUpRight />}
-                        iconPosition="right"
-                        text="Conhecer Produto"
-                        color="blue"
-                        size="md"
+                            icon={<MoveUpRight />}
+                            iconPosition="right"
+                            text="Conhecer Produto"
+                            color="blue"
+                            size="md"
+                            onClick={() => window.open(links.project.produto, "_blank")}
                         />
                     </div>
 

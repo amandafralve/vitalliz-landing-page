@@ -1,6 +1,7 @@
 import styles from './styles.module.css'
 import { Container } from '../Container';
 import { FaGithub, FaLinkedin, FaBehance, FaEnvelope } from "react-icons/fa";
+import { links } from '../../constants/links';
 
 type Member = {
     name: string;
@@ -17,40 +18,31 @@ const TEAM: Member[] = [
         name: "Amanda Vithória",
         role: "UI/UX & Desenvolvedora Front-End",
         image: "/img/team/AmandaFreitas.webp",
-        github: "https://github.com/amandafralve",
-        behance: "https://www.behance.net/amandafralve",
-        linkedin: "https://www.linkedin.com/in/amanda-fralve/",
-        email: "amanda.freitas12@aluno.cps.sp.gov.br",
+        ...links.team.amanda,
     },
     {
         name: "Lucas Gomes",
         role: "Desenvolvedor Back-end e Modelagem de Banco de Dados",
         image: "/img/team/LucasGomes.webp",
-        github: "https://github.com/ManoRokys",
-        linkedin: "https://www.linkedin.com/in/lucas-gomes-fagundes",
-        email: "lucas.fagundes@aluno.cps.sp.gov.br",
+        ...links.team.lucas,
     },
     {
         name: "Valéria de Freitas",
         role: "Desenvolvedora Back-end",
         image: "/img/team/ValeriaFreitas.webp",
-        github: "https://github.com/ValeriaDeFreitas",
-        linkedin: "https://www.linkedin.com/in/valeria-de-freitas/",
-        email: "valeria.freitas@aluno.cps.sp.gov.br",
+        ...links.team.valeria,
     },
     {
         name: "Juliano Rodrigues",
         role: "Inteligência Artificial e Análise de Dados",
         image: "/img/team/JulianoRodrigues.webp",
-        github: "https://github.com/jurodri",
-        linkedin: "https://www.linkedin.com/in/jurodri/",
-        email: "juliano.sales@aluno.cps.sp.gov.br",
+        ...links.team.juliano,
     },
 ];
 
 export function Team() {
     return (
-        <section className={styles.teamBg}>
+        <section id='team' className={styles.teamBg}>
             <Container>
                 <div className={styles.team}>
                     <h1 className={styles.teamTitle}>Nossa Equipe</h1>

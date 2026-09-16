@@ -91,15 +91,23 @@ export function Navbar() {
             </div>
 
             <div className={`${styles.linksNavbar} ${menuOpen ? styles.linksNavbarOpen : ""}`}>
-                <a href="#" onClick={closeMenu}>{t("nav.home")}</a>
-                <a href="#" onClick={closeMenu}>{t("nav.about")}</a>
-                <a href="#" onClick={closeMenu}>{t("nav.project")}</a>
-                <a href="#" onClick={closeMenu}>{t("nav.team")}</a>
-                <a href="#" onClick={closeMenu}>{t("nav.contact")}</a>
+                <a href="#home" onClick={closeMenu}>{t("nav.home")}</a>
+                <a href="#project" onClick={closeMenu}>{t("nav.project")}</a>
+                <a href="#about" onClick={closeMenu}>{t("nav.about")}</a>
+                <a href="#team" onClick={closeMenu}>{t("nav.team")}</a>
+                <a href="#contact" onClick={closeMenu}>{t("nav.contact")}</a>
             </div>
 
             <div className={`${styles.buttonsNavbar} ${menuOpen ? styles.buttonsNavbarOpen : ""}`}>
-                <Button icon={<Boxes />} text={t("nav.viewProjects")} color="blue" onClick={closeMenu} />
+                <Button
+                    icon={<Boxes />}
+                    text={t("nav.viewProject")}
+                    color="blue"
+                    onClick={() => {
+                        window.location.hash = "project";
+                        closeMenu();
+                    }}
+                />
                 <Button
                     icon={<Languages />}
                     text={isPt ? 'EN' : 'PT-BR'}
