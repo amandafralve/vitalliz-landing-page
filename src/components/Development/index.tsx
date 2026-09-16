@@ -106,57 +106,57 @@ const steps: StepData[] = [
   },
 
   {
-    number: '2',
-    title: 'Pré-processamento e aumento de dados',
-    icon: Settings2,
-    image: '/img/development/fundoMexerica.png',
-    subtitle: 'Padronização e Data Augmentation',
+      number: '2',
+      title: 'Pré-processamento e aumento de dados',
+      icon: Settings2,
+      image: '/img/development/fundoMexerica.png',
+      subtitle: 'Padronização e Data Augmentation',
 
-    paragraphs: [
-      'Padronizamos e redimensionamos todas as imagens coletadas para um formato único, garantindo consistência para o treinamento do modelo.',
-      'Aplicamos técnicas de data augmentation, como rotação, brilho e zoom, para simular condições reais de captura em campo.',
-    ],
+      paragraphs: [
+      'As imagens foram submetidas à correção automática de orientação e redimensionadas para 224 × 224 pixels, utilizando ajuste proporcional com preenchimento de bordas para preservar suas características visuais.',
+      'Durante o treinamento, aplicamos aumento de dados exclusivamente nas imagens de treino, gerando três variações sintéticas por imagem com inversão horizontal, rotação, alterações de saturação, brilho e exposição.',
+      ],
 
-    checklist: [
-      'Imagens padronizadas e redimensionadas',
-      'Simulação de condições reais de captura',
-      'Base de dados ampliada artificialmente',
-    ],
+      checklist: [
+      'Imagens padronizadas em 224 × 224 pixels',
+      'Normalização dos valores dos pixels',
+      'Aumento de dados com variações de captura',
+      ],
   },
 
-  {
-    number: '3',
-    title: 'Treinamento do modelo',
-    icon: BrainCircuit,
-    image: '/img/development/fundoMexerica.png',
-    subtitle: 'Rede Neural Convolucional',
+    {
+      number: '3',
+      title: 'Treinamento do modelo',
+      icon: BrainCircuit,
+      image: '/img/development/fundoMexerica.png',
+      subtitle: 'Rede Neural Convolucional',
 
-    paragraphs: [
-      'Desenvolvemos uma rede neural convolucional com três blocos convolucionais, responsáveis por extrair as características visuais das folhas.',
-      'O treinamento utilizou Early Stopping para interromper o processo no momento ideal, evitando overfitting e preservando a generalização do modelo.',
-    ],
+      paragraphs: [
+        'Desenvolvemos uma Rede Neural Convolucional composta por três blocos convolucionais, com 32, 64 e 128 filtros, responsáveis por extrair características visuais das folhas em diferentes níveis de complexidade.',
+        'O modelo utiliza uma camada densa com 512 neurônios e Dropout de 50%. O treinamento foi realizado com o otimizador Adam, função de perda binary crossentropy e Early Stopping com paciência de 10 épocas.',
+      ],
 
-    checklist: [
-      'Arquitetura com 3 blocos convolucionais',
-      'Early Stopping para evitar overfitting',
-      'Ajuste fino de hiperparâmetros',
-    ],
-  },
+      checklist: [
+        'Arquitetura com 3 blocos convolucionais',
+        'Dropout de 50% para reduzir overfitting',
+        'Early Stopping para selecionar o melhor desempenho',
+      ],
+    },
 
-  {
-    number: '4',
-    title: 'Validação',
-    icon: ScanSearch,
-    image: '/img/development/fundoMexerica.png',
-    subtitle: 'Teste do protótipo',
+    {
+      number: '4',
+      title: 'Validação',
+      icon: ScanSearch,
+      image: '/img/development/fundoMexerica.png',
+      subtitle: 'Avaliação do modelo',
 
-    paragraphs: [
-      'Testamos o modelo com um conjunto de imagens nunca vistas durante o treinamento, avaliando sua real capacidade de generalização.',
-      'Os resultados confirmaram que o modelo identifica corretamente diferentes estágios de deficiência nutricional nas folhas.',
-    ],
+      paragraphs: [
+        'Após o treinamento, o modelo foi avaliado com um conjunto de teste formado por 25 imagens que não participaram das etapas de treinamento ou validação.',
+        'O modelo alcançou 95,97% de acurácia no conjunto de teste, demonstrando capacidade de distinguir folhas saudáveis de folhas com deficiência de manganês em imagens inéditas.',
+      ],
 
-    stat: '95,97%',
-    statLabel: 'de acurácia',
+      stat: '95,97%',
+      statLabel: 'de acurácia no teste',
   },
 
   {
@@ -164,17 +164,17 @@ const steps: StepData[] = [
     title: 'Protótipo funcional',
     icon: Smartphone,
     image: '/img/development/fundoMexerica.png',
-    subtitle: 'Aplicativo Mobile + API',
+    subtitle: 'Aplicativo Mobile',
 
     paragraphs: [
-      'Desenvolvemos um aplicativo mobile integrado a uma API que recebe a imagem da folha e processa o diagnóstico em tempo real.',
-      'O produtor recebe o resultado diretamente no celular, com recomendações práticas para o manejo da deficiência identificada.',
+    'Desenvolvemos um aplicativo mobile capaz de analisar imagens de folhas de Citrus reticulata e identificar sinais de deficiência de manganês por meio do modelo de Inteligência Artificial.',
+    'A solução foi projetada para oferecer ao produtor um diagnóstico preliminar de forma rápida e acessível, diretamente pelo celular, a partir de uma imagem da folha.',
     ],
 
     checklist: [
-      'Diagnóstico em tempo real',
-      'Integração via API',
-      'Interface simples para o produtor',
+    'Aplicativo exclusivo para dispositivos móveis',
+    'Análise de imagens por Inteligência Artificial',
+    'Diagnóstico preliminar de deficiência de manganês',
     ],
   },
 ];

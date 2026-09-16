@@ -120,6 +120,10 @@
 
     .description {
         margin-bottom: var(--gap-md);
+        width: 100%;
+        text-align: justify;
+        text-align-last: left;
+        hyphens: auto;
     }
 
     .secondaryButtons {

@@ -356,6 +356,7 @@
 
     .header h1 {
         font-size: var(--font-section-title-mobile);
+        text-align: center;
     }
 
     .header p {

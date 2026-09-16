@@ -1,15 +1,27 @@
 .carousel {
-    max-width: 420px;
+    width: 100%;
+    height: 100%;
+    min-height: inherit; /* ajuda a propagar caso algum navegador quebre o % */
     border-radius: 1.2rem;
     overflow: hidden;
     box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.carousel :global(.carousel-inner),
+.carousel :global(.carousel-item) {
+    height: 100%;
+    min-height: 100%;
+    position: relative;
 }
 
 .carouselImage {
-    display: block;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: 280px;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .carouselCaptionCustom {
@@ -18,6 +30,7 @@
     bottom: 0.8rem;
     text-align: left;
     padding: 0;
+    z-index: 2;
 }
 
 .carouselCaptionCustom h5 {

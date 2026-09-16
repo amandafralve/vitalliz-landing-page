@@ -70,7 +70,7 @@ export function Navbar() {
             document.body.style.left = "";
             document.body.style.right = "";
             document.body.style.width = "";
-            window.scrollTo(0, scrollY);
+            window.scrollTo({ top: scrollY, left: 0, behavior: "instant" });
         };
     }, [menuOpen]);
 

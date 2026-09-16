@@ -1,23 +1,11 @@
 .containerAbout {
     padding: 8rem 0;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     gap: var(--gap-xl);
 }
 
-.aboutUs {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    color: var(--text-dark);
-    gap: var(--gap-lg);
-    flex-shrink: 0;
-}
-
-.aboutUs h1 {
+.containerAbout > h1 {
     font-family: var(--font-title);
     font-size: clamp(2rem, 5vw, 3.2rem);
     color: var(--text-dark);
@@ -25,16 +13,40 @@
     margin: 0;
 }
 
-.aboutUs p {
-    max-width: 550px;
+.aboutUs {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* faz as duas colunas terem a mesma altura */
+    gap: 2rem;
+    color: var(--text-dark);
+}
+
+.aboutUsContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--gap-lg);
+    flex: 0 0 56%; /* controla a largura da coluna esquerda */
+    min-width: 0;
+}
+
+.aboutUs > p,
+.aboutUsContent > p {
     line-height: 1.6;
     margin: 0;
+    max-width: 100%;
 }
 
 .objectiveBlock {
     display: flex;
     flex-direction: column;
     gap: var(--gap-md);
+}
+
+.carouselWrapper {
+    flex: 1; /* ocupa o espaço restante (44%) */
+    min-width: 0;
+    align-self: stretch;
 }
 
 .objectiveBlock h2 {
@@ -47,22 +59,26 @@
     color: var(--blueButtonBg);
     margin-bottom: 0.6rem;
 }
+
 .cardGrid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(140px, 200px));
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
     gap: var(--gap-sm);
 }
-.cardTitle{
+
+.cardTitle {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 0.6rem;
 }
+
 .cardObj {
     text-align: left;
     background-color: var(--text-light);
     display: flex;
     flex-direction: column;
-    align-items: stretch;   
+    align-items: stretch;
     border-radius: 1rem;
     padding: 1.6rem;
     gap: var(--gap-sm);
@@ -74,25 +90,23 @@
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
+
 .cardObj h5 {
     font-size: 0.95rem;
     font-weight: 700;
     margin: 0 0 0.4rem 0;
     color: var(--text-dark);
 }
+
 .cardObj p {
-    font-size: 0.78rem;
+    font-size: 1rem;
     line-height: 1.4;
     margin: 0;
     color: var(--font-color);
-}
-
-.containerAbout img {
     width: 100%;
-    max-width: 420px;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
 }
 
 /* Responsividade */
@@ -101,9 +115,24 @@
 @media (max-width: 1150px) {
     .containerAbout {
         padding: 5.5rem 0;
-        flex-direction: column;
-        align-items: flex-start;
         gap: var(--gap-xl);
+    }
+
+    .aboutUs {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .aboutUsContent {
+        flex: none;
+    }
+
+    .carouselWrapper {
+        flex: none;      /* importante: remove o flex:1 herdado */
+        width: 100%;
+        height: 340px;
+        min-height: 340px; /* fallback caso height % falhe em algum pai */
     }
 
     .cardGrid {
@@ -112,23 +141,22 @@
     }
 }
 
-/* Mobile */
 @media (max-width: 640px) {
     .containerAbout {
         padding: var(--section-padding-mobile) 0;
         gap: var(--gap-lg);
     }
 
-    .aboutUs {
+    .containerAbout > h1 {
+        font-size: var(--font-section-title-mobile);
+    }
+
+    .aboutUsContent {
         gap: var(--gap-md);
         width: 100%;
     }
 
-    .aboutUs h1 {
-        font-size: var(--font-section-title-mobile);
-    }
-
-    .aboutUs p {
+    .aboutUsContent > p {
         width: 100%;
         max-width: 100%;
         text-align: justify;
@@ -144,5 +172,12 @@
     .cardGrid {
         grid-template-columns: 1fr;
         max-width: 100%;
+    }
+
+    .carouselWrapper {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3; /* altura calculada pela largura, sem depender de % herdado */
+        min-height: 260px;
     }
 }
