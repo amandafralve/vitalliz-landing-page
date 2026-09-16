@@ -2,6 +2,9 @@
     background: var(--background-blue);
     padding: 3rem 0;
     position: relative;
+    /* Rede de segurança: mesmo com os limites corrigidos abaixo, garante
+       que nada aqui force scroll horizontal na página inteira. */
+    overflow-x: hidden;
 }
 
 .team {
@@ -33,6 +36,12 @@
     border-radius: 1rem;
     padding: 1.25rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    /* Sem isso, o card (como item da grid .teamGrid) pode assumir uma
+       largura mínima automática baseada no min-content dos seus filhos
+       (o e-mail com nowrap, por exemplo), estourando a trilha da grid
+       e vazando a seção pra direita. */
+    min-width: 0;
+    width: 100%;
 }
 
 .memberCard:hover {
@@ -48,6 +57,11 @@
     object-fit: cover;
     border-radius: 0.75rem;
     margin-bottom: var(--gap-sm);
+}
+
+.memberInfo {
+    width: 100%;
+    min-width: 0;
 }
 
 .memberName {
@@ -67,12 +81,18 @@
     margin: 0 0 1.4rem 0;
 }
 
+.memberFooter {
+    width: 100%;
+    min-width: 0;
+}
 
 .memberEmail {
     display: flex;
     justify-content: center;
     margin-top: 0.9rem;
+    width: 100%;
     max-width: 100%;
+    min-width: 0;
 }
 
 .memberEmail a {
@@ -80,6 +100,7 @@
     align-items: center;
     gap: 0.4rem;
     max-width: 100%;
+    min-width: 0;
     padding: 0.4rem 0.9rem;
     border-radius: 5rem;
     background: var(--text-light);
@@ -97,6 +118,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    min-width: 0;
 }
 
 .memberEmail a svg {
@@ -154,7 +176,6 @@
 }
 
 /* Mobile */
-/* Mobile */
 @media (max-width: 640px) {
     .teamBg {
         padding: var(--section-padding-mobile) 0;
@@ -203,7 +224,6 @@
         justify-content: center;
         gap: 0.3rem;
         padding-top: 0.4rem;
-        min-width: 0;
     }
 
     .memberName {
