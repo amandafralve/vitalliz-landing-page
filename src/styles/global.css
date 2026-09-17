@@ -1,24 +1,24 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
     width: 100%;
-    min-height: 100vh; 
-    max-width: 100vw;
+    min-height: 100vh;
     font-family: 'Roboto';
     color: var(--font-color);
-    overflow-x: clip;
-    scrollbar-gutter: stable;
+    overflow-x: hidden;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-section, div {
+section,
+div {
     scroll-margin-top: 100px;
 }
-

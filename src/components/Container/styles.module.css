@@ -7,16 +7,18 @@
     margin: 0;
 }
 
-/* tablet: reduz a margem percentual pra não perder espaço útil de conteúdo */
+/* tablet */
 @media (max-width: 1024px) {
     .container {
-        margin-inline: 8%;
+        margin-inline: 3.6rem;
+        padding-inline: 0.6rem;
     }
 }
 
-/* mobile: troca percentual por valor fixo, garantindo respiro mínimo previsível */
+/* mobile */
 @media (max-width: 640px) {
     .container {
-        margin-inline: 1.25rem; 
+        margin-inline: 1rem;
+        padding-inline: 1.25rem;
     }
 }

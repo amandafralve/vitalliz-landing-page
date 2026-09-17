@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
-// Subscribe vazio: esse "external store" nunca muda depois de montado,
-// então não precisamos nos inscrever em nada de verdade.
 const emptySubscribe = () => () => {};
 
 export function Navbar() {
@@ -15,8 +13,6 @@ export function Navbar() {
     const { t, i18n } = useTranslation();
     const isPt = i18n.language?.toLowerCase().startsWith("pt");
 
-    // Retorna true no client (depois de hidratado) e false no server,
-    // sem precisar de useEffect + setState.
     const mounted = useSyncExternalStore(
         emptySubscribe,
         () => true,   // client snapshot
@@ -104,8 +100,13 @@ export function Navbar() {
                     text={t("nav.viewProject")}
                     color="blue"
                     onClick={() => {
-                        window.location.hash = "project";
                         closeMenu();
+
+                        setTimeout(() => {
+                            document.getElementById("project")?.scrollIntoView({
+                                block: "start",
+                            });
+                        }, 50);
                     }}
                 />
                 <Button

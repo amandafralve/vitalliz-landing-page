@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    padding: 1rem 20%;
+    padding: 1rem 15%;
     width: 100%;
     box-sizing: border-box;
     transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
@@ -30,13 +30,12 @@
     text-shadow: 0 0 0.5px var(--white), 0 0 0.5px var(--white);
 }
 
-/* Linha inferior (sublinhado) em BRANCO */
 .navbarTransparent .linksNavbar a::after {
     background-color: var(--white);
     box-shadow: 0 0 8px var(--nav-transparent-underline-glow); 
 }
 
-/* Estado 2: Quando o usuário rola a página (Cores originais com fundo claro/fosco) */
+/* Estado 2: Quando o usuário rola a página (Cores originais com fundo claro) */
 .navbarScrolled {
     backdrop-filter: blur(12px);
     background-color: var(--background-nav-transparent);
@@ -118,14 +117,11 @@
     gap: clamp(0.5rem, 2vw, 1.8rem);
 }
 
-/* Faixa intermediária: entre 1200 e 1600px o padding de 20% aperta demais o conteúdo */
-@media (max-width: 1600px) and (min-width: 1160px) {
+@media (max-width: 1400px) and (min-width: 1151px) {
     .navbar {
-        padding: 1rem 6%;
+        padding: 1rem 10%;
     }
 }
-
-/* Responsividade Mobile / Tablet */
 
 @media (max-width: 1150px) {
     .navbar {
