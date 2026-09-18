@@ -81,6 +81,30 @@
     }
 }
 
+/* De 1440px até 1600px: um pouco menor que o valor anterior (1050px) */
+@media (min-width: 1440px) {
+    .solutionBlock {
+        max-width: 1000px;
+    }
+
+    .cardGrid {
+        max-width: 1000px;
+        margin-inline: auto;
+    }
+}
+
+/* Acima de 1600px: mais largo */
+@media (min-width: 1600px) {
+    .solutionBlock {
+        max-width: 1200px;
+    }
+
+    .cardGrid {
+        max-width: 1200px;
+        margin-inline: auto;
+    }
+}
+
 .cardGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

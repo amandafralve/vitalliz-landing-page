@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-xl);
-    overflow-x: hidden;
 }
 
 .containerAbout > h1 {
@@ -17,7 +16,7 @@
 .aboutUs {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
+    align-items: stretch; /* faz as duas colunas terem a mesma altura */
     gap: 2rem;
     color: var(--text-dark);
 }
@@ -27,10 +26,11 @@
     flex-direction: column;
     justify-content: center;
     gap: var(--gap-lg);
-    flex: 0 0 50%;
+    flex: 0 0 56%; /* controla a largura da coluna esquerda */
     min-width: 0;
 }
 
+.aboutUs > p,
 .aboutUsContent > p {
     font-size: var(--font-text-size);
     line-height: 1.6;
@@ -42,12 +42,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-md);
-    width: 100%;
-    min-width: 0;
 }
 
 .carouselWrapper {
-    flex: 1; 
+    flex: 1; /* ocupa o espaço restante (44%) */
     min-width: 0;
     align-self: stretch;
 }
@@ -67,9 +65,8 @@
    linha de baixo e ocupa a largura toda, evitando colunas estreitas
    demais dentro dos 56% da coluna esquerda */
 .cardGrid {
-    --card-min-desktop: 170px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--card-min-desktop), 100%), 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--gap-sm);
 }
 
@@ -136,10 +133,10 @@
     }
 
     .carouselWrapper {
-        flex: none;   
+        flex: none;      /* importante: remove o flex:1 herdado */
         width: 100%;
         height: 340px;
-        min-height: 340px; 
+        min-height: 340px; /* fallback caso height % falhe em algum pai */
     }
 
     /* No tablet os cards voltam a 3 colunas (textos maiores acompanham
@@ -200,7 +197,7 @@
     .carouselWrapper {
         width: 100%;
         height: auto;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 4 / 3; /* altura calculada pela largura, sem depender de % herdado */
         min-height: 260px;
     }
 }

@@ -2,9 +2,6 @@
     background: var(--background-blue);
     padding: var(--gap-xl) 0;
     position: relative;
-    /* Rede de segurança: mesmo com os limites corrigidos abaixo, garante
-       que nada aqui force scroll horizontal na página inteira. */
-    overflow-x: hidden;
 }
 
 .team {
@@ -25,7 +22,9 @@
     gap: var(--gap-md);
 }
 
-/* Desktop */
+/* Desktop: limita a largura do grid e centraliza, deixando os cards
+   mais estreitos e com espaço "sobrando" nas laterais em vez de
+   esticar até a borda do Container */
 @media (min-width: 1151px) {
     .teamGrid {
         max-width: 900px;
@@ -46,12 +45,6 @@
     width: 100%;
     min-width: 0;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    /* Sem isso, o card (como item da grid .teamGrid) pode assumir uma
-       largura mínima automática baseada no min-content dos seus filhos
-       (o e-mail com nowrap, por exemplo), estourando a trilha da grid
-       e vazando a seção pra direita. */
-    min-width: 0;
-    width: 100%;
 }
 
 .memberCard:hover {
@@ -69,12 +62,8 @@
     margin: 0 auto var(--gap-sm);
 }
 
-/*  */
-.memberInfo {
-    width: 100%;
-    min-width: 0;
-}
-
+/* Base do bloco nome + cargo — sem isso, no desktop/tablet ele fica
+   sem largura definida (shrink-to-fit) dentro do flex column do card */
 .memberInfo {
     width: 100%;
     min-width: 0;
@@ -97,6 +86,9 @@
     margin: 0 0 1.4rem 0;
 }
 
+/* Base do bloco socials + email — mesma razão: precisa de largura
+   definida para o pill de email (max-width/width: 100%) ter contra
+   o que calcular a porcentagem */
 .memberFooter {
     width: 100%;
     min-width: 0;
@@ -183,14 +175,21 @@
     outline-offset: 2px;
 }
 
-@media (min-width: 1451px) {
+@media (min-width: 1151px) {
+    .teamGrid {
+        max-width: 900px;
+        margin-inline: auto;
+    }
+}
+
+@media (min-width: 1400px) {
     .teamGrid {
         max-width: none;
         margin-inline: 0;
     }
 }
-
 /* Responsividade */
+
 /* Tablet */
 @media (max-width: 1150px) {
     .teamGrid {
@@ -260,6 +259,7 @@
         justify-content: center;
         gap: 0.3rem;
         padding-top: 0.4rem;
+        min-width: 0;
     }
 
     .memberName {

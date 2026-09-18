@@ -113,10 +113,13 @@
     text-decoration: underline;
 }
 
-/* Tablet: a margem de 20% fica estreita demais; usa o padding lateral padrão do site */
-@media (max-width: 1024px) {
+@media (min-width: 1440px) {
+    .container {
+        margin-inline: 15%;
+    }
+
     .footer {
-        margin-inline: var(--page-padding-tablet);
+        margin-inline: 15%;
     }
 }
 
