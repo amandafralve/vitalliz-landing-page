@@ -10,7 +10,7 @@
 /* desktop grande: a partir de 1440px, margem um pouco menor que os 20% padrão */
 @media (min-width: 1440px) {
     .container {
-        margin-inline: 15%;
+        margin-inline: 20%;
     }
 }
 

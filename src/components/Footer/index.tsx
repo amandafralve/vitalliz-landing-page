@@ -18,10 +18,10 @@ export function Footer() {
                     </div>
 
                     <nav className={styles.footerLinks} aria-label="Links do rodapé">
-                        <a href="#inicio">Início</a>
-                        <a href="#sobre">Sobre</a>
-                        <a href="#projeto">Projeto</a>
-                        <a href="#equipe">Equipe</a>
+                        <a href="#home">Início</a>
+                        <a href="#project">Projeto</a>
+                        <a href="#about">Sobre</a>
+                        <a href="#team">Equipe</a>
                     </nav>
                 </div>
 
@@ -36,7 +36,7 @@ export function Footer() {
                         </a>
                     </div>
 
-                    <a href="#inicio" className={styles.backToTop}>
+                    <a href="#home" className={styles.backToTop}>
                         Voltar ao topo ↑
                     </a>
                 </div>

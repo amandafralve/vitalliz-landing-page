@@ -17,25 +17,25 @@ const TEAM: Member[] = [
     {
         name: "Amanda Vithória",
         role: "UI/UX & Desenvolvedora Front-End",
-        image: "/img/team/AmandaFreitas.webp",
+        image: "/img/Team/AmandaFreitas.webp",
         ...links.team.amanda,
     },
     {
         name: "Lucas Gomes",
         role: "Desenvolvedor Back-end e Modelagem de Banco de Dados",
-        image: "/img/team/LucasGomes.webp",
+        image: "/img/Team/LucasGomes.webp",
         ...links.team.lucas,
     },
     {
         name: "Valéria de Freitas",
         role: "Desenvolvedora Back-end",
-        image: "/img/team/ValeriaFreitas.webp",
+        image: "/img/Team/ValeriaFreitas.webp",
         ...links.team.valeria,
     },
     {
         name: "Juliano Rodrigues",
         role: "Inteligência Artificial e Análise de Dados",
-        image: "/img/team/JulianoRodrigues.webp",
+        image: "/img/Team/JulianoRodrigues.webp",
         ...links.team.juliano,
     },
 ];

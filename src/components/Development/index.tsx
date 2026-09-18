@@ -90,7 +90,7 @@ const steps: StepData[] = [
     number: '1',
     title: 'Coleta de dados',
     icon: Search,
-    image: '/img/development/VisitaTecnicaCampo.webp',
+    image: '/img/Development/1-VisitaTecnicaCampo.webp',
     subtitle: 'Pesquisa de Campo',
 
     paragraphs: [
@@ -109,7 +109,7 @@ const steps: StepData[] = [
       number: '2',
       title: 'Pré-processamento e aumento de dados',
       icon: Settings2,
-      image: '/img/development/fundoMexerica.png',
+      image: '/img/Development/2-Data-Desktop.webp',
       subtitle: 'Padronização e Data Augmentation',
 
       paragraphs: [
@@ -128,7 +128,7 @@ const steps: StepData[] = [
       number: '3',
       title: 'Treinamento do modelo',
       icon: BrainCircuit,
-      image: '/img/development/fundoMexerica.png',
+      image: '/img/Development/3-Modelo-Desktop.webp',
       subtitle: 'Rede Neural Convolucional',
 
       paragraphs: [
@@ -147,7 +147,7 @@ const steps: StepData[] = [
       number: '4',
       title: 'Validação',
       icon: ScanSearch,
-      image: '/img/development/fundoMexerica.png',
+      image: '/img/Development/4-Avaliacao-Desktop.webp',
       subtitle: 'Avaliação do modelo',
 
       paragraphs: [
@@ -163,7 +163,7 @@ const steps: StepData[] = [
     number: '5',
     title: 'Protótipo funcional',
     icon: Smartphone,
-    image: '/img/development/fundoMexerica.png',
+    image: '/img/Development/5-mockupNitrusleafApp.webp',
     subtitle: 'Aplicativo Mobile',
 
     paragraphs: [
