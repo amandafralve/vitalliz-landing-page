@@ -1,5 +1,5 @@
 .containerAbout {
-    padding: 8rem 0;
+    padding: var(--section-padding-desktop-lg) 0;
     display: flex;
     flex-direction: column;
     gap: var(--gap-xl);
@@ -7,7 +7,7 @@
 
 .containerAbout > h1 {
     font-family: var(--font-title);
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: var(--font-title-size);
     color: var(--text-dark);
     text-transform: uppercase;
     margin: 0;
@@ -16,7 +16,7 @@
 .aboutUs {
     display: flex;
     flex-direction: row;
-    align-items: stretch; /* faz as duas colunas terem a mesma altura */
+    align-items: stretch; 
     gap: 2rem;
     color: var(--text-dark);
 }
@@ -26,12 +26,13 @@
     flex-direction: column;
     justify-content: center;
     gap: var(--gap-lg);
-    flex: 0 0 56%; /* controla a largura da coluna esquerda */
+    flex: 0 0 50%; 
     min-width: 0;
 }
 
 .aboutUs > p,
 .aboutUsContent > p {
+    font-size: var(--font-text-size);
     line-height: 1.6;
     margin: 0;
     max-width: 100%;
@@ -50,7 +51,7 @@
 }
 
 .objectiveBlock h2 {
-    font-size: 1.3rem;
+    font-size: var(--font-text-size);
     margin: 0;
     color: var(--text-dark);
 }
@@ -60,10 +61,17 @@
     margin-bottom: 0.6rem;
 }
 
+/* Desktop: 2 colunas — o card de Sustentabilidade (3º) cai para a
+   linha de baixo e ocupa a largura toda, evitando colunas estreitas
+   demais dentro dos 56% da coluna esquerda */
 .cardGrid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--gap-sm);
+}
+
+.cardObj:last-child {
+    grid-column: 1 / -1;
 }
 
 .cardTitle {
@@ -92,14 +100,14 @@
 }
 
 .cardObj h5 {
-    font-size: 0.95rem;
+    font-size: var(--font-badge-size);
     font-weight: 700;
     margin: 0 0 0.4rem 0;
     color: var(--text-dark);
 }
 
 .cardObj p {
-    font-size: 1rem;
+    font-size: var(--font-text-size);
     line-height: 1.4;
     margin: 0;
     color: var(--font-color);
@@ -111,13 +119,9 @@
 
 /* Responsividade */
 
-/* Tablet */
+/* Layout (coluna única, carrossel em cima do conteúdo): breakpoint
+   próprio da seção, igual ao Problem/Project/Development */
 @media (max-width: 1150px) {
-    .containerAbout {
-        padding: 5.5rem 0;
-        gap: var(--gap-xl);
-    }
-
     .aboutUs {
         display: flex;
         flex-direction: column;
@@ -135,20 +139,32 @@
         min-height: 340px; /* fallback caso height % falhe em algum pai */
     }
 
+    /* No tablet os cards voltam a 3 colunas (textos maiores acompanham
+       via var(--font-badge-size)/var(--font-text-size), que já encolhem
+       nesse breakpoint) e ocupam 100% da largura disponível — sem o
+       max-width que travava o grid antes */
     .cardGrid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        max-width: 560px;
+        width: 100%;
+    }
+
+    .cardObj:last-child {
+        grid-column: auto;
     }
 }
 
+/* Tipografia / padding de seção: segue o breakpoint global (1024px) */
+@media (max-width: 1024px) {
+    .containerAbout {
+        padding: var(--section-padding-tablet-lg) 0;
+    }
+}
+
+/* Mobile */
 @media (max-width: 640px) {
     .containerAbout {
         padding: var(--section-padding-mobile) 0;
         gap: var(--gap-lg);
-    }
-
-    .containerAbout > h1 {
-        font-size: var(--font-section-title-mobile);
     }
 
     .aboutUsContent {
@@ -172,6 +188,10 @@
     .cardGrid {
         grid-template-columns: 1fr;
         max-width: 100%;
+    }
+
+    .cardObj:last-child {
+        grid-column: auto;
     }
 
     .carouselWrapper {

@@ -1,5 +1,5 @@
 .navbar {
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 50;
@@ -21,7 +21,7 @@
 
 /* Links no estado Transparente (Fundo escuro do Hero) */
 .navbarTransparent .linksNavbar a {
-    color: var(--nav-transparent-text);
+    color: rgba(255, 255, 255, 0.85);
     transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
@@ -32,13 +32,13 @@
 
 .navbarTransparent .linksNavbar a::after {
     background-color: var(--white);
-    box-shadow: 0 0 8px var(--nav-transparent-underline-glow); 
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
 /* Estado 2: Quando o usuário rola a página (Cores originais com fundo claro) */
 .navbarScrolled {
     backdrop-filter: blur(12px);
-    background-color: var(--background-nav-transparent);
+    background-color: #f3f3f3e5;
     border-bottom: 1px solid var(--border-light-faint);
 }
 
@@ -54,8 +54,8 @@
     display: contents;
 }
 .navbarTop img {
-    height: 2.4rem;      
-    width: auto;       
+    height: 2.4rem;
+    width: auto;
     display: block;
     object-fit: contain;
 }
@@ -85,6 +85,7 @@
 }
 
 .linksNavbar a {
+    font-size: var(--font-nav-size);
     text-decoration: none;
     white-space: nowrap;
     position: relative;
@@ -170,9 +171,9 @@
         opacity: 1;
         margin-top: 1.5rem;
     }
-    
+
     .navbarTransparent:has(.linksNavbarOpen) {
-        background-color: var(--nav-mobile-menu-bg);
+        background-color: rgba(1, 21, 44, 0.95);
         backdrop-filter: blur(10px);
     }
 }

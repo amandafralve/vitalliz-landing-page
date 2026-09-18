@@ -1,59 +1,104 @@
 :root {
-    --page-padding-desktop: 4rem;
-    --page-padding-tablet: 2.5rem;
-    --page-padding-mobile: 1.25rem;
+    /* Escala tipográfica (base desktop) */
+    --font-title-size: 3.5rem;
+    --font-subtitle-size: 2.5rem;
+    --font-subsubtitle-size: 1.75rem;
+    --font-text-size: 1.1rem;
+    --font-badge-size: 0.95rem;
+    --font-nav-size: 0.95rem;
 
-    --background-nav: #F3F3F3;
-    --background-nav-transparent: #f3f3f3e5;
-    --background-vitalliz: #F3F3F3;
-    --background-blue:  #05223D;
-    --background-light-blue: rgb(233, 233, 243);
-    --background-gradient: linear-gradient(90deg, #1585C4 0%, #31803A 100%);
-    --overlay-gradient: linear-gradient(90deg, rgba(21, 133, 196, 0.8) 0%, rgba(49, 128, 58, 0.9) 100%);
-    --gray-light: rgb(204, 204, 204);
-    --white-hover: rgb(226, 226, 226);
-    --border-dark: rgba(0, 0, 0, 0.363);
+    /* Hero — tamanhos próprios (maiores que a escala base) */
+    --font-title-desktop: 3.8rem;
 
-    /* Textos */
     --font-title: "Anta", sans-serif;
+
+    /* Cores — texto */
     --font-color: #282828;
     --text-dark: #282828;
-    --subtext:  #696969;
+    --text-light: #F3F3F3;
+    --subtext: #696969;
     --subtext-light: rgba(255, 255, 255, 0.75);
     --subtext-faint: rgba(243, 243, 243, 0.45);
-    --text-light:  #F3F3F3;
 
-    /* Buttons */
+    /* Cores — backgrounds */
+    --background-nav: #F3F3F3;
+    --background-vitalliz: #F3F3F3;
+    --background-blue: #05223D;
+    --background-blue-elevated: #0e3051;
+    --background-light-blue: rgb(233, 233, 243);
+    --background-hero: #01152c;
+
+    --background-gradient: linear-gradient(90deg, #1585C4 0%, #31803A 100%);
+    --overlay-gradient: linear-gradient(90deg, rgba(21, 133, 196, 0.8) 0%, rgba(49, 128, 58, 0.9) 100%);
+
+    /* Cores — neutras / bordas */
+    --white: #FFFFFF;
+    --gray-light: rgb(204, 204, 204);
+    --white-hover: rgb(226, 226, 226);
+
+    --border-dark: rgba(0, 0, 0, 0.363);
+    --border-light: rgba(243, 243, 243, 0.16);
+    --border-light-faint: rgba(255, 255, 255, 0.08);
+
+    /* Botões */
     --blueButtonBg: #135F8E;
     --blueButtonBgHover: #4091c4;
     --whiteButtonBg: white;
-    
-    --border-dark: rgba(0, 0, 0, 0.363);
-    --border-light: rgba(243, 243, 243, 0.16); 
-    --background-blue-elevated: #0e3051;
 
-    /* Navbar */
-    --white: #FFFFFF;
-    --nav-transparent-text: rgba(255, 255, 255, 0.85);
-    --nav-transparent-underline-glow: rgba(255, 255, 255, 0.5);
-    --nav-mobile-menu-bg: rgba(1, 21, 44, 0.95);
-    --border-light-faint: rgba(255, 255, 255, 0.08);
-
-    /* Spacing (compartilhado entre componentes) */
+    /* Espaçamento (compartilhado entre componentes) */
     --gap-xs: 0.5rem;
     --gap-sm: 1rem;
     --gap-md: 1.5rem;
     --gap-lg: 2rem;
     --gap-xl: 3rem;
 
-    /* Hero — valores fixos para mobile, sem vw */
-    --hero-padding-mobile: 2.75rem;
-    --font-badge-mobile: 0.85rem;
-    --font-title-mobile: 3rem;
+    /* Padding de página (desktop) */
+    --page-padding-desktop: 4rem;
 
-    /* Título de seção (h1) no mobile — sem vw, compartilhado entre seções */
-    --font-section-title-mobile: 2rem;
+    /* Padding vertical de seção (desktop) */
+    --section-padding-desktop: 5rem;
+    --section-padding-desktop-lg: 8rem;
 
-    /* Padding vertical de seção no mobile */
-    --section-padding-mobile: 3.5rem;
+    /* Largura de breakout para blocos que precisam "vazar" do Container */
+    --content-width-lg: 1200px;
+}
+
+
+/* Tablet — até 1024px */
+@media (max-width: 1024px) {
+    :root {
+        --font-title-size: 2.75rem;
+        --font-subtitle-size: 2rem;
+        --font-subsubtitle-size: 1.5rem;
+        --font-text-size: 1rem;
+        --font-badge-size: 0.9rem;
+        --font-nav-size: 1rem;
+
+        --page-padding-tablet: 2.5rem;
+
+        /* Padding vertical de seção no tablet */
+        --section-padding-tablet: 4rem;
+        --section-padding-tablet-lg: 5.5rem;
+    }
+}
+
+/* Mobile — até 640px */
+@media (max-width: 640px) {
+    :root {
+        --font-title-size: 2rem;
+        --font-subtitle-size: 1.5rem;
+        --font-subsubtitle-size: 1.2rem;
+        --font-text-size: 0.95rem;
+        --font-badge-size: 0.8rem;
+        --font-nav-size: 1rem;
+
+        --page-padding-mobile: 1.25rem;
+
+        /* Hero */
+        --font-badge-mobile: 0.85rem;
+        --font-title-mobile: 2.5rem;
+
+        /* Padding vertical de seção no mobile */
+        --section-padding-mobile: 3.5rem;
+    }
 }

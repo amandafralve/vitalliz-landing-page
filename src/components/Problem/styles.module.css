@@ -1,7 +1,7 @@
 .projectBg {
     background: white;
     color: var(--text-dark);
-    padding: 8rem 0;
+    padding: var(--section-padding-desktop-lg) 0;
 }
 
 .solutionContainer {
@@ -14,7 +14,7 @@
 
 .solutionContainer h1 {
     font-family: var(--font-title);
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: var(--font-title-size);
     color: var(--text-dark);
     text-transform: uppercase;
     text-align: left;
@@ -23,6 +23,7 @@
 
 .solutionContainer p {
     color: var(--subtext);
+    font-size: var(--font-text-size);
     text-align: left;
     width: 85%;
 }
@@ -30,7 +31,7 @@
 .tag {
     background: rgba(123, 184, 253, 0.15);
     color: var(--blueButtonBg);
-    font-size: 0.8rem;
+    font-size: var(--font-badge-size);
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -41,7 +42,7 @@
 
 .groupLabel {
     font-family: var(--font-title);
-    font-size: 1.1rem;
+    font-size: var(--font-text-size);
     font-weight: 700;
     color: var(--text-dark);
     text-transform: uppercase;
@@ -49,19 +50,41 @@
     margin: 0;
 }
 
+.solutionGroup {
+    align-self: stretch;
+    width: 100%;
+}
+
 .solutionBlock {
     display: flex;
     flex-direction: column;
     margin-top: var(--gap-sm);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 1rem;
     background-color: var(--background-vitalliz);
+}
+
+/* Desktop grande (>1150px): o bloco de cards "vaza" do Container,
+   fica centralizado na página e ganha uma largura própria mais confortável */
+@media (min-width: 1151px) {
+    .solutionBlock {
+        position: relative;
+        left: 50%;
+        width: 100vw;
+        max-width: 950px;
+        transform: translateX(-50%);
+    }
+
+    .cardGrid {
+        max-width: 950px;
+        margin-inline: auto;
+    }
 }
 
 .cardGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
+    gap: 1.2rem;
     background: var(--background-vitalliz);
 }
 
@@ -71,9 +94,9 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;   
-    border-radius: 1rem;
-    padding: 1.6rem;
-    gap: var(--gap-sm);
+    border-radius: 0.75rem;
+    padding: 1.1rem;
+    gap: var(--gap-xs);
     border: 1px solid var(--gray-light);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -88,26 +111,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: rgba(123, 184, 253, 0.12);
     color: var(--blueButtonBg);
 }
 
+.cardIcon svg {
+    width: 16px;
+    height: 16px;
+}
+
 .cardTitle {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.25rem;
 }
 
 .cardObj h5 {
+    font-size: var(--font-badge-size);
     color: var(--blueButtonBg);
     margin: 0;
 }
 
 .cardObj h6 {
-    font-size: 18px;
+    font-size: var(--font-text-size);
     font-weight: 700;
     margin: 0;
     color: var(--text-dark);
@@ -115,7 +144,7 @@
 }
 
 .cardObj p {
-    font-size: 16px;
+    font-size: var(--font-badge-size);
     line-height: 1.4;
     margin: 0;
     color: var(--subtext);
@@ -127,7 +156,7 @@
 
 .bridge {
     margin-top: var(--gap-md);
-    font-size: 1rem;
+    font-size: var(--font-text-size);
     color: var(--text-dark);
 }
 
@@ -135,36 +164,42 @@
     color: #C4761A;
 }
 
+
 /* Responsividade */
 
-/* Tablet */
+/* Layout dos cards (grid/breakout): breakpoint próprio da seção,
+   independente da escala global de tipografia/espaçamento */
 @media (max-width: 1150px) {
-    .projectBg {
-        padding: 5.5rem 0;
-    }
-
-    .solutionContainer p {
-        width: 100%;
-    }
-
     .solutionBlock {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
 
     .cardGrid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--gap-md);
     }
+
+    .cardObj:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Tipografia / padding de seção: segue o breakpoint global (1024px),
+   igual ao Hero, Container e variables.css */
+@media (max-width: 1024px) {
+    .projectBg {
+        padding: var(--section-padding-tablet-lg) 0;
+    }
+
+    .solutionContainer p {
+        width: 100%;
+    }
 }
 
 /* Mobile */
 @media (max-width: 640px) {
     .projectBg {
-        padding: 3.5rem 0;
-    }
-
-    .solutionContainer h1 {
-        font-size: 2rem;
+        padding: var(--section-padding-mobile) 0;
     }
 
     .solutionContainer p {
@@ -174,12 +209,8 @@
         hyphens: auto;
     }
 
-    .groupLabel {
-        font-size: 1rem;
-    }
-
     .solutionBlock {
-        padding: 1rem;
+        padding: 0.85rem;
     }
 
     .cardGrid {
@@ -188,6 +219,6 @@
     }
 
     .cardObj {
-        padding: 1.25rem;
+        padding: 1rem;
     }
 }

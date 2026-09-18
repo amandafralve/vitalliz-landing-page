@@ -18,25 +18,24 @@ export const ScrollStackItem: React.FC<ScrollStackItemProps> = ({
 );
 
 /*
- * Sabe, de forma reativa, se a viewport está abaixo de um breakpoint (px).
+ * Sabe, de forma reativa, se uma media query bate ou não.
  * Usa useSyncExternalStore em vez de useState + useEffect: matchMedia é um
- * "sistema externo" que muda ao longo do tempo (resize da janela), que é
- * exatamente o caso de uso que esse hook cobre — e evita o warning de
- * "setState síncrono dentro de effect" (o mesmo que apareceu na Navbar).
+ * "sistema externo" que muda ao longo do tempo (resize da janela), evitando
+ * o warning de "setState síncrono dentro de effect".
  */
-function useIsBelowBreakpoint(breakpoint: number): boolean {
+function useMatchMedia(query: string): boolean {
     const subscribe = useCallback(
         (callback: () => void) => {
-            const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
+            const mql = window.matchMedia(query);
             mql.addEventListener('change', callback);
             return () => mql.removeEventListener('change', callback);
         },
-        [breakpoint]
+        [query]
     );
 
     const getSnapshot = useCallback(
-        () => window.matchMedia(`(max-width: ${breakpoint}px)`).matches,
-        [breakpoint]
+        () => window.matchMedia(query).matches,
+        [query]
     );
 
     // No servidor (SSR) assumimos desktop; o valor real chega assim que
@@ -63,12 +62,15 @@ interface ScrollStackProps {
 
     useWindowScroll?: boolean;
 
-    // No mobile, o efeito de pin + escala + blur atrapalha mais do que
-    // ajuda (conteúdo grande, tela pequena). Por padrão, abaixo de
-    // mobileBreakpoint a animação é desativada e os cards renderizam
-    // em fluxo normal, um abaixo do outro.
+    // Abaixo de mobileBreakpoint (largura) OU de minViewportHeight (altura),
+    // o efeito de pin + escala + blur é desativado e os cards renderizam
+    // em fluxo normal, um abaixo do outro. A checagem de altura existe
+    // porque o card pode ser alto o suficiente para cortar em telas
+    // baixas mesmo quando a largura ainda é "desktop" (ex: tablet
+    // paisagem, notebook com pouca altura de janela).
     disableOnMobile?: boolean;
     mobileBreakpoint?: number;
+    minViewportHeight?: number;
 
     onStackComplete?: () => void;
 }
@@ -92,11 +94,13 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
 
     disableOnMobile = true,
     mobileBreakpoint = 640,
+    minViewportHeight = 0,
 
     onStackComplete,
 }) => {
-    const isBelowBreakpoint = useIsBelowBreakpoint(mobileBreakpoint);
-    const isMobile = disableOnMobile && isBelowBreakpoint;
+    const isBelowBreakpoint = useMatchMedia(`(max-width: ${mobileBreakpoint}px)`);
+    const isShortViewport = useMatchMedia(`(max-height: ${minViewportHeight}px)`);
+    const isMobile = disableOnMobile && (isBelowBreakpoint || (minViewportHeight > 0 && isShortViewport));
 
     const scrollerRef = useRef<HTMLDivElement>(null);
     const endElementRef = useRef<HTMLDivElement>(null);
@@ -106,14 +110,12 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
     const cardOffsetsRef = useRef<number[]>([]);
     const endElementOffsetRef = useRef<number>(0);
     const stackCompletedRef = useRef(false);
-    const lastTransformsRef = useRef<
-        Map<number, {
+    const lastTransformsRef = useRef<Map<number, {
             translateY: number;
             scale: number;
             rotation: number;
             blur: number;
-        }>
-    >(new Map());
+        }>>(new Map());
 
   /* Calcula o progresso entre dois pontos. */
     const calculateProgress = useCallback(
@@ -384,9 +386,10 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
 
     /* Inicialização do ScrollStack. */
     useLayoutEffect(() => {
-        // No mobile, pulamos toda a configuração (Lenis, ResizeObserver,
-        // cálculo de transforms). Os cards ficam em fluxo normal, com
-        // espaçamento via CSS (.mobileFlow) em vez do marginBottom do JS.
+        // No mobile (ou viewport baixa), pulamos toda a configuração
+        // (Lenis, ResizeObserver, cálculo de transforms). Os cards ficam
+        // em fluxo normal, com espaçamento via CSS (.mobileFlow) em vez
+        // do marginBottom do JS.
         if (isMobile) {
             return;
         }
@@ -515,7 +518,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
 ]);
 
     // Sem o efeito de pin, não precisamos do "colchão" extra de scroll
-    // no final — por isso zera no mobile.
+    // no final — por isso zera no mobile / viewport baixa.
     const endPadding = isMobile
         ? 0
         : typeof window !== 'undefined'

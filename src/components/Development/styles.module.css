@@ -1,6 +1,6 @@
 .projectBg {
     background: var(--background-vitalliz);
-    padding: 6rem 0 8rem;
+    padding: var(--section-padding-desktop-lg) 0;
     position: relative;
 }
 
@@ -18,7 +18,7 @@
     width: fit-content;
     background: rgba(123, 184, 253, 0.1);
     color: var(--subtext);
-    font-size: 0.8rem;
+    font-size: var(--font-badge-size);
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -29,7 +29,7 @@
 
 .header h1 {
     font-family: var(--font-title);
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: var(--font-title-size);
     color: var(--text-dark);
     text-transform: uppercase;
     text-align: left;
@@ -39,7 +39,7 @@
 .header p {
     color: var(--text-dark);
     opacity: 0.6;
-    font-size: 1rem;
+    font-size: var(--font-text-size);
     margin: 0;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .stepHeading h3 {
-    font-size: 1.5rem;
+    font-size: var(--font-text-size);
     color: var(--text-dark);
     margin: 0;
     flex: 1;
@@ -99,7 +99,7 @@
 
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: var(--font-text-size);
     font-weight: 700;
     color: var(--text-dark);
     margin: 0 0 0.7rem;
@@ -108,7 +108,7 @@
 .paragraph {
     color: #5b6670;
     line-height: 1.65;
-    font-size: 0.95rem;
+    font-size: var(--font-badge-size);
     margin: 1.4rem 0;
 }
 
@@ -128,7 +128,7 @@
 }
 
 .statLabel {
-    font-size: 0.9rem;
+    font-size: var(--font-badge-size);
     color: var(--text-dark);
     opacity: 0.6;
 }
@@ -148,7 +148,7 @@
     display: flex;
     align-items: flex-start;
     gap: 0.6rem;
-    font-size: 0.92rem;
+    font-size: var(--font-badge-size);
     color: var(--text-dark);
     line-height: 1.4;
 }
@@ -215,7 +215,7 @@
 }
 
 .SubHeading {
-    font-size: 0.88rem;
+    font-size: var(--font-badge-size);
     font-weight: 700;
     color: var(--text-dark);
     opacity: 0.8;
@@ -236,7 +236,7 @@
 .researchList li {
     position: relative;
     padding-left: 1rem;
-    font-size: 0.92rem;
+    font-size: var(--font-badge-size);
     color: #5b6670;
     line-height: 1.5;
 }
@@ -287,19 +287,19 @@
 }
 
 .personaName {
-    font-size: 0.95rem;
+    font-size: var(--font-badge-size);
     font-weight: 700;
     color: var(--text-dark);
     margin: 0;
 }
 
 .personaTag {
-    font-size: 0.8rem;
+    font-size: var(--font-badge-size);
     color: #8a97a3;
 }
 
 .personaDescription {
-    font-size: 0.88rem;
+    font-size: var(--font-badge-size);
     color: #5b6670;
     line-height: 1.55;
     margin: 0;
@@ -308,14 +308,11 @@
 
 /* RESPONSIVO */
 
-/* Tablet: o layout INTERNO do card empilha (imagem em cima do texto) e
-   o grid de pesquisa/personas vira coluna única. O efeito de scroll-stack
-   continua ativo aqui — só a estrutura do card muda, não a animação. */
+/* Layout (o card interno empilha, imagem em cima do texto, e o grid
+   de pesquisa/personas vira coluna única): breakpoint próprio da seção,
+   igual ao Problem e ao Project. O efeito de scroll-stack é desativado
+   nessa mesma faixa via JS (ver ScrollStack no Development.tsx). */
 @media (max-width: 1150px) {
-    .projectBg {
-        padding: 4.5rem 0 6rem;
-    }
-
     .card {
         grid-template-columns: 1fr;
         width: 100%;
@@ -341,10 +338,15 @@
     }
 }
 
-/* Mobile: além dos ajustes de espaçamento, o ScrollStack (ver
-   mobileBreakpoint no componente) desativa o pin/escala/blur — os
-   cards aqui renderizam em fluxo normal, sem precisar do "colchão"
-   de scroll extra que o padding assimétrico do desktop reservava. */
+/* Tipografia / padding de seção: segue o breakpoint global (1024px) */
+@media (max-width: 1024px) {
+    .projectBg {
+        padding: var(--section-padding-tablet-lg) 0;
+    }
+}
+
+/* Mobile: além dos ajustes de espaçamento, o ScrollStack desativa o
+   pin/escala/blur — os cards renderizam em fluxo normal. */
 @media (max-width: 640px) {
     .projectBg {
         padding: var(--section-padding-mobile) 0;
@@ -354,13 +356,8 @@
         margin-bottom: var(--gap-lg);
     }
 
-    .header h1 {
-        font-size: var(--font-section-title-mobile);
-        text-align: center;
-    }
-
     .header p {
-        font-size: 0.9rem;
+        font-size: var(--font-badge-size);
     }
 
     .card {
@@ -373,14 +370,6 @@
 
     .researchContent {
         padding: var(--gap-md);
-    }
-
-    .stepHeading h3 {
-        font-size: 1.25rem;
-    }
-
-    .paragraph {
-        font-size: 0.9rem;
     }
 
     .cardImage {

@@ -6,8 +6,8 @@
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
-    background-color: #01152c;
-    padding: clamp(3rem, 6vw, 5rem) 0;
+    background-color: var(--background-hero);
+    padding: var(--section-padding-desktop) 0;
 }
 
 .heroBackground {
@@ -56,7 +56,7 @@
 
 .heroPhrase {
     color: rgba(255, 255, 255, 0.9);
-    font-size: clamp(0.8rem, 0.85vw, 0.95rem);
+    font-size: var(--font-badge-size);
     font-weight: 500;
     padding: 0.4rem 1rem;
     background: rgba(255, 255, 255, 0.05);
@@ -79,7 +79,7 @@
 .heroTitle {
     color: #ffffff;
     font-family: var(--font-title);
-    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-size: var(--font-title-desktop);
     line-height: 1.12;
     letter-spacing: -0.01em;
     text-align: left;
@@ -90,7 +90,7 @@
 
 .heroText {
     color: var(--subtext-light); 
-    font-size: clamp(1rem, 1.1vw, 1.15rem);
+    font-size: var(--font-text-size);
     font-weight: 400; 
     line-height: 1.6;
     max-width: 640px;
@@ -104,14 +104,16 @@
     flex-wrap: wrap;
     gap: var(--gap-sm);
     padding: 0;
-    margin-top: 1.6rem;
+    margin-top: var(--gap-md);
 }
 
 /* Responsividade */
+/* tablet. */
+@media (max-width: 1024px) {
+    .hero {
+        padding: var(--section-padding-tablet) 0;
+    }
 
-/* Tablet: ainda usa vw dentro de faixas mais previsíveis de largura
-   (641px–1150px), então o risco de valores quebrados é bem menor aqui. */
-@media (max-width: 1150px) {
     .heroContent {
         max-width: 100%;
         gap: var(--gap-md);
@@ -122,26 +124,19 @@
     }
 
     .heroTitle {
-        font-size: clamp(2.1rem, 4.5vw, 2.75rem);
+        font-size: var(--font-title-size);
         max-width: 18ch;
     }
 
     .heroText {
-        font-size: 1rem;
         max-width: 520px;
-    }
-
-    .buttonsDiv {
-        margin-top: var(--gap-md);
     }
 }
 
-/* Mobile: nenhuma regra usa vw aqui. Telas muito estreitas (dobráveis,
-   Android antigos, etc.) não têm risco de o texto ficar menor que o previsto. */
+/* mobile */
 @media (max-width: 640px) {
     .hero {
-        justify-content: center;
-        padding: var(--hero-padding-mobile) 0;
+        padding: var(--section-padding-mobile) 0;
     }
 
     .heroPhrase {

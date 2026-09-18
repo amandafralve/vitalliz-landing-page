@@ -1,6 +1,6 @@
 .projectBg {
     background: var(--background-light-blue);
-    padding: 6rem 0;
+    padding: var(--section-padding-desktop-lg) 0;
     overflow: visible; 
 }
 
@@ -30,7 +30,7 @@
     width: fit-content;
     background: rgba(255, 255, 255, 0.6);
     color: var(--subtext) !important;
-    font-size: 0.8rem;
+    font-size: var(--font-badge-size);
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -41,13 +41,14 @@
 
 .brand h1 {
     font-family: var(--font-title);
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: var(--font-title-size);
     color: var(--text-dark);
     text-transform: uppercase;
     margin: 0;
 }
 
 .subtitle {
+    font-size: var(--font-text-size);
     font-weight: bold;
     color: var(--text-dark);
     opacity: 0.75;
@@ -56,6 +57,7 @@
 }
 
 .description {
+    font-size: var(--font-text-size);
     color: var(--text-dark);
     opacity: 0.85;
     line-height: 1.6;
@@ -88,12 +90,8 @@
 
 /* Responsividade */
 
-/* Tablet */
+/* Layout (grid vira coluna única): breakpoint próprio da seção */
 @media (max-width: 1150px) {
-    .projectBg {
-        padding: 4.5rem 0;
-    }
-
     .project {
         grid-template-columns: 1fr;
         gap: var(--gap-xl);
@@ -104,18 +102,21 @@
     }
 }
 
+/* Tipografia / padding de seção: segue o breakpoint global (1024px) */
+@media (max-width: 1024px) {
+    .projectBg {
+        padding: var(--section-padding-tablet-lg) 0;
+    }
+}
+
 /* Mobile */
 @media (max-width: 640px) {
     .projectBg {
-        padding: 3.5rem 0;
+        padding: var(--section-padding-mobile) 0;
     }
 
     .project {
         gap: var(--gap-lg);
-    }
-
-    .brand h1 {
-        font-size: var(--font-section-title-mobile);
     }
 
     .description {

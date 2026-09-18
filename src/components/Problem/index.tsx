@@ -17,7 +17,7 @@ export function Problem() {
                         deficiência de manganês, casos de baixa de cobre e registros frequentes de
                         greening na plantação.
                     </p>
-                    <div>
+                    <div className={styles.solutionGroup}>
                         <h5 className={styles.groupLabel}>Dificuldades identificadas</h5>
                         <div className={styles.solutionBlock}>
                             <div className={styles.cardGrid}>

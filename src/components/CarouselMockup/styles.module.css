@@ -25,9 +25,11 @@
     }
 }
 
-@media (min-width: 1024px) {
+/* Desktop com layout em 2 colunas (a partir daqui a coluna .right fica estreita) */
+@media (min-width: 1151px) {
     .carouselTrack {
-        height: 34rem;
+        max-width: 55rem;
+        height: 26rem;
     }
 }
 
@@ -59,10 +61,10 @@
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1151px) {
     .card {
-        width: 15rem;
-        height: 30rem;
+        width: 12rem;
+        height: 24rem;
     }
 }
 

@@ -329,16 +329,18 @@ export function Development() {
           <p>Da coleta de dados ao protótipo funcional</p>
         </div>
 
-        <ScrollStack
-          useWindowScroll={true}
-          itemDistance={100}
-          itemScale={0.04}
-          itemStackDistance={5}
-          stackPosition="15%"
-          scaleEndPosition="-5%"
-          baseScale={0.88}
-          blurAmount={2}
-        >
+          <ScrollStack
+            useWindowScroll={true}
+            itemDistance={100}
+            itemScale={0.04}
+            itemStackDistance={5}
+            stackPosition="15%"
+            scaleEndPosition="-5%"
+            baseScale={0.88}
+            blurAmount={2}
+            mobileBreakpoint={1150}
+            minViewportHeight={750}
+          >
           {steps.map((step, index) => (
             <ScrollStackItem key={`${step.number}-${index}`}>
               {step.variant === 'research' ? (

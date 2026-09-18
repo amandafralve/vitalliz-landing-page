@@ -48,7 +48,7 @@ const getCarouselConfig = (width: number): CarouselConfig => {
       scaleReduction: 0.06,
     };
   }
-  if (width < 1024) {
+  if (width < 1151) {
     return {
       distanceDivisor: 160,
       velocityDivisor: 650,
@@ -60,13 +60,13 @@ const getCarouselConfig = (width: number): CarouselConfig => {
     };
   }
   return {
-    distanceDivisor: 200,
-    velocityDivisor: 800,
-    sensitivity: 250,
-    xMultiplier: 140,
-    yMultiplier: 25,
-    rotationMultiplier: 12,
-    scaleReduction: 0.1,
+    distanceDivisor: 140,
+    velocityDivisor: 550,
+    sensitivity: 190,
+    xMultiplier: 95,
+    yMultiplier: 17,
+    rotationMultiplier: 9,
+    scaleReduction: 0.07,
   };
 };
 
