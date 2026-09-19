@@ -1,10 +1,13 @@
 import { MoveRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "../Button";
 import { Container } from "../Container";
 import GradientWaves from "../GradientWaves";
 import styles from "./styles.module.css";
 
 export function Hero() {
+    const { t } = useTranslation();
+
     return (
         <section id="home" className={styles.hero}>
             <GradientWaves
@@ -35,33 +38,33 @@ export function Hero() {
                 <div className={styles.heroContent}>
                     <div className={styles.badgeWrapper}>
                         <span className={styles.heroPhrase}>
-                            Vitalliz · Software & Mobile
+                            {t("hero.badge")}
                         </span>
                     </div>
 
                     <div className={styles.heroBody}>
                         <h1 className={styles.heroTitle}>
-                            Damos vida e direção digital ao seu negócio
+                            {t("hero.title")}
                         </h1>
-                        
+
                         <p className={styles.heroText}>
-                            Unimos a vitalidade da inovação com a clareza da engenharia de software. Desenvolvemos sistemas e aplicativos que iluminam caminhos e impulsionam resultados.
+                            {t("hero.text")}
                         </p>
 
                         <footer className={styles.buttonsDiv}>
-                            <Button 
-                                icon={<MoveRight />} 
-                                iconPosition="right" 
-                                color="whiteAnimated" 
-                                text="Ver Projeto Nitrusleaf" 
+                            <Button
+                                icon={<MoveRight />}
+                                iconPosition="right"
+                                color="whiteAnimated"
+                                text={t("hero.ctaProject")}
                                 size="md"
                                 onClick={() => {
                                     window.location.hash = "project";
                                 }}
                             />
-                            <Button 
-                                color="transparent" 
-                                text="Entre em contato"
+                            <Button
+                                color="transparent"
+                                text={t("hero.ctaContact")}
                                 size="md"
                                 onClick={() => {
                                     window.location.hash = "contact";

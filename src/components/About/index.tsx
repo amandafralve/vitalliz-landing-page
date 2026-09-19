@@ -2,47 +2,49 @@ import styles from './styles.module.css'
 import { Container } from '../Container';
 import { CarouselWithCaptions } from '../CarouselAbout';
 import { Cpu, Lightbulb, Leaf } from 'lucide-react';
+import { Trans, useTranslation } from 'react-i18next';
+
+const icons = [Cpu, Lightbulb, Leaf];
 
 export function About() {
+    const { t } = useTranslation();
+    const cards = t('about.cards', { returnObjects: true }) as {
+        title: string;
+        description: string;
+    }[];
+
     return (
         <Container>
             <div id='about' className={styles.containerAbout}>
-                <h1>Sobre nós</h1>
+                <h1>{t('about.title')}</h1>
 
                 <div className={styles.aboutUs}>
                     <div className={styles.aboutUsContent}>
                         <p>
-                            A Vitalliz é a equipe criada para o desenvolvimento do Projeto
-                            Integrador do curso de Desenvolvimento de Software Multiplataforma
-                            da <strong>Fatec Registro</strong>, com o propósito de unir tecnologia,
-                            inovação e sustentabilidade - alinhado ao <strong>ODS 2 da ONU</strong> (Fome
-                            Zero e Agricultura Sustentável)
+                            <Trans
+                                i18nKey="about.intro"
+                                components={{
+                                    strongFatec: <strong />,
+                                    strongOds: <strong />,
+                                }}
+                            />
                         </p>
 
                         <div className={styles.objectiveBlock}>
-                            <h2>Nosso Objetivo</h2>
+                            <h2>{t('about.objectiveTitle')}</h2>
                             <div className={styles.cardGrid}>
-                                <div className={styles.cardObj}>
-                                    <div className={styles.cardTitle}>
-                                        <Cpu size={22} className={styles.cardIcon} />
-                                        <h5>Tecnologia</h5>
-                                    </div>
-                                    <p>Soluções digitais que conectam pessoas e simplificam processos do dia a dia</p>
-                                </div>
-                                <div className={styles.cardObj}>
-                                    <div className={styles.cardTitle}>
-                                        <Lightbulb size={22} className={styles.cardIcon} />
-                                        <h5>Inovação</h5>
-                                    </div>
-                                    <p>Abordagens criativas para transformar desafios reais em oportunidades</p>
-                                </div>
-                                <div className={styles.cardObj}>
-                                    <div className={styles.cardTitle}>
-                                        <Leaf size={22} className={styles.cardIcon} />
-                                        <h5>Sustentabilidade</h5>
-                                    </div>
-                                    <p>Impacto positivo alinhado aos objetivos de desenvolvimento sustentável da ONU</p>
-                                </div>
+                                {cards.map((card, index) => {
+                                    const Icon = icons[index];
+                                    return (
+                                        <div className={styles.cardObj} key={index}>
+                                            <div className={styles.cardTitle}>
+                                                <Icon size={22} className={styles.cardIcon} />
+                                                <h5>{card.title}</h5>
+                                            </div>
+                                            <p>{card.description}</p>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>

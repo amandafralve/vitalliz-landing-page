@@ -1,10 +1,220 @@
 {
     "nav": {
-        "home": "Home",
-        "project": "Project",
-        "about": "About",
-        "team": "Team",
-        "contact": "Contact",
-        "viewProject": "View Project"
+        "home": "Início",
+        "project": "Projeto",
+        "about": "Sobre",
+        "team": "Equipe",
+        "contact": "Contato",
+        "viewProject": "Ver Projeto"
+    },
+    "hero": {
+        "badge": "Vitalliz · Software & Mobile",
+        "title": "Damos vida e direção digital ao seu negócio",
+        "text": "Unimos a vitalidade da inovação com a clareza da engenharia de software. Desenvolvemos sistemas e aplicativos que iluminam caminhos e impulsionam resultados.",
+        "ctaProject": "Ver Projeto Nitrusleaf",
+        "ctaContact": "Entre em contato"
+    },
+    "problem": {
+        "tag": "CONTEXTO",
+        "title": "Citricultura no Vale do Ribeira",
+        "paragraph1": "Todo ano, produtores de citros perdem parte da colheita sem nem saber por quê. Os sintomas de deficiência nutricional na folha são sutis, fáceis de confundir com doenças como o greening (HLB), e o diagnóstico correto normalmente exige um especialista — que nem sempre está disponível na hora certa.",
+        "paragraph2": "Em pesquisa de campo no Sítio São Miguel, identificamos alta incidência de deficiência de manganês, casos de baixa de cobre e registros frequentes de greening na plantação.",
+        "groupLabel": "Dificuldades identificadas",
+        "cards": [
+            {
+                "title": "Confusão com Greening",
+                "subtitle": "Sintomas parecidos, causas diferentes",
+                "description": "Manganês, cobre e greening causam manchas e amarelamento muito semelhantes na folha — o que leva a diagnósticos errados e tratamentos ineficazes."
+            },
+            {
+                "title": "Diagnóstico tardio",
+                "subtitle": "O estrago já está feito",
+                "description": "Na maioria dos casos, o produtor só percebe o problema quando o fruto já foi afetado — e parte da safra já está comprometida."
+            },
+            {
+                "title": "Dificuldade técnica",
+                "subtitle": "Conhecimento especializado é escasso",
+                "description": "Identificar a deficiência corretamente exige experiência técnica que nem toda propriedade tem acesso fácil ou rápido."
+            }
+        ]
+    },
+    "project": {
+        "tag": "PROJETO",
+        "name": "Nitrusleaf",
+        "subtitle": "Diagnóstico foliar inteligente para citricultura movido a IA",
+        "description": "Aplicativo mobile que utiliza visão computacional e redes neurais para identificar deficiências nutricionais em folhas de mexerica. O produtor tira a foto da folha e recebe o diagnóstico preciso em segundos no campo.",
+        "githubButton": "Repositório",
+        "figmaButton": "Protótipo",
+        "productButton": "Conhecer Produto"
+    },
+    "development": {
+        "header": {
+            "tag": "NITRUSLEAF",
+            "title": "Como desenvolvemos",
+            "subtitle": "Da coleta de dados ao protótipo funcional"
+        },
+        "steps": {
+            "research": {
+                "title": "Coleta de dados",
+                "subtitle": "Pesquisa de Usuário",
+                "objectivesTitle": "Objetivos da Pesquisa",
+                "objectives": [
+                    "Compreender dificuldades de produtores no uso de tecnologia no campo",
+                    "Mapear necessidades e expectativas de profissionais agrícolas",
+                    "Identificar padrões de comportamento digital no agronegócio"
+                ],
+                "resultsTitle": "Principais Resultados",
+                "results": [
+                    "Muitos produtores têm dificuldade com ferramentas digitais",
+                    "Preferência por instruções simples, rápidas e visuais",
+                    "Necessidade de tutorial guiado no primeiro acesso",
+                    "Buscam praticidade, rapidez e segurança no diagnóstico"
+                ],
+                "personasTitle": "PERSONAS",
+                "personas": [
+                    {
+                        "name": "João",
+                        "role": "Produtor Rural",
+                        "tag": "Baixa familiaridade tecnológica",
+                        "description": "Produtor que precisa de soluções rápidas e fáceis para evitar perdas na produção, sem depender de suporte técnico constante."
+                    },
+                    {
+                        "name": "Ana",
+                        "role": "Agrônoma Consultora",
+                        "tag": "Profissional técnica",
+                        "description": "Profissional que busca agilidade e precisão nos diagnósticos, com organização centralizada das informações das lavouras."
+                    }
+                ]
+            },
+            "fieldCollection": {
+                "title": "Coleta de dados",
+                "subtitle": "Pesquisa de Campo",
+                "paragraphs": [
+                    "Realizamos uma pesquisa de campo no Sítio São Miguel, em Pariquera-Açu/SP, para compreender a realidade do cultivo de mexerica (Citrus reticulata).",
+                    "Através da aplicação de um questionário estruturado, coletamos dados diretos sobre o manejo na prática e realizamos a coleta de amostras reais de folhas."
+                ],
+                "checklist": [
+                    "+100 imagens coletadas de folhas deficientes",
+                    "Aprendizado real sobre o dia a dia no pomar",
+                    "Diversidade de estágios de deficiência"
+                ]
+            },
+            "preprocessing": {
+                "title": "Pré-processamento e aumento de dados",
+                "subtitle": "Padronização e Data Augmentation",
+                "paragraphs": [
+                    "As imagens foram submetidas à correção automática de orientação e redimensionadas para 224 × 224 pixels, utilizando ajuste proporcional com preenchimento de bordas para preservar suas características visuais.",
+                    "Durante o treinamento, aplicamos aumento de dados exclusivamente nas imagens de treino, gerando três variações sintéticas por imagem com inversão horizontal, rotação, alterações de saturação, brilho e exposição."
+                ],
+                "checklist": [
+                    "Imagens padronizadas em 224 × 224 pixels",
+                    "Normalização dos valores dos pixels",
+                    "Aumento de dados com variações de captura"
+                ]
+            },
+            "training": {
+                "title": "Treinamento do modelo",
+                "subtitle": "Rede Neural Convolucional",
+                "paragraphs": [
+                    "Desenvolvemos uma Rede Neural Convolucional composta por três blocos convolucionais, com 32, 64 e 128 filtros, responsáveis por extrair características visuais das folhas em diferentes níveis de complexidade.",
+                    "O modelo utiliza uma camada densa com 512 neurônios e Dropout de 50%. O treinamento foi realizado com o otimizador Adam, função de perda binary crossentropy e Early Stopping com paciência de 10 épocas."
+                ],
+                "checklist": [
+                    "Arquitetura com 3 blocos convolucionais",
+                    "Dropout de 50% para reduzir overfitting",
+                    "Early Stopping para selecionar o melhor desempenho"
+                ]
+            },
+            "validation": {
+                "title": "Validação",
+                "subtitle": "Avaliação do modelo",
+                "paragraphs": [
+                    "Após o treinamento, o modelo foi avaliado com um conjunto de teste formado por 25 imagens que não participaram das etapas de treinamento ou validação.",
+                    "O modelo alcançou 95,97% de acurácia no conjunto de teste, demonstrando capacidade de distinguir folhas saudáveis de folhas com deficiência de manganês em imagens inéditas."
+                ],
+                "stat": "95,97%",
+                "statLabel": "de acurácia no teste"
+            },
+            "prototype": {
+                "title": "Protótipo funcional",
+                "subtitle": "Aplicativo Mobile",
+                "paragraphs": [
+                    "Desenvolvemos um aplicativo mobile capaz de analisar imagens de folhas de Citrus reticulata e identificar sinais de deficiência de manganês por meio do modelo de Inteligência Artificial.",
+                    "A solução foi projetada para oferecer ao produtor um diagnóstico preliminar de forma rápida e acessível, diretamente pelo celular, a partir de uma imagem da folha."
+                ],
+                "checklist": [
+                    "Aplicativo exclusivo para dispositivos móveis",
+                    "Análise de imagens por Inteligência Artificial",
+                    "Diagnóstico preliminar de deficiência de manganês"
+                ]
+            }
+        }
+    },
+    "about": {
+        "title": "Sobre nós",
+        "intro": "A Vitalliz é a equipe criada para o desenvolvimento do Projeto Integrador do curso de Desenvolvimento de Software Multiplataforma da <strongFatec>Fatec Registro</strongFatec>, com o propósito de unir tecnologia, inovação e sustentabilidade - alinhado ao <strongOds>ODS 2 da ONU</strongOds> (Fome Zero e Agricultura Sustentável)",
+        "objectiveTitle": "Nosso Objetivo",
+        "cards": [
+            {
+                "title": "Tecnologia",
+                "description": "Soluções digitais que conectam pessoas e simplificam processos do dia a dia"
+            },
+            {
+                "title": "Inovação",
+                "description": "Abordagens criativas para transformar desafios reais em oportunidades"
+            },
+            {
+                "title": "Sustentabilidade",
+                "description": "Impacto positivo alinhado aos objetivos de desenvolvimento sustentável da ONU"
+            }
+        ]
+    },
+    "team": {
+        "title": "Nossa Equipe",
+        "members": {
+            "amanda": { "role": "UI/UX Design & Desenvolvedora Front-End" },
+            "lucas": { "role": "Desenvolvedor Back-end e Modelagem de Banco de Dados" },
+            "valeria": { "role": "Desenvolvedora Back-end" },
+            "juliano": { "role": "Inteligência Artificial e Análise de Dados" }
+        },
+        "ariaLabels": {
+            "photo": "Foto de {{name}}",
+            "github": "Github de {{name}}",
+            "behance": "Behance de {{name}}",
+            "linkedin": "Linkedin de {{name}}",
+            "email": "Email de {{name}}"
+        }
+    },
+    "contact": {
+        "title": "Fale com a gente",
+        "text": "Tem alguma dúvida, sugestão ou proposta? Preencha o formulário e retornaremos assim que possível.",
+        "form": {
+            "nameLabel": "Nome",
+            "namePlaceholder": "Seu nome completo",
+            "emailLabel": "E-mail",
+            "emailPlaceholder": "voce@email.com",
+            "subjectLabel": "Assunto",
+            "subjectPlaceholder": "Sobre o que você quer falar?",
+            "messageLabel": "Mensagem",
+            "messagePlaceholder": "Escreva sua mensagem aqui...",
+            "submitButton": "Enviar mensagem"
+        }
+    },
+    "footer": {
+        "copyright": "<strongBrand>Vitalliz</strongBrand> © {{year}} • Todos os direitos reservados.",
+        "tagline": "Tecnologia que dá vida.",
+        "links": {
+            "home": "Início",
+            "project": "Projeto",
+            "about": "Sobre",
+            "team": "Equipe"
+        },
+        "ariaLabels": {
+            "navLinks": "Links do rodapé",
+            "social": "Redes sociais",
+            "github": "GitHub",
+            "email": "E-mail"
+        },
+        "backToTop": "Voltar ao topo"
     }
 }

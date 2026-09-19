@@ -1,59 +1,48 @@
 import { ClipboardClock, Leaf, UserRoundCog } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Container } from '../Container';
 import styles from './styles.module.css';
 
+const icons = [Leaf, ClipboardClock, UserRoundCog];
+
 export function Problem() {
+    const { t } = useTranslation();
+    const cards = t('problem.cards', { returnObjects: true }) as {
+        title: string;
+        subtitle: string;
+        description: string;
+    }[];
+
     return (
         <section className={styles.projectBg}>
             <Container>
                 <div className={styles.solutionContainer}>
-                    <span className={styles.tag}>CONTEXTO</span>
-                    <h1>Citricultura no Vale do Ribeira</h1>
-                    <p>
-                        Todo ano, produtores de citros perdem parte da colheita sem nem saber por quê. Os sintomas de deficiência nutricional na folha são sutis, fáceis de confundir com doenças como o greening (HLB), e o diagnóstico correto normalmente exige um especialista — que nem sempre está disponível na hora certa.
-                    </p>
-                    <p>
-                        Em pesquisa de campo no Sítio São Miguel, identificamos alta incidência de
-                        deficiência de manganês, casos de baixa de cobre e registros frequentes de
-                        greening na plantação.
-                    </p>
+                    <span className={styles.tag}>{t('problem.tag')}</span>
+                    <h1>{t('problem.title')}</h1>
+                    <p>{t('problem.paragraph1')}</p>
+                    <p>{t('problem.paragraph2')}</p>
                     <div className={styles.solutionGroup}>
-                        <h5 className={styles.groupLabel}>Dificuldades identificadas</h5>
+                        <h5 className={styles.groupLabel}>{t('problem.groupLabel')}</h5>
                         <div className={styles.solutionBlock}>
                             <div className={styles.cardGrid}>
-                                <div className={styles.cardObj}>
-                                    <div className={styles.cardIcon}>
-                                        <Leaf />
-                                    </div>
-                                    <div className={styles.cardTitle}>
-                                        <h5>Confusão com Greening</h5>
-                                        <h6>Sintomas parecidos, causas diferentes</h6>
-                                    </div>
-                                    <p>Manganês, cobre e greening causam manchas e amarelamento muito semelhantes na folha — o que leva a diagnósticos errados e tratamentos ineficazes.</p>
-                                </div>
-                                <div className={styles.cardObj}>
-                                    <div className={styles.cardIcon}>
-                                        <ClipboardClock />
-                                    </div>
-                                    <div className={styles.cardTitle}>
-                                        <h5>Diagnóstico tardio</h5>
-                                        <h6>O estrago já está feito</h6>
-                                    </div>
-                                    <p>Na maioria dos casos, o produtor só percebe o problema quando o fruto já foi afetado — e parte da safra já está comprometida.</p>
-                                </div>
-                                <div className={styles.cardObj}>
-                                    <div className={styles.cardIcon}>
-                                        <UserRoundCog />
-                                    </div>
-                                    <div className={styles.cardTitle}>
-                                        <h5>Dificuldade técnica</h5>
-                                        <h6>Conhecimento especializado é escasso</h6>
-                                    </div>
-                                    <p>Identificar a deficiência corretamente exige experiência técnica que nem toda propriedade tem acesso fácil ou rápido.</p>
-                                </div>
+                                {cards.map((card, index) => {
+                                    const Icon = icons[index];
+                                    return (
+                                        <div className={styles.cardObj} key={index}>
+                                            <div className={styles.cardIcon}>
+                                                <Icon />
+                                            </div>
+                                            <div className={styles.cardTitle}>
+                                                <h5>{card.title}</h5>
+                                                <h6>{card.subtitle}</h6>
+                                            </div>
+                                            <p>{card.description}</p>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </Container>
         </section>
