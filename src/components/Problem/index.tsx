@@ -1,5 +1,5 @@
 import { ClipboardClock, Leaf, UserRoundCog } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { Container } from '../Container';
 import styles from './styles.module.css';
 
@@ -18,7 +18,9 @@ export function Problem() {
             <Container>
                 <div className={styles.solutionContainer}>
                     <span className={styles.tag}>{t('problem.tag')}</span>
-                    <h1>{t('problem.title')}</h1>
+                    <h1>
+                        <Trans i18nKey="problem.title" components={{ br: <br /> }} />
+                    </h1>
                     <p>{t('problem.paragraph1')}</p>
                     <p>{t('problem.paragraph2')}</p>
                     <div className={styles.solutionGroup}>

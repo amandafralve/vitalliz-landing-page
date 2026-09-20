@@ -8,81 +8,81 @@
         "viewProject": "View Project"
     },
     "hero": {
-        "badge": "Vitalliz · Software & Mobile",
-        "title": "We bring life and digital direction to your business",
-        "text": "We combine the vitality of innovation with the clarity of software engineering. We build systems and apps that light the way and drive results.",
-        "ctaProject": "View Nitrusleaf Project",
+        "badge": "Vitalliz · Technology & Innovation",
+        "title": "Technology that turns real challenges into solutions",
+        "text": "We develop digital solutions that connect technology, innovation, and real-world needs. Our current project, NitrusLeaf, applies Artificial Intelligence to the analysis of mandarin leaves.",
+        "ctaProject": "Discover NitrusLeaf",
         "ctaContact": "Get in touch"
     },
     "problem": {
         "tag": "CONTEXT",
-        "title": "Citrus Farming in Vale do Ribeira",
-        "paragraph1": "Every year, citrus growers lose part of their harvest without knowing why. Nutritional deficiency symptoms on the leaf are subtle, easily confused with diseases like greening (HLB), and an accurate diagnosis usually requires a specialist — who isn't always available when needed.",
-        "paragraph2": "During field research at Sítio São Miguel, we found a high incidence of manganese deficiency, cases of copper deficiency, and frequent signs of greening across the plantation.",
+        "title": "A challenge in citrus farming <br/>in Vale do Ribeira",
+        "paragraph1": "Identifying nutritional deficiencies in citrus leaves can be difficult when symptoms are subtle and resemble other visual changes. In the field, this assessment often depends on technical experience and a careful examination of the leaf.",
+        "paragraph2": "During field research carried out in Vale do Ribeira, cases related to manganese deficiency were observed in mandarin leaves, highlighting the need for tools that can support the preliminary analysis of these changes.",
         "groupLabel": "Challenges identified",
         "cards": [
             {
                 "title": "Confusion with Greening",
                 "subtitle": "Similar symptoms, different causes",
-                "description": "Manganese deficiency, copper deficiency, and greening all cause very similar spots and yellowing on the leaf — leading to wrong diagnoses and ineffective treatments."
+                "description": "Changes caused by nutritional deficiencies can show visual patterns similar to other conditions such as Greening, making quick identification through observation alone difficult."
             },
             {
-                "title": "Late diagnosis",
-                "subtitle": "The damage is already done",
-                "description": "In most cases, the grower only notices the problem once the fruit has already been affected — and part of the harvest is already compromised."
+                "title": "Field analysis",
+                "subtitle": "Information needs to be accessible",
+                "description": "Growers need information that can support the initial identification of changes in the plant without relying exclusively on an immediate specialized assessment."
             },
             {
-                "title": "Technical difficulty",
-                "subtitle": "Specialized knowledge is scarce",
-                "description": "Correctly identifying the deficiency requires technical expertise that not every property has easy or quick access to."
+                "title": "Need for technical support",
+                "subtitle": "Technology as a support tool",
+                "description": "Immediate access to specialized knowledge isn't always available. The use of Artificial Intelligence can serve as a complementary tool to support visual analysis."
             }
         ]
     },
     "project": {
         "tag": "PROJECT",
-        "name": "Nitrusleaf",
-        "subtitle": "AI-powered smart leaf diagnosis for citrus farming",
-        "description": "A mobile app that uses computer vision and neural networks to identify nutritional deficiencies in mandarin leaves. The grower takes a photo of the leaf and gets an accurate diagnosis in seconds, right in the field.",
+        "name": "NitrusLeaf",
+        "subtitle": "Smart classification of mandarin leaves through Artificial Intelligence",
+        "description": "A mobile app developed to classify images of Citrus reticulata leaves into two categories: manganese deficiency and healthy leaf. The solution uses computer vision and a Convolutional Neural Network to perform a preliminary analysis directly from a phone.",
         "githubButton": "Repository",
         "figmaButton": "Prototype",
-        "productButton": "View Product"
+        "productButton": "View Project"
     },
     "development": {
         "header": {
             "tag": "NITRUSLEAF",
             "title": "How we built it",
-            "subtitle": "From data collection to working prototype"
+            "subtitle": "From field research to classification through Artificial Intelligence"
         },
         "steps": {
             "research": {
-                "title": "Data collection",
+                "title": "Research and problem definition",
                 "subtitle": "User Research",
                 "objectivesTitle": "Research Objectives",
                 "objectives": [
-                    "Understand growers' difficulties using technology in the field",
-                    "Map the needs and expectations of agricultural professionals",
-                    "Identify digital behavior patterns in agribusiness"
+                    "Understand the difficulties related to identifying changes in leaves",
+                    "Learn about the needs of growers and professionals involved in citrus farming",
+                    "Identify opportunities for applying technology in an agricultural context"
                 ],
                 "resultsTitle": "Key Findings",
                 "results": [
-                    "Many growers struggle with digital tools",
-                    "Preference for simple, fast, visual instructions",
-                    "Need for a guided tutorial on first access",
-                    "Looking for convenience, speed, and diagnostic confidence"
+                    "Need for simple, accessible information in the field",
+                    "Importance of a fast, visual user experience",
+                    "Interest in tools that can assist with leaf analysis",
+                    "Need to reduce the complexity of interacting with technology"
                 ],
                 "personasTitle": "PERSONAS",
                 "personas": [
                     {
                         "name": "João",
                         "role": "Farmer",
-                        "tag": "Low tech familiarity",
-                        "description": "A grower who needs quick, easy solutions to avoid production losses, without relying on constant technical support."
+                        "tag": "Looks for convenience",
+                        "description": "A grower who needs a simple, fast tool to support the preliminary identification of changes in leaves, without relying on complex processes."
                     },
                     {
                         "name": "Ana",
-                        "role": "Agronomist Consultant",
-                        "tag": "Technical professional",
-                        "description": "A professional looking for speed and precision in diagnostics, with all crop information centrally organized."
+                        "role": "Agricultural professional",
+                        "tag": "Looks for information",
+                        "description": "A professional who can use an image classification tool to support the observation and monitoring of leaf conditions."
                     }
                 ]
             },
@@ -90,37 +90,39 @@
                 "title": "Data collection",
                 "subtitle": "Field Research",
                 "paragraphs": [
-                    "We conducted field research at Sítio São Miguel, in Pariquera-Açu/SP, to understand the real conditions of mandarin (Citrus reticulata) cultivation.",
-                    "Through a structured questionnaire, we collected first-hand data on day-to-day crop management and gathered real leaf samples."
+                    "We conducted field research on mandarin-growing properties in Vale do Ribeira, including Sítio São Miguel, in Pariquera-Açu/SP.",
+                    "During this stage, real growing conditions were observed and images of Citrus reticulata leaves were collected to build the dataset used in developing the model."
                 ],
                 "checklist": [
-                    "100+ images collected of deficient leaves",
-                    "Real, hands-on learning about daily life in the orchard",
-                    "A wide range of deficiency stages captured"
+                    "100+ images collected in the field",
+                    "Real samples of mandarin leaves",
+                    "Different conditions and stages of deficiency"
                 ]
             },
             "preprocessing": {
                 "title": "Preprocessing and data augmentation",
-                "subtitle": "Standardization and Data Augmentation",
+                "subtitle": "Image standardization",
                 "paragraphs": [
                     "Images went through automatic orientation correction and were resized to 224 × 224 pixels, using proportional scaling with border padding to preserve their visual characteristics.",
-                    "During training, we applied data augmentation exclusively to the training images, generating three synthetic variations per image through horizontal flips, rotation, and changes in saturation, brightness, and exposure."
+                    "During training, data augmentation techniques were applied exclusively to the training set, creating synthetic variations to broaden the diversity of images used by the model."
                 ],
                 "checklist": [
                     "Images standardized to 224 × 224 pixels",
                     "Pixel value normalization",
-                    "Data augmentation with capture variations"
+                    "Horizontal flips and rotation",
+                    "Variations in saturation, brightness, and exposure"
                 ]
             },
             "training": {
                 "title": "Model training",
                 "subtitle": "Convolutional Neural Network",
                 "paragraphs": [
-                    "We built a Convolutional Neural Network with three convolutional blocks, using 32, 64, and 128 filters, responsible for extracting visual features from the leaves at different levels of complexity.",
+                    "We built a Convolutional Neural Network with three convolutional blocks, using 32, 64, and 128 filters to extract visual features from the leaves at different levels of complexity.",
                     "The model uses a dense layer with 512 neurons and 50% Dropout. Training was performed with the Adam optimizer, binary crossentropy loss function, and Early Stopping with a patience of 10 epochs."
                 ],
                 "checklist": [
                     "Architecture with 3 convolutional blocks",
+                    "Dense layer with 512 neurons",
                     "50% Dropout to reduce overfitting",
                     "Early Stopping to select the best-performing model"
                 ]
@@ -129,57 +131,58 @@
                 "title": "Validation",
                 "subtitle": "Model evaluation",
                 "paragraphs": [
-                    "After training, the model was evaluated on a test set of 25 images that were not used during training or validation.",
-                    "The model achieved 95.97% accuracy on the test set, showing it can distinguish healthy leaves from leaves with manganese deficiency in unseen images."
+                    "After training, the model was evaluated using a test set of 25 images that were not used during training or validation.",
+                    "The model achieved 95.97% accuracy on the test set, classifying images between the manganese deficiency and healthy leaf categories."
                 ],
                 "stat": "95.97%",
                 "statLabel": "test accuracy"
             },
             "prototype": {
-                "title": "Working prototype",
-                "subtitle": "Mobile App",
+                "title": "Mobile app",
+                "subtitle": "Working prototype",
                 "paragraphs": [
-                    "We built a mobile app capable of analyzing images of Citrus reticulata leaves and identifying signs of manganese deficiency using the AI model.",
-                    "The solution was designed to give growers a fast, accessible preliminary diagnosis directly from their phone, based on a photo of the leaf."
+                    "We built a mobile app capable of receiving an image of a Citrus reticulata leaf and using the AI model to classify it as either manganese deficiency or healthy leaf.",
+                    "The solution was designed to offer a fast, accessible preliminary analysis directly from a phone, using a photo of the leaf as input."
                 ],
                 "checklist": [
-                    "App built exclusively for mobile devices",
-                    "AI-powered image analysis",
-                    "Preliminary manganese deficiency diagnosis"
+                    "App developed for mobile devices",
+                    "Image classification through Artificial Intelligence",
+                    "Classification between manganese deficiency and healthy leaf",
+                    "Preliminary analysis directly from the phone"
                 ]
             }
         }
     },
     "about": {
         "title": "About us",
-        "intro": "Vitalliz is the team created to develop the Integrating Project for the Multiplatform Software Development program at <strongFatec>Fatec Registro</strongFatec>, aiming to bring together technology, innovation, and sustainability - aligned with <strongOds>UN SDG 2</strongOds> (Zero Hunger and Sustainable Agriculture)",
+        "intro": "Vitalliz is the team responsible for developing NitrusLeaf, created as part of the Integrating Project for the Multiplatform Software Development program at <strongFatec>Fatec Registro</strongFatec>. Our purpose is to bring together technology, innovation, and knowledge to turn real challenges into accessible digital solutions, with attention to the needs of the regional agricultural context and to <strongOds>UN SDG 2</strongOds> (Zero Hunger and Sustainable Agriculture).",
         "objectiveTitle": "Our Goal",
         "cards": [
             {
                 "title": "Technology",
-                "description": "Digital solutions that connect people and simplify everyday processes"
+                "description": "Develop digital solutions that use technology to simplify processes and support decision-making."
             },
             {
                 "title": "Innovation",
-                "description": "Creative approaches that turn real challenges into opportunities"
+                "description": "Turn real needs into practical solutions through software, Artificial Intelligence, and computer vision."
             },
             {
-                "title": "Sustainability",
-                "description": "Positive impact aligned with the UN's sustainable development goals"
+                "title": "Impact",
+                "description": "Create accessible technologies that can contribute to real-world challenges and to sustainable development."
             }
         ]
     },
     "team": {
         "title": "Our Team",
         "members": {
-            "amanda": { "role": "UI/UX Design & Front-End Developer" },
-            "lucas": { "role": "Back-end Developer and Database Design" },
-            "valeria": { "role": "Back-end Developer" },
-            "juliano": { "role": "Artificial Intelligence and Data Analysis" }
+            "amanda": { "role": "UI/UX Design & Front-End Development" },
+            "lucas": { "role": "Back-end Development & Database" },
+            "valeria": { "role": "Back-end Development" },
+            "juliano": { "role": "Artificial Intelligence & Data Analysis" }
         },
         "ariaLabels": {
             "photo": "Photo of {{name}}",
-            "github": "{{name}}'s Github",
+            "github": "{{name}}'s GitHub",
             "behance": "{{name}}'s Behance",
             "linkedin": "{{name}}'s LinkedIn",
             "email": "{{name}}'s Email"
@@ -187,7 +190,7 @@
     },
     "contact": {
         "title": "Get in touch",
-        "text": "Have a question, suggestion, or proposal? Fill out the form and we'll get back to you as soon as possible.",
+        "text": "Have a question, suggestion, or interest in the project? Fill out the form and we'll get back to you as soon as possible.",
         "form": {
             "nameLabel": "Name",
             "namePlaceholder": "Your full name",
@@ -215,6 +218,9 @@
             "github": "GitHub",
             "email": "Email"
         },
-        "backToTop": "Back to top"
+        "backToTop": "Back to top",
+        "sendingButton": "Sending...",
+        "successMessage": "Message sent successfully! We'll get back to you soon.",
+        "errorMessage": "Something went wrong. Please try again or email us directly."
     }
 }

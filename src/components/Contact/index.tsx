@@ -1,11 +1,35 @@
+import { useState } from 'react';
 import styles from './styles.module.css'
 import { Container } from '../Container';
 import { FaPaperPlane } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
 import { Button } from '../Button';
+import emailjs from '@emailjs/browser';
+
+type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
 
 export function Contact() {
     const { t } = useTranslation();
+    const [status, setStatus] = useState<SubmitStatus>('idle');
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus('loading');
+
+        try {
+            await emailjs.sendForm(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                e.currentTarget,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            );
+            setStatus('success');
+            e.currentTarget.reset();
+        } catch (error) {
+            console.error('Erro ao enviar e-mail:', error);
+            setStatus('error');
+        }
+    };
 
     return (
         <section id='contact' className={styles.contactBg}>
@@ -16,7 +40,7 @@ export function Contact() {
                         <p className={styles.contactText}>{t('contact.text')}</p>
                     </div>
 
-                    <form className={styles.contactForm}>
+                    <form className={styles.contactForm} onSubmit={handleSubmit}>
                         <div className={styles.formRow}>
                             <div className={styles.formField}>
                                 <label htmlFor="name">{t('contact.form.nameLabel')}</label>
@@ -67,10 +91,23 @@ export function Contact() {
                                 icon={<FaPaperPlane />}
                                 size='mdTwo'
                                 iconPosition='right'
-                                text={t('contact.form.submitButton')}
+                                text={
+                                    status === 'loading'
+                                        ? t('contact.form.sendingButton')
+                                        : t('contact.form.submitButton')
+                                }
                                 color='white'
+                                type='submit'
+                                disabled={status === 'loading'}
                             />
                         </div>
+
+                        {status === 'success' && (
+                            <p className={styles.formSuccess}>{t('contact.form.successMessage')}</p>
+                        )}
+                        {status === 'error' && (
+                            <p className={styles.formError}>{t('contact.form.errorMessage')}</p>
+                        )}
                     </form>
                 </div>
             </Container>
