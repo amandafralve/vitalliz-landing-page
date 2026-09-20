@@ -100,14 +100,14 @@
 }
 
 .cardObj h5 {
-    font-size: var(--font-badge-size);
+    font-size: var(--font-text-size);
     font-weight: 700;
     margin: 0 0 0.4rem 0;
     color: var(--text-dark);
 }
 
 .cardObj p {
-    font-size: var(--font-text-size);
+    font-size: var(--font-badge-size);
     line-height: 1.4;
     margin: 0;
     color: var(--font-color);
@@ -118,7 +118,6 @@
 }
 
 /* Responsividade */
-
 /* Layout (coluna única, carrossel em cima do conteúdo): breakpoint
    próprio da seção, igual ao Problem/Project/Development */
 @media (max-width: 1150px) {

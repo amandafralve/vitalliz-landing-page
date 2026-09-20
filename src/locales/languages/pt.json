@@ -1,220 +1,220 @@
 {
     "nav": {
-        "home": "Home",
-        "project": "Project",
-        "about": "About",
-        "team": "Team",
-        "contact": "Contact",
-        "viewProject": "View Project"
+        "home": "Início",
+        "project": "Projeto",
+        "about": "Sobre",
+        "team": "Equipe",
+        "contact": "Contato",
+        "viewProject": "Ver Projeto"
     },
     "hero": {
         "badge": "Vitalliz · Software & Mobile",
-        "title": "We bring life and digital direction to your business",
-        "text": "We combine the vitality of innovation with the clarity of software engineering. We build systems and apps that light the way and drive results.",
-        "ctaProject": "View Nitrusleaf Project",
-        "ctaContact": "Get in touch"
+        "title": "Damos vida e direção digital ao seu negócio",
+        "text": "Unimos a vitalidade da inovação com a clareza da engenharia de software. Desenvolvemos sistemas e aplicativos que iluminam caminhos e impulsionam resultados.",
+        "ctaProject": "Ver Projeto Nitrusleaf",
+        "ctaContact": "Entre em contato"
     },
     "problem": {
-        "tag": "CONTEXT",
-        "title": "Citrus Farming in Vale do Ribeira",
-        "paragraph1": "Every year, citrus growers lose part of their harvest without knowing why. Nutritional deficiency symptoms on the leaf are subtle, easily confused with diseases like greening (HLB), and an accurate diagnosis usually requires a specialist — who isn't always available when needed.",
-        "paragraph2": "During field research at Sítio São Miguel, we found a high incidence of manganese deficiency, cases of copper deficiency, and frequent signs of greening across the plantation.",
-        "groupLabel": "Challenges identified",
+        "tag": "CONTEXTO",
+        "title": "Citricultura no Vale do Ribeira",
+        "paragraph1": "Todo ano, produtores de citros perdem parte da colheita sem nem saber por quê. Os sintomas de deficiência nutricional na folha são sutis, fáceis de confundir com doenças como o greening (HLB), e o diagnóstico correto normalmente exige um especialista — que nem sempre está disponível na hora certa.",
+        "paragraph2": "Em pesquisa de campo no Sítio São Miguel, identificamos alta incidência de deficiência de manganês, casos de baixa de cobre e registros frequentes de greening na plantação.",
+        "groupLabel": "Dificuldades identificadas",
         "cards": [
             {
-                "title": "Confusion with Greening",
-                "subtitle": "Similar symptoms, different causes",
-                "description": "Manganese deficiency, copper deficiency, and greening all cause very similar spots and yellowing on the leaf — leading to wrong diagnoses and ineffective treatments."
+                "title": "Confusão com Greening",
+                "subtitle": "Sintomas parecidos, causas diferentes",
+                "description": "Manganês, cobre e greening causam manchas e amarelamento muito semelhantes na folha — o que leva a diagnósticos errados e tratamentos ineficazes."
             },
             {
-                "title": "Late diagnosis",
-                "subtitle": "The damage is already done",
-                "description": "In most cases, the grower only notices the problem once the fruit has already been affected — and part of the harvest is already compromised."
+                "title": "Diagnóstico tardio",
+                "subtitle": "O estrago já está feito",
+                "description": "Na maioria dos casos, o produtor só percebe o problema quando o fruto já foi afetado — e parte da safra já está comprometida."
             },
             {
-                "title": "Technical difficulty",
-                "subtitle": "Specialized knowledge is scarce",
-                "description": "Correctly identifying the deficiency requires technical expertise that not every property has easy or quick access to."
+                "title": "Dificuldade técnica",
+                "subtitle": "Conhecimento especializado é escasso",
+                "description": "Identificar a deficiência corretamente exige experiência técnica que nem toda propriedade tem acesso fácil ou rápido."
             }
         ]
     },
     "project": {
-        "tag": "PROJECT",
+        "tag": "PROJETO",
         "name": "Nitrusleaf",
-        "subtitle": "AI-powered smart leaf diagnosis for citrus farming",
-        "description": "A mobile app that uses computer vision and neural networks to identify nutritional deficiencies in mandarin leaves. The grower takes a photo of the leaf and gets an accurate diagnosis in seconds, right in the field.",
-        "githubButton": "Repository",
-        "figmaButton": "Prototype",
-        "productButton": "View Product"
+        "subtitle": "Diagnóstico foliar inteligente para citricultura movido a IA",
+        "description": "Aplicativo mobile que utiliza visão computacional e redes neurais para identificar deficiências nutricionais em folhas de mexerica. O produtor tira a foto da folha e recebe o diagnóstico preciso em segundos no campo.",
+        "githubButton": "Repositório",
+        "figmaButton": "Protótipo",
+        "productButton": "Conhecer Produto"
     },
     "development": {
         "header": {
             "tag": "NITRUSLEAF",
-            "title": "How we built it",
-            "subtitle": "From data collection to working prototype"
+            "title": "Como desenvolvemos",
+            "subtitle": "Da coleta de dados ao protótipo funcional"
         },
         "steps": {
             "research": {
-                "title": "Data collection",
-                "subtitle": "User Research",
-                "objectivesTitle": "Research Objectives",
+                "title": "Coleta de dados",
+                "subtitle": "Pesquisa de Usuário",
+                "objectivesTitle": "Objetivos da Pesquisa",
                 "objectives": [
-                    "Understand growers' difficulties using technology in the field",
-                    "Map the needs and expectations of agricultural professionals",
-                    "Identify digital behavior patterns in agribusiness"
+                    "Compreender dificuldades de produtores no uso de tecnologia no campo",
+                    "Mapear necessidades e expectativas de profissionais agrícolas",
+                    "Identificar padrões de comportamento digital no agronegócio"
                 ],
-                "resultsTitle": "Key Findings",
+                "resultsTitle": "Principais Resultados",
                 "results": [
-                    "Many growers struggle with digital tools",
-                    "Preference for simple, fast, visual instructions",
-                    "Need for a guided tutorial on first access",
-                    "Looking for convenience, speed, and diagnostic confidence"
+                    "Muitos produtores têm dificuldade com ferramentas digitais",
+                    "Preferência por instruções simples, rápidas e visuais",
+                    "Necessidade de tutorial guiado no primeiro acesso",
+                    "Buscam praticidade, rapidez e segurança no diagnóstico"
                 ],
                 "personasTitle": "PERSONAS",
                 "personas": [
                     {
                         "name": "João",
-                        "role": "Farmer",
-                        "tag": "Low tech familiarity",
-                        "description": "A grower who needs quick, easy solutions to avoid production losses, without relying on constant technical support."
+                        "role": "Produtor Rural",
+                        "tag": "Baixa familiaridade tecnológica",
+                        "description": "Produtor que precisa de soluções rápidas e fáceis para evitar perdas na produção, sem depender de suporte técnico constante."
                     },
                     {
                         "name": "Ana",
-                        "role": "Agronomist Consultant",
-                        "tag": "Technical professional",
-                        "description": "A professional looking for speed and precision in diagnostics, with all crop information centrally organized."
+                        "role": "Agrônoma Consultora",
+                        "tag": "Profissional técnica",
+                        "description": "Profissional que busca agilidade e precisão nos diagnósticos, com organização centralizada das informações das lavouras."
                     }
                 ]
             },
             "fieldCollection": {
-                "title": "Data collection",
-                "subtitle": "Field Research",
+                "title": "Coleta de dados",
+                "subtitle": "Pesquisa de Campo",
                 "paragraphs": [
-                    "We conducted field research at Sítio São Miguel, in Pariquera-Açu/SP, to understand the real conditions of mandarin (Citrus reticulata) cultivation.",
-                    "Through a structured questionnaire, we collected first-hand data on day-to-day crop management and gathered real leaf samples."
+                    "Realizamos uma pesquisa de campo no Sítio São Miguel, em Pariquera-Açu/SP, para compreender a realidade do cultivo de mexerica (Citrus reticulata).",
+                    "Através da aplicação de um questionário estruturado, coletamos dados diretos sobre o manejo na prática e realizamos a coleta de amostras reais de folhas."
                 ],
                 "checklist": [
-                    "100+ images collected of deficient leaves",
-                    "Real, hands-on learning about daily life in the orchard",
-                    "A wide range of deficiency stages captured"
+                    "+100 imagens coletadas de folhas deficientes",
+                    "Aprendizado real sobre o dia a dia no pomar",
+                    "Diversidade de estágios de deficiência"
                 ]
             },
             "preprocessing": {
-                "title": "Preprocessing and data augmentation",
-                "subtitle": "Standardization and Data Augmentation",
+                "title": "Pré-processamento e aumento de dados",
+                "subtitle": "Padronização e Data Augmentation",
                 "paragraphs": [
-                    "Images went through automatic orientation correction and were resized to 224 × 224 pixels, using proportional scaling with border padding to preserve their visual characteristics.",
-                    "During training, we applied data augmentation exclusively to the training images, generating three synthetic variations per image through horizontal flips, rotation, and changes in saturation, brightness, and exposure."
+                    "As imagens foram submetidas à correção automática de orientação e redimensionadas para 224 × 224 pixels, utilizando ajuste proporcional com preenchimento de bordas para preservar suas características visuais.",
+                    "Durante o treinamento, aplicamos aumento de dados exclusivamente nas imagens de treino, gerando três variações sintéticas por imagem com inversão horizontal, rotação, alterações de saturação, brilho e exposição."
                 ],
                 "checklist": [
-                    "Images standardized to 224 × 224 pixels",
-                    "Pixel value normalization",
-                    "Data augmentation with capture variations"
+                    "Imagens padronizadas em 224 × 224 pixels",
+                    "Normalização dos valores dos pixels",
+                    "Aumento de dados com variações de captura"
                 ]
             },
             "training": {
-                "title": "Model training",
-                "subtitle": "Convolutional Neural Network",
+                "title": "Treinamento do modelo",
+                "subtitle": "Rede Neural Convolucional",
                 "paragraphs": [
-                    "We built a Convolutional Neural Network with three convolutional blocks, using 32, 64, and 128 filters, responsible for extracting visual features from the leaves at different levels of complexity.",
-                    "The model uses a dense layer with 512 neurons and 50% Dropout. Training was performed with the Adam optimizer, binary crossentropy loss function, and Early Stopping with a patience of 10 epochs."
+                    "Desenvolvemos uma Rede Neural Convolucional composta por três blocos convolucionais, com 32, 64 e 128 filtros, responsáveis por extrair características visuais das folhas em diferentes níveis de complexidade.",
+                    "O modelo utiliza uma camada densa com 512 neurônios e Dropout de 50%. O treinamento foi realizado com o otimizador Adam, função de perda binary crossentropy e Early Stopping com paciência de 10 épocas."
                 ],
                 "checklist": [
-                    "Architecture with 3 convolutional blocks",
-                    "50% Dropout to reduce overfitting",
-                    "Early Stopping to select the best-performing model"
+                    "Arquitetura com 3 blocos convolucionais",
+                    "Dropout de 50% para reduzir overfitting",
+                    "Early Stopping para selecionar o melhor desempenho"
                 ]
             },
             "validation": {
-                "title": "Validation",
-                "subtitle": "Model evaluation",
+                "title": "Validação",
+                "subtitle": "Avaliação do modelo",
                 "paragraphs": [
-                    "After training, the model was evaluated on a test set of 25 images that were not used during training or validation.",
-                    "The model achieved 95.97% accuracy on the test set, showing it can distinguish healthy leaves from leaves with manganese deficiency in unseen images."
+                    "Após o treinamento, o modelo foi avaliado com um conjunto de teste formado por 25 imagens que não participaram das etapas de treinamento ou validação.",
+                    "O modelo alcançou 95,97% de acurácia no conjunto de teste, demonstrando capacidade de distinguir folhas saudáveis de folhas com deficiência de manganês em imagens inéditas."
                 ],
-                "stat": "95.97%",
-                "statLabel": "test accuracy"
+                "stat": "95,97%",
+                "statLabel": "de acurácia no teste"
             },
             "prototype": {
-                "title": "Working prototype",
-                "subtitle": "Mobile App",
+                "title": "Protótipo funcional",
+                "subtitle": "Aplicativo Mobile",
                 "paragraphs": [
-                    "We built a mobile app capable of analyzing images of Citrus reticulata leaves and identifying signs of manganese deficiency using the AI model.",
-                    "The solution was designed to give growers a fast, accessible preliminary diagnosis directly from their phone, based on a photo of the leaf."
+                    "Desenvolvemos um aplicativo mobile capaz de analisar imagens de folhas de Citrus reticulata e identificar sinais de deficiência de manganês por meio do modelo de Inteligência Artificial.",
+                    "A solução foi projetada para oferecer ao produtor um diagnóstico preliminar de forma rápida e acessível, diretamente pelo celular, a partir de uma imagem da folha."
                 ],
                 "checklist": [
-                    "App built exclusively for mobile devices",
-                    "AI-powered image analysis",
-                    "Preliminary manganese deficiency diagnosis"
+                    "Aplicativo exclusivo para dispositivos móveis",
+                    "Análise de imagens por Inteligência Artificial",
+                    "Diagnóstico preliminar de deficiência de manganês"
                 ]
             }
         }
     },
     "about": {
-        "title": "About us",
-        "intro": "Vitalliz is the team created to develop the Integrating Project for the Multiplatform Software Development program at <strongFatec>Fatec Registro</strongFatec>, aiming to bring together technology, innovation, and sustainability - aligned with <strongOds>UN SDG 2</strongOds> (Zero Hunger and Sustainable Agriculture)",
-        "objectiveTitle": "Our Goal",
+        "title": "Sobre nós",
+        "intro": "A Vitalliz é a equipe criada para o desenvolvimento do Projeto Integrador do curso de Desenvolvimento de Software Multiplataforma da <strongFatec>Fatec Registro</strongFatec>, com o propósito de unir tecnologia, inovação e sustentabilidade - alinhado ao <strongOds>ODS 2 da ONU</strongOds> (Fome Zero e Agricultura Sustentável)",
+        "objectiveTitle": "Nosso Objetivo",
         "cards": [
             {
-                "title": "Technology",
-                "description": "Digital solutions that connect people and simplify everyday processes"
+                "title": "Tecnologia",
+                "description": "Soluções digitais que conectam pessoas e simplificam processos do dia a dia"
             },
             {
-                "title": "Innovation",
-                "description": "Creative approaches that turn real challenges into opportunities"
+                "title": "Inovação",
+                "description": "Abordagens criativas para transformar desafios reais em oportunidades"
             },
             {
-                "title": "Sustainability",
-                "description": "Positive impact aligned with the UN's sustainable development goals"
+                "title": "Sustentabilidade",
+                "description": "Impacto positivo alinhado aos objetivos de desenvolvimento sustentável da ONU"
             }
         ]
     },
     "team": {
-        "title": "Our Team",
+        "title": "Nossa Equipe",
         "members": {
-            "amanda": { "role": "UI/UX Design & Front-End Developer" },
-            "lucas": { "role": "Back-end Developer and Database Design" },
-            "valeria": { "role": "Back-end Developer" },
-            "juliano": { "role": "Artificial Intelligence and Data Analysis" }
+            "amanda": { "role": "UI/UX Design & Desenvolvedora Front-End" },
+            "lucas": { "role": "Desenvolvedor Back-end e Modelagem de Banco de Dados" },
+            "valeria": { "role": "Desenvolvedora Back-end" },
+            "juliano": { "role": "Inteligência Artificial e Análise de Dados" }
         },
         "ariaLabels": {
-            "photo": "Photo of {{name}}",
-            "github": "{{name}}'s Github",
-            "behance": "{{name}}'s Behance",
-            "linkedin": "{{name}}'s LinkedIn",
-            "email": "{{name}}'s Email"
+            "photo": "Foto de {{name}}",
+            "github": "Github de {{name}}",
+            "behance": "Behance de {{name}}",
+            "linkedin": "Linkedin de {{name}}",
+            "email": "Email de {{name}}"
         }
     },
     "contact": {
-        "title": "Get in touch",
-        "text": "Have a question, suggestion, or proposal? Fill out the form and we'll get back to you as soon as possible.",
+        "title": "Fale com a gente",
+        "text": "Tem alguma dúvida, sugestão ou proposta? Preencha o formulário e retornaremos assim que possível.",
         "form": {
-            "nameLabel": "Name",
-            "namePlaceholder": "Your full name",
-            "emailLabel": "Email",
-            "emailPlaceholder": "you@email.com",
-            "subjectLabel": "Subject",
-            "subjectPlaceholder": "What would you like to talk about?",
-            "messageLabel": "Message",
-            "messagePlaceholder": "Write your message here...",
-            "submitButton": "Send message"
+            "nameLabel": "Nome",
+            "namePlaceholder": "Seu nome completo",
+            "emailLabel": "E-mail",
+            "emailPlaceholder": "voce@email.com",
+            "subjectLabel": "Assunto",
+            "subjectPlaceholder": "Sobre o que você quer falar?",
+            "messageLabel": "Mensagem",
+            "messagePlaceholder": "Escreva sua mensagem aqui...",
+            "submitButton": "Enviar mensagem"
         }
     },
     "footer": {
-        "copyright": "<strongBrand>Vitalliz</strongBrand> © {{year}} • All rights reserved.",
-        "tagline": "Technology that gives life.",
+        "copyright": "<strongBrand>Vitalliz</strongBrand> © {{year}} • Todos os direitos reservados.",
+        "tagline": "Tecnologia que dá vida.",
         "links": {
-            "home": "Home",
-            "project": "Project",
-            "about": "About",
-            "team": "Team"
+            "home": "Início",
+            "project": "Projeto",
+            "about": "Sobre",
+            "team": "Equipe"
         },
         "ariaLabels": {
-            "navLinks": "Footer links",
-            "social": "Social media",
+            "navLinks": "Links do rodapé",
+            "social": "Redes sociais",
             "github": "GitHub",
-            "email": "Email"
+            "email": "E-mail"
         },
-        "backToTop": "Back to top"
+        "backToTop": "Voltar ao topo"
     }
 }

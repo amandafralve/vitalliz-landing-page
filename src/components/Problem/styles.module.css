@@ -58,57 +58,18 @@
 .solutionBlock {
     display: flex;
     flex-direction: column;
+    width: 100%;
     margin-top: var(--gap-sm);
     padding: 1.5rem;
     border-radius: 1rem;
     background-color: var(--background-vitalliz);
 }
 
-/* Desktop grande (>1150px): o bloco de cards "vaza" do Container,
-   fica centralizado na página e ganha uma largura própria mais confortável */
-@media (min-width: 1151px) {
-    .solutionBlock {
-        position: relative;
-        left: 50%;
-        width: 100vw;
-        max-width: 950px;
-        transform: translateX(-50%);
-    }
-
-    .cardGrid {
-        max-width: 950px;
-        margin-inline: auto;
-    }
-}
-
-/* De 1440px até 1600px: um pouco menor que o valor anterior (1050px) */
-@media (min-width: 1440px) {
-    .solutionBlock {
-        max-width: 1000px;
-    }
-
-    .cardGrid {
-        max-width: 1000px;
-        margin-inline: auto;
-    }
-}
-
-/* Acima de 1600px: mais largo */
-@media (min-width: 1600px) {
-    .solutionBlock {
-        max-width: 1200px;
-    }
-
-    .cardGrid {
-        max-width: 1200px;
-        margin-inline: auto;
-    }
-}
-
 .cardGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.2rem;
+    width: 100%;
     background: var(--background-vitalliz);
 }
 
@@ -120,7 +81,7 @@
     align-items: stretch;   
     border-radius: 0.75rem;
     padding: 1.1rem;
-    gap: var(--gap-xs);
+    gap: var(--gap-sm);
     border: 1px solid var(--gray-light);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -150,7 +111,7 @@
 .cardTitle {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.8rem;
 }
 
 .cardObj h5 {
