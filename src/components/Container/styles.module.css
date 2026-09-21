@@ -1,5 +1,5 @@
 .container {
-    margin-inline: 20%;
+    margin-inline: 15%;
     padding: 0;
 }
 
@@ -7,25 +7,23 @@
     margin: 0;
 }
 
-/* desktop grande: a partir de 1440px, margem um pouco menor que os 20% padrão */
-@media (min-width: 1440px) {
+/* desktop médio: mesma faixa e valor do navbar */
+@media (max-width: 1400px) and (min-width: 1151px) {
     .container {
-        margin-inline: 20%;
+        margin-inline: 10%;
     }
 }
 
-/* tablet */
+/* tablet: mesma faixa e valor do navbar */
 @media (max-width: 1150px) {
     .container {
-        margin-inline: 3.6rem;
-        padding-inline: 0.6rem;
+        margin-inline: 8%;
     }
 }
 
-/* mobile */
+/* mobile: mesma faixa e valor do navbar */
 @media (max-width: 640px) {
     .container {
-        margin-inline: 1rem;
-        padding-inline: 1.25rem;
+        margin-inline: 1.25rem;
     }
 }

@@ -6,7 +6,7 @@
 }
 
 .footer {
-    margin-inline: 20%;
+    margin-inline: 15%;
     padding-top: var(--gap-md);
     display: flex;
     flex-direction: column;
@@ -113,24 +113,28 @@
     text-decoration: underline;
 }
 
-@media (min-width: 1440px) {
-    .container {
-        margin-inline: 15%;
-    }
-
+/* Desktop médio */
+@media (max-width: 1400px) and (min-width: 1151px) {
     .footer {
-        margin-inline: 15%;
+        margin-inline: 10%;
     }
 }
 
-/* Mobile: empilha tudo, alinhado à esquerda, com padding lateral do site */
+/* Tablet */
+@media (max-width: 1150px) {
+    .footer {
+        margin-inline: 8%;
+    }
+}
+
+/* Mobile */
 @media (max-width: 640px) {
     .footerBg {
         padding: var(--gap-lg) 0 var(--gap-md);
     }
 
     .footer {
-        margin-inline: var(--page-padding-mobile);
+        margin-inline: 1.25rem;
         gap: var(--gap-sm);
     }
 
