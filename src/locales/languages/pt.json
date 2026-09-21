@@ -218,12 +218,16 @@
             "nameLabel": "Nome",
             "namePlaceholder": "Seu nome completo",
             "emailLabel": "E-mail",
-            "emailPlaceholder": "[voce@email.com](mailto:voce@email.com)",
+            "emailPlaceholder": "voce@email.com",
             "subjectLabel": "Assunto",
             "subjectPlaceholder": "Sobre o que você quer falar?",
             "messageLabel": "Mensagem",
             "messagePlaceholder": "Escreva sua mensagem aqui...",
-            "submitButton": "Enviar mensagem"
+            "submitButton": "Enviar mensagem",
+            "sendingButton": "Enviando...",
+            "successMessage": "Mensagem enviada com sucesso. Entrarei em contato em breve.",
+            "errorMessage": "Não foi possível enviar sua mensagem. Verifique sua conexão e tente novamente.",
+            "closeNotice": "Fechar"
         }
     },
 
@@ -235,16 +239,12 @@
             "project": "Projeto",
             "about": "Sobre",
             "team": "Equipe"
-    },
-    "ariaLabels": {
-        "navLinks": "Links do rodapé",
-        "social": "Redes sociais",
-        "github": "GitHub",
-        "email": "E-mail"
-    },
-    "backToTop": "Voltar ao topo",
-    "sendingButton": "Enviando...",
-    "successMessage": "Mensagem enviada com sucesso! Retornaremos em breve.",
-    "errorMessage": "Algo deu errado. Tente novamente ou envie um e-mail diretamente."
+        },
+        "ariaLabels": {
+            "navLinks": "Links do rodapé",
+            "social": "Redes sociais",
+            "github": "GitHub",
+            "email": "E-mail"
+        }
     }
 }

@@ -200,7 +200,11 @@
             "subjectPlaceholder": "What would you like to talk about?",
             "messageLabel": "Message",
             "messagePlaceholder": "Write your message here...",
-            "submitButton": "Send message"
+            "submitButton": "Send message",
+            "sendingButton": "Sending...",
+            "successMessage": "Message sent successfully. I'll get back to you soon.",
+            "errorMessage": "We couldn't send your message. Check your connection and try again.",
+            "closeNotice": "Close"
         }
     },
     "footer": {
@@ -217,10 +221,6 @@
             "social": "Social media",
             "github": "GitHub",
             "email": "Email"
-        },
-        "backToTop": "Back to top",
-        "sendingButton": "Sending...",
-        "successMessage": "Message sent successfully! We'll get back to you soon.",
-        "errorMessage": "Something went wrong. Please try again or email us directly."
+        }
     }
 }

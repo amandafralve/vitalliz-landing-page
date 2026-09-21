@@ -89,6 +89,95 @@
     align-self: flex-start;
 }
 
+/* Notificação de envio (sucesso / erro) */
+.formNotice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem 0.9rem 1.1rem;
+    border-radius: 8px;
+    border: 1px solid var(--notice-border);
+    border-left: 3px solid var(--notice-color);
+    background: var(--notice-bg);
+    animation: noticeIn 0.3s ease both;
+}
+
+.formNotice p {
+    flex: 1;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-light);
+}
+
+.formNoticeIcon {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    font-size: 1.05rem;
+    color: var(--notice-color);
+}
+
+.formNoticeClose {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: -0.15rem 0 0;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--subtext-light);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.formNoticeClose:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-light);
+}
+
+.formNoticeClose:focus-visible {
+    outline: 2px solid var(--notice-color);
+    outline-offset: 2px;
+}
+
+.formSuccess {
+    --notice-color: #4ade80;
+    --notice-bg: rgba(74, 222, 128, 0.08);
+    --notice-border: rgba(74, 222, 128, 0.25);
+}
+
+.formError {
+    --notice-color: #f87171;
+    --notice-bg: rgba(248, 113, 113, 0.08);
+    --notice-border: rgba(248, 113, 113, 0.25);
+}
+
+@keyframes noticeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .formNotice {
+        animation: none;
+    }
+
+    .formNoticeClose {
+        transition: none;
+    }
+}
+
 /* Tablet: intro e formulário empilham antes de espremer o grid 1fr 1.3fr */
 @media (max-width: 1150px) {
     .contact {
@@ -142,5 +231,13 @@
     .formActions > * {
         width: 100%;
         justify-content: center;
+    }
+
+    .formNotice {
+        padding: 0.75rem 0.75rem 0.75rem 0.9rem;
+    }
+
+    .formNotice p {
+        font-size: 0.9rem;
     }
 }

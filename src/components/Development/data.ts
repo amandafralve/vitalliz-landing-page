@@ -13,6 +13,7 @@ export interface StepMeta {
   icon: LucideIcon;
   variant?: 'default' | 'research';
   image?: string;
+  imageTablet?: string;
   imageMobile?: string;
 }
 
@@ -34,6 +35,7 @@ export const stepsMeta: StepMeta[] = [
     number: '3',
     icon: Settings2,
     image: '/img/Development/2-Data-Desktop.webp',
+    imageTablet: '/img/Development/2-Data-Tablet-Mobile.webp',
     imageMobile: '/img/Development/2-Data-Tablet-Mobile.webp',
   },
   {
@@ -41,6 +43,7 @@ export const stepsMeta: StepMeta[] = [
     number: '4',
     icon: BrainCircuit,
     image: '/img/Development/3-Modelo-Desktop.webp',
+    imageTablet: '/img/Development/3-Modelo-Mobile.webp',
     imageMobile: '/img/Development/3-Modelo-Mobile.webp',
   },
   {
@@ -48,6 +51,7 @@ export const stepsMeta: StepMeta[] = [
     number: '5',
     icon: ScanSearch,
     image: '/img/Development/4-Avaliacao-Desktop.webp',
+    imageTablet: '/img/Development/4-Avaliacao-Mobile.webp',
     imageMobile: '/img/Development/4-Avaliacao-Mobile.webp',
   },
   {

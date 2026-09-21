@@ -96,12 +96,20 @@ function StepCard({ step }: { step: StepData }) {
 
       {step.image && (
         <div className={styles.cardImage}>
-          {step.imageMobile ? (
+          {(step.imageMobile || step.imageTablet) ? (
             <picture>
-              <source
-                media="(max-width: 1150px)"
-                srcSet={step.imageMobile}
-              />
+              {step.imageMobile && (
+                <source
+                  media="(max-width: 640px)"
+                  srcSet={step.imageMobile}
+                />
+              )}
+              {step.imageTablet && (
+                <source
+                  media="(max-width: 1150px)"
+                  srcSet={step.imageTablet}
+                />
+              )}
               <img src={step.image} alt={step.title} loading="lazy" />
             </picture>
           ) : (
