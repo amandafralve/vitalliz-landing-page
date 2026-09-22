@@ -1,8 +1,8 @@
 export const links = {
     project: {
-        github: "https://github.com/seu-usuario/seu-repositorio",
-        figma: "https://www.figma.com/seu-prototipo",
-        produto: "https://seu-site.com",
+        github: "https://github.com/Vitalliz",
+        figma: "https://www.figma.com/proto/JBqUSdQvYw4jBq1dWZ5ImU/Nitrusleaf-UI-UX?node-id=196-3039&viewport=289%2C-213%2C0.07&t=ZsejXFZTRdhCMZnt-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=196%3A2946&show-proto-sidebar=1&page-id=0%3A1",
+        produto: "https://nitrusleaf-project.vercel.app",
     },
 
     team: {
