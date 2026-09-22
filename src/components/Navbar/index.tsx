@@ -7,6 +7,14 @@ import { createPortal } from "react-dom";
 
 const emptySubscribe = () => () => {};
 
+const NAV_LINKS = [
+    { id: "home", labelKey: "nav.home" },
+    { id: "project", labelKey: "nav.project" },
+    { id: "about", labelKey: "nav.about" },
+    { id: "team", labelKey: "nav.team" },
+    { id: "contact", labelKey: "nav.contact" },
+] as const;
+
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);    
     const [menuOpen, setMenuOpen] = useState(false);
@@ -29,6 +37,18 @@ export function Navbar() {
 
     const closeMenu = () => setMenuOpen(false);
     const toggleMenu = () => setMenuOpen((prev) => !prev);
+
+    // Faz o scroll manualmente e evita que o navegador adicione #id na URL
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+        e.preventDefault();
+        closeMenu();
+
+        setTimeout(() => {
+            document.getElementById(id)?.scrollIntoView({
+                block: "start",
+            });
+        }, 50);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -73,6 +93,7 @@ export function Navbar() {
     const navbarClass = `${styles.navbar} ${isScrolled ? styles.navbarScrolled : styles.navbarTransparent}`;
 
     const navbarContent = (
+        <>
         <nav className={navbarClass}>
             <div className={styles.navbarTop}>
                 <img src={logoSrc} alt="Logo Vitaliz" />
@@ -87,11 +108,11 @@ export function Navbar() {
             </div>
 
             <div className={`${styles.linksNavbar} ${menuOpen ? styles.linksNavbarOpen : ""}`}>
-                <a href="#home" onClick={closeMenu}>{t("nav.home")}</a>
-                <a href="#project" onClick={closeMenu}>{t("nav.project")}</a>
-                <a href="#about" onClick={closeMenu}>{t("nav.about")}</a>
-                <a href="#team" onClick={closeMenu}>{t("nav.team")}</a>
-                <a href="#contact" onClick={closeMenu}>{t("nav.contact")}</a>
+                {NAV_LINKS.map(({ id, labelKey }) => (
+                    <a key={id} href={`#${id}`} onClick={(e) => handleNavClick(e, id)}>
+                        {t(labelKey)}
+                    </a>
+                ))}
             </div>
 
             <div className={`${styles.buttonsNavbar} ${menuOpen ? styles.buttonsNavbarOpen : ""}`}>
@@ -118,6 +139,7 @@ export function Navbar() {
                 />
             </div>
         </nav>
+        </>
     );
 
     if (!mounted) return null;

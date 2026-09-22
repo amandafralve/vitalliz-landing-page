@@ -2,9 +2,24 @@ import { FaEnvelope, FaGithub } from 'react-icons/fa';
 import { Trans, useTranslation } from 'react-i18next';
 import styles from './styles.module.css'
 
+const FOOTER_LINKS = [
+    { id: "home", labelKey: "footer.links.home" },
+    { id: "project", labelKey: "footer.links.project" },
+    { id: "about", labelKey: "footer.links.about" },
+    { id: "team", labelKey: "footer.links.team" },
+] as const;
+
 export function Footer() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const year = new Date().getFullYear();
+
+    // Faz o scroll manualmente e evita que o navegador adicione #id na URL
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+        e.preventDefault();
+        document.getElementById(id)?.scrollIntoView({
+            block: "start",
+        });
+    };
 
     return (
         <section className={styles.footerBg}>
@@ -14,6 +29,8 @@ export function Footer() {
                         <p className={styles.footerText}>
                             <Trans
                                 i18nKey="footer.copyright"
+                                t={t}
+                                i18n={i18n}
                                 values={{ year }}
                                 components={{ strongBrand: <strong /> }}
                             />
@@ -24,10 +41,15 @@ export function Footer() {
                     </div>
 
                     <nav className={styles.footerLinks} aria-label={t('footer.ariaLabels.navLinks')}>
-                        <a href="#home">{t('footer.links.home')}</a>
-                        <a href="#project">{t('footer.links.project')}</a>
-                        <a href="#about">{t('footer.links.about')}</a>
-                        <a href="#team">{t('footer.links.team')}</a>
+                        {FOOTER_LINKS.map(({ id, labelKey }) => (
+                            <a
+                                key={id}
+                                href={`#${id}`}
+                                onClick={(e) => handleNavClick(e, id)}
+                            >
+                                {t(labelKey)}
+                            </a>
+                        ))}
                     </nav>
                 </div>
 
@@ -42,12 +64,16 @@ export function Footer() {
                             <FaGithub />
                         </a>
 
-                        <a href="mailto:contato@vitalliz.com" aria-label={t('footer.ariaLabels.email')}>
+                        <a href="mailto:amanda.fralve@gmail.com" aria-label={t('footer.ariaLabels.email')}>
                             <FaEnvelope />
                         </a>
                     </div>
 
-                    <a href="#home" className={styles.backToTop}>
+                    <a
+                        href="#home"
+                        className={styles.backToTop}
+                        onClick={(e) => handleNavClick(e, "home")}
+                    >
                         {t('footer.backToTop')} ↑
                     </a>
                 </div>
