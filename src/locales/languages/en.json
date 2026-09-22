@@ -170,15 +170,63 @@
                 "title": "Impact",
                 "description": "Create accessible technologies that can contribute to real-world challenges and to sustainable development."
             }
-        ]
+        ],
+        "carousel": {
+            "events": [
+                {
+                    "title": "Oracle House Presentation",
+                    "text": "Highlights from our presentation at Oracle House."
+                },
+                {
+                    "title": "First Semester Panel",
+                    "text": "Presentation and evaluation of the first-semester projects."
+                },
+                {
+                    "title": "Unesp CIC Event",
+                    "text": "Participation in Unesp's Scientific Initiation Congress."
+                },
+                {
+                    "title": "First Semester Fair",
+                    "text": "Exhibition of the projects developed in the first semester."
+                },
+                {
+                    "title": "Fourth Semester Fair",
+                    "text": "Exhibition of the projects developed in the fourth semester."
+                },
+                {
+                    "title": "Oracle Award",
+                    "text": "Recognition received during the awards ceremony promoted by Oracle."
+                },
+                {
+                    "title": "Field Visit - Sítio São Miguel, Frutas Wosniak",
+                    "text": "Field visit to learn about the production process firsthand."
+                },
+                {
+                    "title": "Field Visit II",
+                    "text": "The team's second field visit."
+                },
+                {
+                    "title": "Irineu Field Visit",
+                    "text": "Field visit conducted with grower Irineu."
+                }
+            ]
+        }
     },
     "team": {
         "title": "Our Team",
         "members": {
-            "amanda": { "role": "UI/UX Design & Front-End Development" },
-            "lucas": { "role": "Back-end Development & Database" },
-            "valeria": { "role": "Back-end Development" },
-            "juliano": { "role": "Artificial Intelligence & Data Analysis" }
+            "amanda": {
+                "role": "UI/UX Design & Front-End Development"
+            },
+            "lucas": {
+                "role": "Back-end Development & Database"
+            },
+            "valeria": {
+                "role": "Back-end Development"
+            },
+            "juliano": {
+                "role": "Artificial Intelligence & Data Analysis"
+            }
         },
         "ariaLabels": {
             "photo": "Photo of {{name}}",
@@ -208,6 +256,7 @@
         }
     },
     "footer": {
+        "backToTop": "Back to Top",
         "copyright": "<strongBrand>Vitalliz</strongBrand> © {{year}} • All rights reserved.",
         "tagline": "Technology that gives life.",
         "links": {

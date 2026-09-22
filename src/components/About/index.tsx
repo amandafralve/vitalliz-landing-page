@@ -7,7 +7,7 @@ import { Trans, useTranslation } from 'react-i18next';
 const icons = [Cpu, Lightbulb, Leaf];
 
 export function About() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const cards = t('about.cards', { returnObjects: true }) as {
         title: string;
         description: string;
@@ -23,6 +23,8 @@ export function About() {
                         <p>
                             <Trans
                                 i18nKey="about.intro"
+                                t={t}
+                                i18n={i18n}
                                 components={{
                                     strongFatec: <strong />,
                                     strongOds: <strong />,

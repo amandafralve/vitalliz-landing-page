@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 const icons = [Leaf, ClipboardClock, UserRoundCog];
 
 export function Problem() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const cards = t('problem.cards', { returnObjects: true }) as {
         title: string;
         subtitle: string;
@@ -19,7 +19,7 @@ export function Problem() {
                 <div className={styles.solutionContainer}>
                     <span className={styles.tag}>{t('problem.tag')}</span>
                     <h1>
-                        <Trans i18nKey="problem.title" components={{ br: <br /> }} />
+                        <Trans i18nKey="problem.title" t={t} i18n={i18n} components={{ br: <br /> }} />
                     </h1>
                     <p>{t('problem.paragraph1')}</p>
                     <p>{t('problem.paragraph2')}</p>
