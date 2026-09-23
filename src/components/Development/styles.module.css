@@ -32,7 +32,7 @@
     font-size: var(--font-title-size);
     color: var(--text-dark);
     text-transform: uppercase;
-    text-align: left;
+    text-align: center;
     margin: 0;
 }
 
