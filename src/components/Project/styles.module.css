@@ -88,6 +88,11 @@
     z-index: 1;
 }
 
+.lazyCarousel {
+    width: 100%;
+    min-height: 27rem;
+}
+
 /* Responsividade */
 
 /* Layout (grid vira coluna única): breakpoint próprio da seção */
@@ -99,6 +104,10 @@
 
     .right {
         order: -1;
+    }
+
+    .lazyCarousel {
+        min-height: 31rem;
     }
 }
 
@@ -117,6 +126,10 @@
 
     .project {
         gap: var(--gap-lg);
+    }
+
+    .lazyCarousel {
+        min-height: 25rem;
     }
 
     .description {

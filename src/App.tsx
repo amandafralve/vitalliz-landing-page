@@ -1,15 +1,19 @@
 import { Navbar } from "./components/Navbar"
 import { Hero } from "./components/Hero"
-import { About } from "./components/About"
 import { Project } from "./components/Project"
 import { Team } from "./components/Team"
+import { Contact } from "./components/Contact"
 import { Footer } from "./components/Footer"
 import './styles/global.css'
 import './styles/theme.css'
 import { Problem } from "./components/Problem"
 import { Development } from "./components/Development"
-import { Contact } from "./components/Contact"
+import { lazy } from "react"
+import { DeferredSection } from "./components/DeferredSection"
 
+const LazyAbout = lazy(() =>
+  import("./components/About").then(({ About }) => ({ default: About }))
+)
 
 function App() {
 
@@ -20,7 +24,7 @@ function App() {
       <Problem />
       <Project />
       <Development />
-      <About />
+      <DeferredSection id="about" component={LazyAbout} />
       <Team />
       <Contact />
       <Footer />

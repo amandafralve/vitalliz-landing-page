@@ -2,10 +2,13 @@ import { Container } from '../Container';
 import { Button } from '../Button';
 import { MoveUpRight } from 'lucide-react';
 import { FaGithub, FaFigma } from "react-icons/fa";
+import { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
-import CarouselMockup from '../CarouselMockup';
+import { DeferredSection } from '../DeferredSection';
 import styles from './styles.module.css';
 import { links } from '../../constants/links'
+
+const LazyCarouselMockup = lazy(() => import('../CarouselMockup'));
 
 export function Project() {
     const { t } = useTranslation();
@@ -56,7 +59,10 @@ export function Project() {
                     </div>
 
                     <div className={styles.right}>
-                        <CarouselMockup />
+                        <DeferredSection
+                            component={LazyCarouselMockup}
+                            className={styles.lazyCarousel}
+                        />
                     </div>
                 </div>
             </Container>

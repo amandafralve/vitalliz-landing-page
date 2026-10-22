@@ -15,7 +15,7 @@ export function About() {
 
     return (
         <Container>
-            <div id='about' className={styles.containerAbout}>
+            <div className={styles.containerAbout}>
                 <h1>{t('about.title')}</h1>
 
                 <div className={styles.aboutUs}>
