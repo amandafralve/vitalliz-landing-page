@@ -1,7 +1,7 @@
 export const links = {
     project: {
         github: "https://github.com/Vitalliz",
-        figma: "https://www.figma.com/proto/JBqUSdQvYw4jBq1dWZ5ImU/Nitrusleaf-UI-UX?node-id=196-3039&viewport=289%2C-213%2C0.07&t=ZsejXFZTRdhCMZnt-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=196%3A2946&show-proto-sidebar=1&page-id=0%3A1",
+        figma: "https://www.figma.com/proto/JBqUSdQvYw4jBq1dWZ5ImU/Nitrusleaf-UI-UX?node-id=1172-1824&viewport=629%2C-111%2C0.05&t=Pn5nWSdwmWC4V8fp-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1172%3A1817&page-id=0%3A1",
         produto: "https://nitrusleaf-project.vercel.app",
     },
 
