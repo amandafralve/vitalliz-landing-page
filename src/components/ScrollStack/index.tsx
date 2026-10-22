@@ -103,6 +103,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
     const isMobile = disableOnMobile && (isBelowBreakpoint || (minViewportHeight > 0 && isShortViewport));
 
     const scrollerRef = useRef<HTMLDivElement>(null);
+    const innerRef = useRef<HTMLDivElement>(null);
     const endElementRef = useRef<HTMLDivElement>(null);
     const animationFrameRef = useRef<number | null>(null);
     const lenisRef = useRef<Lenis | null>(null);
@@ -196,23 +197,26 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
         if (!cards.length) { return; }
 
         if (useWindowScroll) {
+            const inner = innerRef.current;
+            if (!inner) { return; }
+
             const scrollY =
             window.scrollY ||
             document.documentElement
                 .scrollTop ||
             0;
 
+            const innerTop =
+                inner.getBoundingClientRect().top + scrollY;
+
             cardOffsetsRef.current =
             cards.map(
-                (card) => card.getBoundingClientRect()
-                    .top + scrollY
+                (card) => innerTop + card.offsetTop
             );
 
             if (endElementRef.current) {
                 endElementOffsetRef.current =
-                    endElementRef.current
-                    .getBoundingClientRect()
-                    .top + scrollY;
+                    innerTop + endElementRef.current.offsetTop;
             }
         } else {
             cardOffsetsRef.current =
@@ -530,6 +534,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
             <div
                 className={`${styles.scrollStackInner} ${isMobile ? styles.mobileFlow : ''}`.trim()}
                 style={{ paddingBottom: `${endPadding}px` }}
+                ref={innerRef}
             >
                 {children}
                 <div className={styles.scrollStackEnd} ref={endElementRef} />
