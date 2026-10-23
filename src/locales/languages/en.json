@@ -47,6 +47,11 @@
         "figmaButton": "Prototype",
         "productButton": "View Project"
     },
+    "pitch": {
+        "tag": "Presentation",
+        "title": "Our Pitch",
+        "description": "Learn about our value proposition and how Nitrusleaf helps address a challenge in citrus farming."
+    },
     "development": {
         "header": {
             "tag": "NITRUSLEAF",

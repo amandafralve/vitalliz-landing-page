@@ -31,4 +31,7 @@ export const links = {
             email: "juliano.sales@aluno.cps.sp.gov.br",
         },
     },
+    pitch: {
+        video: "https://www.youtube.com/embed/85O6b7sBI-8",
+    },
 };

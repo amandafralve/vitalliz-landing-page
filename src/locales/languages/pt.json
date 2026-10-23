@@ -47,6 +47,11 @@
         "figmaButton": "Protótipo",
         "productButton": "Conhecer o Projeto"
     },
+    "pitch": {
+        "tag": "Apresentação",
+        "title": "Nosso Pitch",
+        "description": "Conheça nossa proposta de valor e como o Nitrusleaf ajuda a enfrentar um desafio do setor citrícola."
+    },
     "development": {
         "header": {
             "tag": "NITRUSLEAF",

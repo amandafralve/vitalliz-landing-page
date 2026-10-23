@@ -10,6 +10,7 @@ import { Problem } from "./components/Problem"
 import { Development } from "./components/Development"
 import { lazy } from "react"
 import { DeferredSection } from "./components/DeferredSection"
+import Pitch from "./components/Pitch"
 
 const LazyAbout = lazy(() =>
   import("./components/About").then(({ About }) => ({ default: About }))
@@ -23,6 +24,7 @@ function App() {
       <Hero/>
       <Problem />
       <Project />
+      <Pitch />
       <Development />
       <DeferredSection id="about" component={LazyAbout} />
       <Team />
