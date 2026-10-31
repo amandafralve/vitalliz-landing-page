@@ -32,6 +32,6 @@ export const links = {
         },
     },
     pitch: {
-        video: "https://www.youtube.com/embed/85O6b7sBI-8",
+        video: "https://www.youtube.com/embed/hUFDcB4YtzQ",
     },
 };
