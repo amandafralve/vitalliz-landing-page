@@ -26,9 +26,9 @@
 
 .carouselCaptionCustom {
     left: 1rem;
-    right: auto;
-    bottom: 0.8rem;
-    text-align: left;
+    right: 1rem;
+    bottom: 2.75rem;
+    text-align: center;
     padding: 0;
     z-index: 2;
 }
@@ -38,6 +38,7 @@
     font-weight: 600;
     margin: 0;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    overflow-wrap: anywhere;
 }
 
 .carouselCaptionCustom p {
